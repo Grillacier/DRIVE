@@ -78,16 +78,16 @@ class RoadRenderer :
             
         # Dessin Circuit
         circuit = Circuit(listRoute)
-        for p in circuit.getControlPointsT():
+        for p in circuit.getControlPointsAngle():
             surface = pygame.Surface((10, 10), pygame.SRCALPHA)
             pygame.draw.circle(surface, RoadRenderer.COLOR_BI, (5, 5), 5)
             self.renderer.getMainFrame().blit(surface, (p[0]-5, p[1]-5)) #- 5 pour centrer
         
-        # Dessin Point particulier demander
-        p = circuit.getDistance(1500)
-        surface = pygame.Surface((10, 10), pygame.SRCALPHA)
-        pygame.draw.circle(surface,(180, 0, 255), (5, 5), 5)
-        self.renderer.getMainFrame().blit(surface, (p.x-5, p.y-5)) #- 5 pour centrer
+        # # Dessin Point particulier demander
+        # p = circuit.getPointFromStart(1500)
+        # surface = pygame.Surface((10, 10), pygame.SRCALPHA)
+        # pygame.draw.circle(surface,(180, 0, 255), (5, 5), 5)
+        # self.renderer.getMainFrame().blit(surface, (p.x-5, p.y-5)) #- 5 pour centrer
     
         
         
