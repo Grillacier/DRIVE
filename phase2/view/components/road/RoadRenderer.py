@@ -11,6 +11,7 @@ class RoadRenderer :
     COLOR_POINT = (0,255,255)
     COLOR_COURBE = (31, 169, 83)
     COLOR_ROUTE = (255,0,0)
+    COLOR_BI = (234, 255, 0)
     one = True
 
     def __init__(self,renderer) -> None:
@@ -77,17 +78,29 @@ class RoadRenderer :
             
         # Dessin Circuit
         circuit = Circuit(listRoute)
+        for p in circuit.getControlPointsT():
+            surface = pygame.Surface((10, 10), pygame.SRCALPHA)
+            pygame.draw.circle(surface, RoadRenderer.COLOR_BI, (5, 5), 5)
+            self.renderer.getMainFrame().blit(surface, (p[0]-5, p[1]-5)) #- 5 pour centrer
         
-        # affichage de la distance des routes
+        # Dessin Point particulier demander
+        p = circuit.getDistance(1500)
+        surface = pygame.Surface((10, 10), pygame.SRCALPHA)
+        pygame.draw.circle(surface,(180, 0, 255), (5, 5), 5)
+        self.renderer.getMainFrame().blit(surface, (p.x-5, p.y-5)) #- 5 pour centrer
+    
+        
+        
         if RoadRenderer.one:
-            #print(dist)
+            print(dist)
             print(f"taille circuit : {circuit.longeur} px")
             RoadRenderer.one = False
-        
+
+        # affichage des information du circuit
         if pygame.font:
             font = pygame.font.Font(None, 16)
             text = font.render(f"taille circuit : {circuit.longeur} px", True, (255, 255, 10))
-            textpos = text.get_rect(centerx=self.renderer.getMainFrame().get_width() / 8, y=10)
+            textpos = text.get_rect(x=20, y=10)
             self.renderer.getMainFrame().blit(text, textpos)
 
 
