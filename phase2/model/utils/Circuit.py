@@ -4,7 +4,7 @@ import numpy as np
 class Circuit:
     # Division de la route en segments
     CIRCUIT_DIVISION = 30
-    ANGLE_DIVISION = 20
+    ANGLE_DIVISION = 10
     def __init__(self, routes:list) -> None:
         self.routes = routes
         self.longeur = round(sum([route.longeur for route in routes]),2)
@@ -48,7 +48,16 @@ class Circuit:
                 continue
             t = T % 1
             tmp = self.routes[int(T)].courbe.getNormalizedQuadraticDerivative(t)
-            angle = math.degrees(math.acos((prec["x"]*tmp["x"] + prec["y"]*tmp["y"])/(math.sqrt(prec["x"]**2 + prec["y"]**2) * math.sqrt(tmp["x"]**2 + tmp["y"]**2))))
+            # print("t",t,"tmp",tmp,"prec",prec)
+            # x = math.sqrt(prec["x"]**2 + prec["y"]**2)
+            # y =  math.sqrt(tmp["x"]**2 + tmp["y"]**2)
+            # z = (prec["x"]*tmp["x"] + prec["y"]*tmp["y"])
+            # print(z/(x*y))
+            #angle = math.degrees(math.acos((prec["x"]*tmp["x"] + prec["y"]*tmp["y"])/(math.sqrt(prec["x"]**2 + prec["y"]**2) * math.sqrt(tmp["x"]**2 + tmp["y"]**2))))
+            try:
+                angle = math.degrees(math.acos((np.dot([prec["x"],prec["y"]],[tmp["x"],tmp["y"]]))/(math.sqrt(prec["x"]**2 + prec["y"]**2) * math.sqrt(tmp["x"]**2 + tmp["y"]**2))))
+            except:
+                angle = 0
             if angle >= Circuit.ANGLE_DIVISION:
                 p = self.routes[int(T)].courbe.get(t)
                 result.append([p.x, p.y])
