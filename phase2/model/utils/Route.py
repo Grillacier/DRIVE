@@ -2,10 +2,12 @@ from model.utils.Courbe import *
 import numpy as np
 
 class Route:
+    APPROX_VALUE = 100
     def __init__(self, epaisseur:int, courbe:Courbe) -> None:
         self.epaisseur = epaisseur
         self.courbe = courbe
         self.calculatePoints()
+        self.longeur = courbe.getLongueur(Route.APPROX_VALUE)
     
     def getRightPoints(self) -> np.array:
         return self.RightPoints

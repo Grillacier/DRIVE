@@ -2,6 +2,7 @@ import pygame
 from pygame.locals import *
 from model.utils.Courbe import *
 from model.utils.Route import *
+from model.utils.Circuit import *
 
 
 class RoadRenderer :
@@ -10,6 +11,7 @@ class RoadRenderer :
     COLOR_POINT = (0,255,255)
     COLOR_COURBE = (31, 169, 83)
     COLOR_ROUTE = (255,0,0)
+    one = True
 
     def __init__(self,renderer) -> None:
         self.renderer = renderer
@@ -17,7 +19,10 @@ class RoadRenderer :
     
 
     def update(self) -> None :
+        
         data = self.getData()
+        dist = []
+        listRoute = []
         for (data_p1,data_pc,data_p2) in data:
             # Recuperation des données graphiques des points de la route
 
@@ -54,9 +59,12 @@ class RoadRenderer :
                 surface.fill(RoadRenderer.COLOR_COURBE)
                 self.renderer.getMainFrame().blit(surface, (p.getX(), p.getY()))
             
-            # Dessin de la Route
+            dist.append(courbe.getLongueur(100))
 
-            route = Route(10,courbe)
+            # Dessin Route
+
+            route = Route(20,courbe)
+            listRoute.append(route)
             for p in route.getRightPoints():
                 surface = pygame.Surface((1, 1), pygame.SRCALPHA)
                 surface.fill(RoadRenderer.COLOR_ROUTE)
@@ -66,7 +74,21 @@ class RoadRenderer :
                 surface = pygame.Surface((1, 1), pygame.SRCALPHA)
                 surface.fill(RoadRenderer.COLOR_ROUTE)
                 self.renderer.getMainFrame().blit(surface, (p[0], p[1]))
-
+            
+        # Dessin Circuit
+        circuit = Circuit(listRoute)
+        
+        # affichage de la distance des routes
+        if RoadRenderer.one:
+            #print(dist)
+            print(f"taille circuit : {circuit.longeur} px")
+            RoadRenderer.one = False
+        
+        if pygame.font:
+            font = pygame.font.Font(None, 16)
+            text = font.render(f"taille circuit : {circuit.longeur} px", True, (255, 255, 10))
+            textpos = text.get_rect(centerx=self.renderer.getMainFrame().get_width() / 8, y=10)
+            self.renderer.getMainFrame().blit(text, textpos)
 
 
     def getData(self) : 

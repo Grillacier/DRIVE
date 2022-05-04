@@ -57,3 +57,16 @@ class Courbe:
     def getInvNormal(d):
         q = math.sqrt(d["x"] * d["x"] + d["y"] * d["y"])
         return { "x": d["y"] / q, "y": -d["x"] / q }
+    
+    def getLongueur(self,approximation_step:int) -> float:
+        dist = 0
+        
+        for i in range(1,approximation_step):
+            tMinus = (i-1)/approximation_step
+            t = i/approximation_step
+            pMinus = self.get(tMinus)
+            p = self.get(t)
+            dist += math.sqrt((p.x - pMinus.x)**2 + (p.y - pMinus.y)**2)
+        
+        return dist
+    

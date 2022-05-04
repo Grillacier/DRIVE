@@ -1,3 +1,5 @@
+import math
+
 class Point :
 
     def __init__(self,x : float,y : float, height = 0 , width = 0) -> None:
@@ -35,3 +37,7 @@ class Point :
         Retourne la largeur relative
         """
         return self.width / max_width
+    
+    
+    def calcul_longueur(self,point2) -> float:
+        return round(math.sqrt((self.x - point2.x)**2 + (self.y - point2.y)**2 ),1)
