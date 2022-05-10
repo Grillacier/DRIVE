@@ -1,7 +1,7 @@
 class Camera :
 
-    range_camera = 200
-    width_camera = 100
+    range_camera = 100
+    width_camera = 20
 
     def __init__(self,robotAgent) -> None:
         self.robotAgent = robotAgent

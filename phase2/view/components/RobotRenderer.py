@@ -1,3 +1,4 @@
+from view.components.VecteurDirecteurRenderer import VecteurDirecteurRenderer
 from view.components.CameraRenderer import CameraRenderer
 import pygame
 from pygame.locals import *
@@ -11,6 +12,8 @@ class RobotRenderer :
 
     def __init__(self, renderer) -> None:
         self.renderer = renderer
+        self.camera_renderer = CameraRenderer(self.renderer)
+        self.vecteur_directeur_renderer = VecteurDirecteurRenderer(self.renderer)
         self.update()
         
 
@@ -21,8 +24,13 @@ class RobotRenderer :
         x,y,height,width = self.getData() # recuperation des données du modele
         y_rend = self.renderer.getHeight() - y - height
         pygame.draw.rect(self.renderer.getMainFrame(), RobotRenderer.COLOR, pygame.Rect(x, y_rend, width, height)) # x , y , width , height
-        self.camera_renderer = CameraRenderer(self.renderer)
+        
+        """
+        Update des autres composants
+        """
+
         self.camera_renderer.update()
+        self.vecteur_directeur_renderer.update()
 
     def getData(self) :
         """

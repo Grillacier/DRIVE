@@ -19,7 +19,7 @@ class Environment :
 
     def __init__(self) -> None:
         middle_x_robotAgent = (Environment.width/2) - (RobotAgent.width/2)
-        self.robotAgent = RobotAgent(middle_x_robotAgent,0) # Initialise un robot en (0,0)
+        self.robotAgent = RobotAgent(middle_x_robotAgent,500) # Initialise un robot en (0,0)
         self.thread = ModelThread(self)
         """
         self.road : liste de points triplet [(P1 : Point,Pc : Point, P2 : Point)_1,...,(P1 : Point,Pc : Point, P2 : Point)_n]
@@ -112,7 +112,7 @@ class Environment :
 
 class ModelThread(threading.Thread) :
 
-    speed_model = 0.05 # Vitesse d'évolution de l'environnement
+    speed_model = 0.1 # Vitesse d'évolution de l'environnement
     condition = True
 
     def __init__(self,envt : Environment):

@@ -10,3 +10,4 @@ class AlgoNaif(Algorithme):
 
     def decision(self) -> None :
         self.robotAgent.accelerer_lineaire()
+        self.robotAgent.accelerer_angulaire()
