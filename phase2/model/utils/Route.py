@@ -2,7 +2,7 @@ from model.utils.Courbe import *
 import numpy as np
 
 class Route:
-    APPROX_VALUE = 100
+    APPROX_VALUE = 200
     def __init__(self, epaisseur:int, courbe:Courbe) -> None:
         self.epaisseur = epaisseur
         self.courbe = courbe

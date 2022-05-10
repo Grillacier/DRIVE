@@ -47,6 +47,12 @@ class Courbe:
         d = [{"x":2*(self.Point[1].x - self.Point[0].x),"y":2*(self.Point[1].y - self.Point[0].y)},
         {"x":2*(self.Point[2].x - self.Point[1].x),"y":2*(self.Point[2].y - self.Point[1].y)}]
         return {"x":mt * d[0]["x"] + t * d[1]["x"],"y":mt * d[0]["y"] + t * d[1]["y"]}
+    
+    def getNormalizedQuadraticDerivative(self,t:float):
+        d = self.getQuadraticDerivative(t) 
+        m = math.sqrt(d["x"]*d["x"] + d["y"]*d["y"])
+        d = { "x": d["x"]/m, "y": d["y"]/m }
+        return d
 
     @staticmethod
     def getNormal(d):
@@ -69,4 +75,18 @@ class Courbe:
             dist += math.sqrt((p.x - pMinus.x)**2 + (p.y - pMinus.y)**2)
         
         return dist
+    
+    def getDistance(self,distance:float,approximation_step:int) -> Point:
+        dist = 0
+        for i in range(1,approximation_step):
+            tMinus = (i-1)/approximation_step
+            t = i/approximation_step
+            pMinus = self.get(tMinus)
+            p = self.get(t)
+            dist += math.sqrt((p.x - pMinus.x)**2 + (p.y - pMinus.y)**2)
+            if dist >= distance:
+                return p
+        return None
+        
+
     
