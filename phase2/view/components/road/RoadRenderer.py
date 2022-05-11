@@ -16,15 +16,14 @@ class RoadRenderer :
 
     def __init__(self,renderer) -> None:
         self.renderer = renderer
-        self.update()
-    
-
-    def update(self) -> None :
+        self.data = self.getData()
+        self.dist = []
+        self.listPoint = []
+        self.listCourbe = []
+        self.listRoute = []
         
-        data = self.getData()
-        dist = []
-        listRoute = []
-        for (data_p1,data_pc,data_p2) in data:
+
+        for (data_p1,data_pc,data_p2) in self.data:
             # Recuperation des données graphiques des points de la route
 
             x_1,y_1,height_1,width_1 = data_p1["x"],data_p1["y"],data_p1["height"],data_p1["width"]
@@ -34,74 +33,67 @@ class RoadRenderer :
             y_rend_c = self.renderer.getHeight() - y_c - height_c
             y_rend_2 = self.renderer.getHeight() - y_2 - height_2
 
-            # Dessin P1
-
-            surface = pygame.Surface((width_1, height_1), pygame.SRCALPHA)
-            surface.fill(RoadRenderer.COLOR_POINT)
-            self.renderer.getMainFrame().blit(surface, (x_1, y_rend_1))
-
-            # Dessin Pc
-
-            surface = pygame.Surface((width_c, height_c), pygame.SRCALPHA)
-            surface.fill(RoadRenderer.COLOR_CHECKPOINT)
-            self.renderer.getMainFrame().blit(surface, (x_c, y_rend_c))
-
-            # Dessin P2
-
-            surface = pygame.Surface((width_2, height_2), pygame.SRCALPHA)
-            surface.fill(RoadRenderer.COLOR_POINT)
-            self.renderer.getMainFrame().blit(surface, (x_2, y_rend_2))
-
-            # Dessin Courbe 
-
+            self.listPoint.append({"x_1":x_1,"y_1":y_1,"height_1":height_1,"width_1":width_1,"y_rend_1":y_rend_1,"x_c":x_c,"y_c":y_c,"height_c":height_c,"width_c":width_c,"y_rend_c":y_rend_c,"x_2":x_2,"y_2":y_2,"height_2":height_2,"width_2":width_2,"y_rend_2":y_rend_2})
+            
             courbe = Courbe(Point(x_1,y_rend_1),Point(x_c,y_rend_c),Point(x_2,y_rend_2))
-            for p in courbe.P:
-                surface = pygame.Surface((1, 1), pygame.SRCALPHA)
-                surface.fill(RoadRenderer.COLOR_COURBE)
-                self.renderer.getMainFrame().blit(surface, (p.getX(), p.getY()))
-            
-            dist.append(courbe.getLongueur(100))
+            self.listCourbe.append(courbe)
+            self.dist.append(courbe.getLongueur(100))
 
-            # Dessin Route
+            self.listRoute.append(Route(20,courbe))
+        
+        self.circuit = Circuit(self.listRoute)
+        
+        self.centerCircuit()
+        self.update()
 
-            route = Route(20,courbe)
-            listRoute.append(route)
-            for p in route.getRightPoints():
-                surface = pygame.Surface((1, 1), pygame.SRCALPHA)
-                surface.fill(RoadRenderer.COLOR_ROUTE)
-                self.renderer.getMainFrame().blit(surface, (p[0], p[1]))
-            
-            for p in route.getLeftPoints():
-                surface = pygame.Surface((1, 1), pygame.SRCALPHA)
-                surface.fill(RoadRenderer.COLOR_ROUTE)
-                self.renderer.getMainFrame().blit(surface, (p[0], p[1]))
+    def update(self) -> None :
+        
+        #Dessin des Points
+
+        self.dessinPoint()
+
+        # Dessin Courbe 
+
+        self.dessinCourbe()
+
+        # Dessin Route
+
+        self.dessinRoute()
             
         # Dessin Circuit
-        circuit = Circuit(listRoute)
-        for p in circuit.getControlPointsAngle():
-            surface = pygame.Surface((10, 10), pygame.SRCALPHA)
-            pygame.draw.circle(surface, RoadRenderer.COLOR_BI, (5, 5), 5)
-            self.renderer.getMainFrame().blit(surface, (p[0]-5, p[1]-5)) #- 5 pour centrer
         
-        # # Dessin Point particulier demander
-        # p = circuit.getPointFromStart(1500)
-        # surface = pygame.Surface((10, 10), pygame.SRCALPHA)
-        # pygame.draw.circle(surface,(180, 0, 255), (5, 5), 5)
-        # self.renderer.getMainFrame().blit(surface, (p.x-5, p.y-5)) #- 5 pour centrer
+        self.dessinCircuit()
+        
+        # Dessin Point particulier demander
+        # p = self.circuit.getPointFromStart(1500)
+        # for i in range(0,100,10):
+        #     p = Point(500+i,500)
+        #     inColor = (11, 154, 11)
+        #     outColor = (255, 0, 0)
+        #     if self.circuit.OnTheCircuit(p):
+        #         color = inColor
+        #     else:
+        #         color = outColor
+        #     surface = pygame.Surface((10, 10), pygame.SRCALPHA)
+        #     pygame.draw.circle(surface,color, (5, 5), 5)
+        #     self.renderer.getMainFrame().blit(surface, (p.x-5, p.y-5)) #- 5 pour centrer
+
+
+        
     
         
         
         if RoadRenderer.one:
-            print(dist)
-            print(f"taille circuit : {circuit.longeur} px")
+            print(self.dist)
+            print(f"taille circuit : {self.circuit.longeur} px")
             RoadRenderer.one = False
 
-        # affichage des information du circuit
-        if pygame.font:
-            font = pygame.font.Font(None, 16)
-            text = font.render(f"taille circuit : {circuit.longeur} px", True, (255, 255, 10))
-            textpos = text.get_rect(x=20, y=10)
-            self.renderer.getMainFrame().blit(text, textpos)
+        # # affichage des information du circuit
+        # if pygame.font:
+        #     font = pygame.font.Font(None, 16)
+        #     text = font.render(f"taille circuit : {self.circuit.longeur} px", True, (255, 255, 255))
+        #     textpos = text.get_rect(x=20, y=10)
+        #     self.renderer.getMainFrame().blit(text, textpos)
 
 
     def getData(self) : 
@@ -119,3 +111,79 @@ class RoadRenderer :
         data["height"] = self.renderer.getHeight() * point.get_relative_height(self.renderer.getModel().getHeight())
         data["width"] = self.renderer.getWidth() * point.get_relative_width(self.renderer.getModel().getWidth())
         return data
+    
+    def dessinPoint(self):
+        for p in self.listPoint:
+            # Dessin P1
+            surface = pygame.Surface((p["width_1"], p["height_1"]), pygame.SRCALPHA)
+            surface.fill(RoadRenderer.COLOR_POINT)
+            self.renderer.getMainFrame().blit(surface, (p["x_1"], p["y_rend_1"]))
+
+            # Dessin Pc
+            surface = pygame.Surface((p["width_c"], p["height_c"]), pygame.SRCALPHA)
+            surface.fill(RoadRenderer.COLOR_CHECKPOINT)
+            self.renderer.getMainFrame().blit(surface, (p["x_c"], p["y_rend_c"]))
+
+            # Dessin P2
+            surface = pygame.Surface((p["width_2"], p["height_2"]), pygame.SRCALPHA)
+            surface.fill(RoadRenderer.COLOR_POINT)
+            self.renderer.getMainFrame().blit(surface, (p["x_2"], p["y_rend_2"]))
+        
+    def dessinCourbe(self):
+        for courbe in self.listCourbe:
+            for p in courbe.P:
+                surface = pygame.Surface((1, 1), pygame.SRCALPHA)
+                surface.fill(RoadRenderer.COLOR_COURBE)
+                self.renderer.getMainFrame().blit(surface, (p.getX(), p.getY()))
+    
+    def dessinRoute(self):
+        for route in self.listRoute:
+            for p in route.getRightPoints():
+                surface = pygame.Surface((1, 1), pygame.SRCALPHA)
+                surface.fill(RoadRenderer.COLOR_ROUTE)
+                self.renderer.getMainFrame().blit(surface, (p[0], p[1]))
+            
+            for p in route.getLeftPoints():
+                surface = pygame.Surface((1, 1), pygame.SRCALPHA)
+                surface.fill(RoadRenderer.COLOR_ROUTE)
+                self.renderer.getMainFrame().blit(surface, (p[0], p[1]))
+    
+    def dessinCircuit(self):
+        for p in self.circuit.controlPointsAngle:
+            surface = pygame.Surface((10, 10), pygame.SRCALPHA)
+            pygame.draw.circle(surface, RoadRenderer.COLOR_BI, (5, 5), 5)
+            self.renderer.getMainFrame().blit(surface, (p[0]-5, p[1]-5)) #- 5 pour centrer
+            
+    def dessinGivenPoint(self,point):
+        surface = pygame.Surface((10, 10), pygame.SRCALPHA)
+        pygame.draw.circle(surface,(180, 0, 255), (5, 5), 5)
+        self.renderer.getMainFrame().blit(surface, (point.x-5, point.y-5)) #- 5 pour centrer
+
+    def updateCircuit(self):
+        self.listCourbe = []
+        self.dist = []
+        self.listRoute = []
+        for p in self.listPoint:
+            courbe = Courbe(Point(p["x_1"],p["y_rend_1"]),Point(p["x_c"],p["y_rend_c"]),Point(p["x_2"],p["y_rend_2"]))
+            self.listCourbe.append(courbe)
+            self.dist.append(courbe.getLongueur(100))
+
+            self.listRoute.append(Route(20,courbe))
+        
+        self.circuit = Circuit(self.listRoute)
+
+    def centerCircuit(self):
+        self.pointCenter = self.circuit.calculateCenter()
+        self.incrementPoint = [self.renderer.width/2 - self.pointCenter.x,self.renderer.height/2 - self.pointCenter.y]
+        for p in self.listPoint:
+            p["x_1"] += self.incrementPoint[0]
+            p["y_1"] += self.incrementPoint[1]
+            p["x_c"] += self.incrementPoint[0]
+            p["y_c"] += self.incrementPoint[1]
+            p["x_2"] += self.incrementPoint[0]
+            p["y_2"] += self.incrementPoint[1]
+            p["y_rend_1"] += self.incrementPoint[1]
+            p["y_rend_c"] += self.incrementPoint[1]
+            p["y_rend_2"] += self.incrementPoint[1]
+        
+        self.updateCircuit()

@@ -41,3 +41,7 @@ class Point :
     
     def calcul_longueur(self,point2) -> float:
         return round(math.sqrt((self.x - point2.x)**2 + (self.y - point2.y)**2 ),1)
+
+    def setValue(self,x:float,y:float) -> None:
+        self.x = x
+        self.y = y

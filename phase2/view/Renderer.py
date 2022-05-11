@@ -1,5 +1,6 @@
 from model.Environment import Environment
 from view.components.RobotRenderer import RobotRenderer
+from view.components.BoardRenderer import BoardRenderer
 from view.components.road.RoadRenderer import RoadRenderer
 
 import pygame
@@ -29,6 +30,7 @@ class Renderer :
         self.thread = RendererThread(self)
         self.robotRenderer = RobotRenderer(self)
         self.roadRenderer = RoadRenderer(self)
+        self.boardRenderer = BoardRenderer(self,self.roadRenderer,self.robotRenderer)
         
     def update(self) -> None:
         """
@@ -44,6 +46,7 @@ class Renderer :
         """
         self.roadRenderer.update()
         self.robotRenderer.update()
+        self.boardRenderer.update()
 
     def start(self) -> None :
         """
