@@ -142,7 +142,6 @@ class RobotAgent :
         self.vitesse_angulaire_courante = np.abs(self.current_radian.getValue() - raw_new_radian_value)
         self.current_radian.setValue(new_radian_value)
         self.vecteur_directeur = self.current_radian.radToVectorDirector()
-        print(self.current_radian.getValue())
     
     def getCamera(self) -> Camera : 
         return self.camera

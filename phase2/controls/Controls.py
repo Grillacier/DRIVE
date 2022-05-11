@@ -37,6 +37,8 @@ class ThreadControls(threading.Thread):
     speed_controls = 0.01 # Verification des controles
     condition = True
 
+    RESIZABLE = False
+
     def __init__(self,controls) -> None:
         threading.Thread.__init__(self)
         self.controls = controls
@@ -56,8 +58,9 @@ class ThreadControls(threading.Thread):
                         pygame.quit()
                         sys.exit()
                 if event.type == pygame.VIDEORESIZE:
-                    self.controls.getRenderer().setHeight(event.h)
-                    self.controls.getRenderer().setWidth(event.w)
+                    if ThreadControls.RESIZABLE : 
+                        self.controls.getRenderer().setHeight(event.h)
+                        self.controls.getRenderer().setWidth(event.w)
 
                 if event.type == pygame.KEYDOWN:
                     # A completer si on souhaite appuyer sur des touches ...

@@ -36,7 +36,7 @@ class VecteurDirecteurRenderer :
         vecteur_directeur = self.renderer.getModel().getRobotAgent().getVecteurDirecteur()
 
         x_1 = self.renderer.getWidth() * (( ( self.renderer.getModel().getRobotAgent().getX() + (self.renderer.getModel().getRobotAgent().getWidth() / 2) )) / self.renderer.getModel().getWidth() )
-        y_1 = self.renderer.getHeight() * self.renderer.getModel().getRobotAgent().get_relative_Y(self.renderer.getModel().getHeight())
+        y_1 = self.renderer.getHeight() * (( ( self.renderer.getModel().getRobotAgent().getY() + (self.renderer.getModel().getRobotAgent().getHeight() / 2) )) / self.renderer.getModel().getHeight() )
 
         x_2 = vecteur_directeur[0] * VecteurDirecteurRenderer.rayon + x_1
         y_2 = vecteur_directeur[1] * VecteurDirecteurRenderer.rayon + y_1
