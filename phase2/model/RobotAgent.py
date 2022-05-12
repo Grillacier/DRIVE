@@ -12,7 +12,7 @@ class RobotAgent :
     height = 20
     width = 20
 
-    acceleration_lineaire_constante = 2 # A definir m/s^2
+    acceleration_lineaire_constante = 5 # A definir m/s^2
     acceleration_angulaire_constante = 0
     vitesse_max = ... # A definir
     vitesse_courante = 0
@@ -28,8 +28,8 @@ class RobotAgent :
         self.local_clock = time.time()
         self.vecteur_directeur = np.array([0,1]) # Vecteur normalise
         self.current_radian = Radian(np.pi/2)
-        self.vitesse_courante = 0 # px/s
-        self.vitesse_lineaire_courante = 0
+        # self.vitesse_courante = np.array([0,10])# np.zeros(2) # px/s
+        self.vitesse_lineaire_courante = np.array([0,5])
         self.vitesse_angulaire_courante = 0.1
         self.camera = Camera(self)
         self.algorithme = AlgoNaif(self) # Exemple
@@ -79,7 +79,6 @@ class RobotAgent :
     def setVecteurDirecteur(self,vecteur_directeur) : 
         self.vecteur_directeur = vecteur_directeur
 
-
     def getVitesseCourante(self) -> float : 
         return self.vitesse_courante
     
@@ -104,6 +103,7 @@ class RobotAgent :
 
         self.local_clock = time.time()
         self.algorithme.decision()
+        self.appliquer_vitesse()
 
     def accelerer_lineaire(self) -> None :
         """
@@ -112,37 +112,66 @@ class RobotAgent :
         """
         self.acceleration_active = True
 
-        position_courante = np.array( [ self.x , self.y ] )
+        # position_courante = np.array( [ self.x , self.y ] )
         
         # print(position_courante)
 
         self.accel_time = 1
 
-        new_position = (position_courante + self.vecteur_directeur * ( (self.vitesse_courante * self.accel_time)  + ( (1/2) * RobotAgent.acceleration_lineaire_constante * self.accel_time**2 ) ) )
+        self.vitesse_lineaire_courante = self.vecteur_directeur * ( (self.vitesse_lineaire_courante * self.accel_time)  + ( (1/2) * RobotAgent.acceleration_lineaire_constante * self.accel_time**2 ) ) 
 
         # print(self.vecteur_directeur)
         # print("1 : ",(self.vitesse_courante * self.accel_time))
         # print("2 : ",( (1/2) * RobotAgent.acceleration_constante * self.accel_time**2 ))
         # print((self.vecteur_directeur * ( (self.vitesse_courante * self.accel_time) ) + ( (1/2) * RobotAgent.acceleration_constante * self.accel_time**2 )))
 
-        self.vitesse_courante = np.abs(position_courante - new_position) # / (time.time() - self.local_clock)     
-
-        self.x = new_position[0]
-
-        self.y = new_position[1]
-
         # print(self.vitesse_courante)
   
-    def accelerer_angulaire(self) -> None :
+    def decelerer_lineaire(self) -> None : 
+        self.accel_time = 1
+        # position_courante = np.array( [ self.x , self.y ] )
+        force = (self.vitesse_lineaire_courante * self.accel_time) - ( (1/2) * RobotAgent.acceleration_lineaire_constante * self.accel_time**2 )
+        
+        # print("force : ",force)
+        if force[0] < 0.0 :
+            force[0] = 0.0
+        if force[1] < 0.0 :
+            force[1] = 0.0
+
+        # new_position = (position_courante + self.vecteur_directeur * force)
+        # self.vitesse_lineaire_courante = np.abs(position_courante - new_position) # / (time.time() - self.local_clock)     
+        self.vitesse_lineaire_courante = force
+        # self.x = new_position[0]
+
+        # self.y = new_position[1]
+
+    def accelerer_angulaire_droite(self) -> None :
         """
         Appliquer la formule de L’équation de la position avec une vitesse uniformément accélérée
         x(t) = x_0 + v_{x0}*t+(1/2)a_{x0}*t^2
         """
-        new_radian_value,raw_new_radian_value = self.current_radian.updateRadian(RobotAgent.acceleration_angulaire_constante,self.vitesse_angulaire_courante)
+        new_radian_value,raw_new_radian_value = self.current_radian.updateRadianGauche(RobotAgent.acceleration_angulaire_constante,self.vitesse_angulaire_courante)
         self.vitesse_angulaire_courante = np.abs(self.current_radian.getValue() - raw_new_radian_value)
         self.current_radian.setValue(new_radian_value)
-        self.vecteur_directeur = self.current_radian.radToVectorDirector()
+        
+
+    def accelerer_angulaire_gauche(self) -> None :
+        """
+        Appliquer la formule de L’équation de la position avec une vitesse uniformément accélérée
+        x(t) = x_0 + v_{x0}*t+(1/2)a_{x0}*t^2
+        """
+        new_radian_value,raw_new_radian_value = self.current_radian.updateRadianDroite(RobotAgent.acceleration_angulaire_constante,self.vitesse_angulaire_courante)
+        self.vitesse_angulaire_courante = np.abs(self.current_radian.getValue() - raw_new_radian_value)
+        self.current_radian.setValue(new_radian_value) 
     
+    def appliquer_vitesse(self) -> None : 
+
+        self.x = self.x + self.vitesse_lineaire_courante[0]
+
+        self.y = self.y + self.vitesse_lineaire_courante[1]
+
+        self.vecteur_directeur = self.current_radian.radToVectorDirector()
+   
     def getCamera(self) -> Camera : 
         return self.camera
 

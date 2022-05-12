@@ -6,5 +6,16 @@ class DBR(Algorithme):
         Algorithme.__init__(self,robotAgent)
 
     def decision(self) -> None :
-        # TODO
+        
+        
+        
         pass
+
+
+
+    def vecteur_directeur_correction(destination):
+        """
+        Procedure qui prend une destination et qui corrige le vecteur directeur
+        du robot.
+        """
+        

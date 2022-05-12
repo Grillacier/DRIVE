@@ -37,7 +37,7 @@ class ThreadControls(threading.Thread):
     speed_controls = 0.01 # Verification des controles
     condition = True
 
-    RESIZABLE = False
+    RESIZABLE = True
 
     def __init__(self,controls) -> None:
         threading.Thread.__init__(self)
