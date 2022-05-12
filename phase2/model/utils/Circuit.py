@@ -4,11 +4,15 @@ import numpy as np
 class Circuit:
     # Division de la route en segments
     CIRCUIT_DIVISION = 30
+    # Angle entre deux points pour la division du circuit
     ANGLE_DIVISION = 10
     def __init__(self, routes:list) -> None:
         self.routes = routes
         self.longeur = round(sum([route.longeur for route in routes]),2)
         self.startPoint = routes[0].courbe.get(0)
+        self.controlPointsAngle = self.getControlPointsAngle()
+        self.controlPointsDist = self.getControlPointsDist()
+        self.controlPointsT = self.getControlPointsT()
 
     def getControlPointsT(self) -> np.array:
         """
@@ -48,12 +52,6 @@ class Circuit:
                 continue
             t = T % 1
             tmp = self.routes[int(T)].courbe.getNormalizedQuadraticDerivative(t)
-            # print("t",t,"tmp",tmp,"prec",prec)
-            # x = math.sqrt(prec["x"]**2 + prec["y"]**2)
-            # y =  math.sqrt(tmp["x"]**2 + tmp["y"]**2)
-            # z = (prec["x"]*tmp["x"] + prec["y"]*tmp["y"])
-            # print(z/(x*y))
-            #angle = math.degrees(math.acos((prec["x"]*tmp["x"] + prec["y"]*tmp["y"])/(math.sqrt(prec["x"]**2 + prec["y"]**2) * math.sqrt(tmp["x"]**2 + tmp["y"]**2))))
             try:
                 angle = math.degrees(math.acos((np.dot([prec["x"],prec["y"]],[tmp["x"],tmp["y"]]))/(math.sqrt(prec["x"]**2 + prec["y"]**2) * math.sqrt(tmp["x"]**2 + tmp["y"]**2))))
             except:
@@ -67,7 +65,9 @@ class Circuit:
 
     
     def getPointFromStart(self,distance:float) -> Point:
-        # on cherche sur quelle courbe ce trouve le point a la distance
+        """
+        Permet de recuperer un point sur la courbe à une distance donnee
+        """
         d = 0
         route = None
         for i in range(len(self.routes)):
@@ -101,4 +101,29 @@ class Circuit:
     #         raise Exception("distance trop grande")
     #     d = (distance - d)
     #     return route.courbe.getDistance(d,100)
+
+    def calculateCenter(self) -> Point:
+        """
+        calcul du centre du circuit
+        """
+        res = Point(0,0)
+        nb_point = 0
+        for route in self.routes:
+            for point in route.courbe.Point:
+                nb_point += 1
+                res.x += point.x
+                res.y += point.y
+        res.x /= nb_point
+        res.y /= nb_point
+        return res
+    
+    def OnTheCircuit(self,point:Point) -> bool:
+        """
+        Permet de savoir si un point est sur le circuit
+        """
+        for route in self.routes:
+            if route.OnTheRoute(point):
+                return True
+    
+
 

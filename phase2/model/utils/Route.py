@@ -42,6 +42,13 @@ class Route:
         #     self.RightPoints[i] = [curvePoint.getX() + self.epaisseur, curvePoint.getY() + self.epaisseur]
         #     self.LeftPoints[i] = [curvePoint.getX() - self.epaisseur, curvePoint.getY() - self.epaisseur]
         #     # self.RightPoints[i] = [PointDerivee[i,0] + curvePoint.getX(), PointDerivee[i,1] + curvePoint.getY()]
-            
+        
+    def OnTheRoute(self, point:Point) -> bool:
+        # for i in range(1,len(self.RightPoints)):
+        #     alpha = ((point.x))/((self.RightPoints[i][0]-self.courbe.P[i][0])**2 + (self.RightPoints[i][1]-self.courbe.P[i][1])**2)
+        for p in self.courbe.P:
+            if p.calcul_longueur(point) < self.epaisseur:
+                return True
+        return False
 
     
