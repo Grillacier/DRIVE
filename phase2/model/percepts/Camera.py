@@ -36,3 +36,15 @@ class Camera :
         Retourne la largeur relative
         """
         return Camera.width_camera / max_width
+    
+    def getX(self) -> float :
+        return self.robotAgent.getX()
+    
+    def getY(self) -> float :
+        return self.robotAgent.getY()
+    
+    def getHeight(self) -> float :
+        return self.range_camera
+    
+    def getWidth(self) -> float :
+        return self.width_camera

@@ -8,7 +8,7 @@ Algorithme de démonstration qui fait avancer le robot tout droit
 """
 class AlgoNaif(Algorithme):
 
-    DESTINATION = np.array([0,1000])
+    DESTINATION = np.array([100,300])
 
     def __init__(self,robotAgent) -> None:
         Algorithme.__init__(self,robotAgent)

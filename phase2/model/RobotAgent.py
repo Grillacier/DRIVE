@@ -5,6 +5,7 @@ from model.utils.Radian import Radian
 
 import numpy as np
 import time
+import math
 
 
 class RobotAgent :
@@ -183,3 +184,8 @@ class RobotAgent :
 
     def getVecteurDirecteur(self) : 
         return self.vecteur_directeur
+    
+    def getNormalVecteurDirecteur(self):
+        d = {"x":self.vecteur_directeur[0],"y":self.vecteur_directeur[1]}
+        q = math.sqrt(d["x"] * d["x"] + d["y"] * d["y"])
+        return { "x": -d["y"] / q, "y": d["x"] / q }
