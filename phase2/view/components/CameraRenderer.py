@@ -31,7 +31,7 @@ class CameraRenderer :
         x_2 = width * normal["x"] + x
         y_2 = width * normal["y"] + y
         
-        pygame.draw.polygon(self.renderer.getMainFrame(), CameraRenderer.COLOR,[(x_1,self.renderer.getHeight() - y_1),(x,self.renderer.getHeight() - y),(x_2 ,self.renderer.getHeight() - y_2),(x_1+x_2 -x,self.renderer.getHeight()- (y_2 + y_1 -y))]) # x , y , width , height
+        # pygame.draw.polygon(self.renderer.getMainFrame(), CameraRenderer.COLOR,[(x_1,self.renderer.getHeight() - y_1),(x,self.renderer.getHeight() - y),(x_2 ,self.renderer.getHeight() - y_2),(x_1+x_2 -x,self.renderer.getHeight()- (y_2 + y_1 -y))]) # x , y , width , height
 
 
     def getData(self) :

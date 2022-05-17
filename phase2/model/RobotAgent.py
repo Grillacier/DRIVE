@@ -19,6 +19,9 @@ class RobotAgent :
     vitesse_courante = 0
     direction_courante = ... # A definir
 
+    COLOR_ON_ROAD = (96, 255, 0)
+    COLOR_OUT_ROAD = (255, 0, 18)
+
     VITESSE_MAX_VIRAGE = {} # Dictionnaire qui comporte les vitesse max du robot dans un virage
 
     def __init__(self,x : float,y  : float) -> None:
@@ -119,7 +122,7 @@ class RobotAgent :
 
         self.accel_time = 1
 
-        self.vitesse_lineaire_courante = self.vecteur_directeur * ( (self.vitesse_lineaire_courante * self.accel_time)  + ( (1/2) * RobotAgent.acceleration_lineaire_constante * self.accel_time**2 ) ) 
+        self.vitesse_lineaire_courante = self.vecteur_directeur * 10 # ( (self.vitesse_lineaire_courante * self.accel_time)  + ( (1/2) * RobotAgent.acceleration_lineaire_constante * self.accel_time**2 ) ) 
 
         # print(self.vecteur_directeur)
         # print("1 : ",(self.vitesse_courante * self.accel_time))
@@ -189,3 +192,9 @@ class RobotAgent :
         d = {"x":self.vecteur_directeur[0],"y":self.vecteur_directeur[1]}
         q = math.sqrt(d["x"] * d["x"] + d["y"] * d["y"])
         return { "x": -d["y"] / q, "y": d["x"] / q }
+    
+    def setControlPoint(self,controls_point) : 
+        self.algorithme.setControlsPoints(controls_point)
+    
+    def getDestination(self) : 
+        return self.algorithme.getDestination()

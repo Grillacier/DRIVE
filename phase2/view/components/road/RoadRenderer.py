@@ -44,6 +44,10 @@ class RoadRenderer :
         self.circuit = Circuit(self.listRoute)
         
         self.centerCircuit()
+
+        self.renderer.getModel().setCircuit(self.circuit)
+        self.renderer.getModel().getRobotAgent().setControlPoint(self.circuit.controlPointsAngle)
+        
         self.update()
 
     def update(self) -> None :
@@ -63,6 +67,9 @@ class RoadRenderer :
         # Dessin Circuit
         
         self.dessinCircuit()
+        destination = self.renderer.getModel().getRobotAgent().getDestination()
+
+        self.drawGivenPoint(Point(destination[0],destination[1]))
         
         # Dessin Point particulier demander
         # p = self.circuit.getPointFromStart(1500)
@@ -83,17 +90,11 @@ class RoadRenderer :
     
         
         
-        if RoadRenderer.one:
-            print(self.dist)
-            print(f"taille circuit : {self.circuit.longeur} px")
-            RoadRenderer.one = False
+        # if RoadRenderer.one:
+        #     print(self.dist)
+        #     print(f"taille circuit : {self.circuit.longeur} px")
+        #     RoadRenderer.one = False
 
-        # # affichage des information du circuit
-        # if pygame.font:
-        #     font = pygame.font.Font(None, 16)
-        #     text = font.render(f"taille circuit : {self.circuit.longeur} px", True, (255, 255, 255))
-        #     textpos = text.get_rect(x=20, y=10)
-        #     self.renderer.getMainFrame().blit(text, textpos)
 
 
     def getData(self) : 
@@ -154,7 +155,7 @@ class RoadRenderer :
             pygame.draw.circle(surface, RoadRenderer.COLOR_BI, (5, 5), 5)
             self.renderer.getMainFrame().blit(surface, (p[0]-5, p[1]-5)) #- 5 pour centrer
             
-    def dessinGivenPoint(self,point):
+    def drawGivenPoint(self,point:Point):
         surface = pygame.Surface((10, 10), pygame.SRCALPHA)
         pygame.draw.circle(surface,(180, 0, 255), (5, 5), 5)
         self.renderer.getMainFrame().blit(surface, (point.x-5, point.y-5)) #- 5 pour centrer
