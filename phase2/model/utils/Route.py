@@ -2,6 +2,7 @@ from model.utils.Courbe import *
 import numpy as np
 
 class Route:
+    # valeur d'approximation de la courbe / nombre de points créés
     APPROX_VALUE = 200
     def __init__(self, epaisseur:int, courbe:Courbe) -> None:
         self.epaisseur = epaisseur
@@ -10,14 +11,21 @@ class Route:
         self.longeur = courbe.getLongueur(Route.APPROX_VALUE)
     
     def getRightPoints(self) -> np.array:
+        """
+        les points de la route à droite
+        """
         return self.RightPoints
     
     def getLeftPoints(self) -> np.array:
+        """
+        les points de la route à gauche
+        """
         return self.LeftPoints
     
     def calculatePoints(self) -> None:
-        # self.RightPoints = np.zeros((len(self.courbe.P),2))
-        # self.LeftPoints = np.zeros((len(self.courbe.P),2))
+        """
+        calcul les points de la route
+        """
         self.RightPoints = []
         self.LeftPoints = []
 
@@ -35,17 +43,11 @@ class Route:
 
             self.RightPoints.append([p.x + f*ni["x"], p.y + f*ni["y"]])
             self.LeftPoints.append([p.x + f*n["x"], p.y + f*n["y"]])
-
-        # PointDerivee = self.courbe.getDeriveeVector()/np.linalg.norm(self.courbe.getDeriveeVector())
-        # for i in range(len(self.courbe.P)):
-        #     curvePoint = self.courbe.P[i]
-        #     self.RightPoints[i] = [curvePoint.getX() + self.epaisseur, curvePoint.getY() + self.epaisseur]
-        #     self.LeftPoints[i] = [curvePoint.getX() - self.epaisseur, curvePoint.getY() - self.epaisseur]
-        #     # self.RightPoints[i] = [PointDerivee[i,0] + curvePoint.getX(), PointDerivee[i,1] + curvePoint.getY()]
         
     def OnTheRoute(self, point:Point) -> bool:
-        # for i in range(1,len(self.RightPoints)):
-        #     alpha = ((point.x))/((self.RightPoints[i][0]-self.courbe.P[i][0])**2 + (self.RightPoints[i][1]-self.courbe.P[i][1])**2)
+        """
+        Retourne True si le point est sur la route
+        """
         for p in self.courbe.P:
             if p.calcul_longueur(point) < self.epaisseur:
                 return True

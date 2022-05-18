@@ -104,7 +104,6 @@ class RobotAgent :
         #     self.accel_time += time.time() - self.local_clock
         # else :
         #     self.accel_time = 0
-
         self.local_clock = time.time()
         self.algorithme.decision()
         self.appliquer_vitesse()
@@ -122,7 +121,7 @@ class RobotAgent :
 
         self.accel_time = 1
 
-        self.vitesse_lineaire_courante = self.vecteur_directeur * 10 # ( (self.vitesse_lineaire_courante * self.accel_time)  + ( (1/2) * RobotAgent.acceleration_lineaire_constante * self.accel_time**2 ) ) 
+        self.vitesse_lineaire_courante = self.vecteur_directeur * 6 # ( (self.vitesse_lineaire_courante * self.accel_time)  + ( (1/2) * RobotAgent.acceleration_lineaire_constante * self.accel_time**2 ) ) 
 
         # print(self.vecteur_directeur)
         # print("1 : ",(self.vitesse_courante * self.accel_time))
@@ -149,7 +148,7 @@ class RobotAgent :
 
         # self.y = new_position[1]
 
-    def accelerer_angulaire_droite(self) -> None :
+    def accelerer_angulaire_gauche(self) -> None :
         """
         Appliquer la formule de L’équation de la position avec une vitesse uniformément accélérée
         x(t) = x_0 + v_{x0}*t+(1/2)a_{x0}*t^2
@@ -159,7 +158,7 @@ class RobotAgent :
         self.current_radian.setValue(new_radian_value)
         
 
-    def accelerer_angulaire_gauche(self) -> None :
+    def accelerer_angulaire_droite(self) -> None :
         """
         Appliquer la formule de L’équation de la position avec une vitesse uniformément accélérée
         x(t) = x_0 + v_{x0}*t+(1/2)a_{x0}*t^2

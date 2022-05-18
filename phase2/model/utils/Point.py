@@ -7,6 +7,9 @@ class Point :
         self.y = y
         self.height = height
         self.width = width
+    
+    def __repr__(self) -> str:
+        return "Point({},{})".format(self.x,self.y)
 
     def getX(self) -> float :
         return self.x
@@ -40,8 +43,14 @@ class Point :
     
     
     def calcul_longueur(self,point2) -> float:
+        """
+        Calcule la longueur entre deux points
+        """
         return round(math.sqrt((self.x - point2.x)**2 + (self.y - point2.y)**2 ),1)
 
     def setValue(self,x:float,y:float) -> None:
+        """
+        Set les valeurs de x et y
+        """
         self.x = x
         self.y = y

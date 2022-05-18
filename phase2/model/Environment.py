@@ -15,7 +15,9 @@ class Environment :
     """
     height = 1000
     width = 1000
-    filename = os.path.dirname(os.path.abspath(__file__))+"/circuit/circuit2.txt"
+    #filename = os.path.dirname(os.path.abspath(__file__))+"/circuit/circuit.txt"
+    #filename = os.path.dirname(os.path.abspath(__file__))+"/circuit/circuit2.txt"
+    filename = os.path.dirname(os.path.abspath(__file__))+"/circuit/circuit3.txt"
 
     def __init__(self) -> None:
         middle_x_robotAgent = (Environment.width/2) - (RobotAgent.width/2)

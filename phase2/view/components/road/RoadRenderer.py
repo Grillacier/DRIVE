@@ -43,7 +43,7 @@ class RoadRenderer :
         
         self.circuit = Circuit(self.listRoute)
         
-        self.centerCircuit()
+        #self.centerCircuit()
 
         self.renderer.getModel().setCircuit(self.circuit)
         self.renderer.getModel().getRobotAgent().setControlPoint(self.circuit.controlPointsAngle)
@@ -158,6 +158,7 @@ class RoadRenderer :
     def drawGivenPoint(self,point:Point):
         surface = pygame.Surface((10, 10), pygame.SRCALPHA)
         pygame.draw.circle(surface,(180, 0, 255), (5, 5), 5)
+        pygame.draw.circle(surface,(255, 255, 255), (5, 5), 5, 1)
         self.renderer.getMainFrame().blit(surface, (point.x-5, point.y-5)) #- 5 pour centrer
 
     def updateCircuit(self):
