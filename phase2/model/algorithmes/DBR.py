@@ -3,6 +3,9 @@ from model.algorithmes.Algorithme import Algorithme
 import numpy as np
 from model.utils.Point import Point
 
+import time
+
+
 class DBR(Algorithme):
 
     def __init__(self,robotAgent) -> None:
@@ -11,10 +14,28 @@ class DBR(Algorithme):
         self.destination = None
         self.Index = 0 # Index du point de controle
 
+        self.list_time_tour = []
+        self.current_time = time.time()
+        self.cptTour = 0
+
+
     def decision(self) -> None :
         """
         Donne un ordre au robot en fonction de la position du robot et de la destination
         """
+
+        if self.Index % len(self.robotAgent.env.circuit.controlPointsAngle) == 0:
+            self.cptTour+=1
+            if self.cptTour % 2 == 0 :
+                self.list_time_tour.append(time.time()-self.current_time)
+                self.current_time = time.time()
+                print("TOUR")
+        if self.cptTour == 60 :
+            print("liste temps : ",self.list_time_tour)
+            print("Moyenne temps par tour : ",np.mean(self.list_time_tour),"s")
+
+
+
         positionRobot = np.array([self.robotAgent.x,self.robotAgent.y])
 
         direction = self.getDirection(self.getDestination() - positionRobot ,self.robotAgent.getVecteurDirecteur())
@@ -24,7 +45,7 @@ class DBR(Algorithme):
         elif direction == "GAUCHE" : 
             self.robotAgent.accelerer_angulaire_gauche()
 
-        self.robotAgent.accelerer_lineaire()
+        self.robotAgent.vitesse_lineaire_courante = self.robotAgent.vecteur_directeur * 6
 
         
     """

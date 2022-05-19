@@ -1,6 +1,7 @@
 from copyreg import constructor
 from model.algorithmes.AlgoNaif import AlgoNaif
 from model.algorithmes.DBR import DBR
+from model.algorithmes.DBRA import DBRA
 from model.percepts.Camera import Camera
 from model.utils.Radian import Radian
 
@@ -9,13 +10,18 @@ import time
 import math
 
 
+
+
 class RobotAgent :
 
     height = 20
     width = 20
 
-    acceleration_lineaire_constante = 10 # A definir m/s^2
+    acceleration_lineaire_constante = 1.1 # A definir m/s^2
+    deceleration_lineaire_constante = 2 # A definir m/s^2
     acceleration_angulaire_constante = 0
+
+    VITESSE_MAX = 13
 
     COLOR_ON_ROAD = (96, 255, 0)
     COLOR_OUT_ROAD = (255, 0, 18)
@@ -31,6 +37,12 @@ class RobotAgent :
         self.vitesse_angulaire_courante = 0.1
         self.camera = Camera(self)
         self.algorithme = DBR(self) # Exemple
+
+        self.vitesse_reel = 1
+        
+
+
+
         """
          ## AJOUTER ICI LES ALGOS A IMPLEMENTER ##
          /!\ les algos doivent heriter de la classe abstraite Algorithme /!\.
@@ -107,8 +119,14 @@ class RobotAgent :
         """
         Appliquer la formule de L’équation de la position avec une vitesse uniformément accélérée
         """
-        self.vitesse_lineaire_courante = self.vecteur_directeur * 6 # ( (self.vitesse_lineaire_courante * self.accel_time)  + ( (1/2) * RobotAgent.acceleration_lineaire_constante * self.accel_time**2 ) ) 
+        self.vitesse_reel += (1/2) * RobotAgent.acceleration_lineaire_constante
 
+        if self.vitesse_reel > RobotAgent.VITESSE_MAX :
+            self.vitesse_reel = RobotAgent.VITESSE_MAX
+
+
+        self.vitesse_lineaire_courante = self.vecteur_directeur * self.vitesse_reel
+        #print("vitesse courante : ",self.vitesse_lineaire_courante)
 #         print("self.vitesse_lineaire_courante AVANT : ",self.vitesse_lineaire_courante," * ",self.vecteur_directeur)
 #         self.vitesse_lineaire_courante = self.vecteur_directeur * ( (self.vitesse_lineaire_courante * self.accel_time)  + ( (1/2) * RobotAgent.acceleration_lineaire_constante * self.accel_time**2 ) ) 
 #         print("self.vitesse_lineaire_courante  APRES : ",self.vitesse_lineaire_courante)
@@ -120,19 +138,24 @@ class RobotAgent :
         # print(self.vitesse_courante)
   
     def decelerer_lineaire(self) -> None : 
-        self.accel_time = 1
+
+        self.vitesse_reel -= (1/2) * RobotAgent.acceleration_lineaire_constante
+        if self.vitesse_reel < 2 :
+            self.vitesse_reel = 2
+        self.vitesse_lineaire_courante = self.vecteur_directeur * self.vitesse_reel
+
         # position_courante = np.array( [ self.x , self.y ] )
-        force = (self.vitesse_lineaire_courante * self.accel_time) - ( (1/2) * RobotAgent.acceleration_lineaire_constante * self.accel_time**2 )
-        
+        #force = (self.vitesse_lineaire_courante ) - ( (1/2) * RobotAgent.acceleration_lineaire_constante )
+        #print("vitesse : ",self.vitesse_reel)
         # print("force : ",force)
-        if force[0] < 0.0 :
-            force[0] = 0.0
-        if force[1] < 0.0 :
-            force[1] = 0.0
+        # if force[0] < 0.0 :
+        #     force[0] = 0.0
+        # if force[1] < 0.0 :
+        #     force[1] = 0.0
 
         # new_position = (position_courante + self.vecteur_directeur * force)
         # self.vitesse_lineaire_courante = np.abs(position_courante - new_position) # / (time.time() - self.local_clock)     
-        self.vitesse_lineaire_courante = force
+        #self.vitesse_lineaire_courante = force
         # self.x = new_position[0]
 
         # self.y = new_position[1]
