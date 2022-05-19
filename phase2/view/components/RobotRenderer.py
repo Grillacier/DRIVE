@@ -1,5 +1,7 @@
+from model.RobotAgent import RobotAgent
 from view.components.VecteurDirecteurRenderer import VecteurDirecteurRenderer
 from view.components.CameraRenderer import CameraRenderer
+from model.utils.Point import Point
 import pygame
 from pygame.locals import *
 
@@ -14,6 +16,8 @@ class RobotRenderer :
         self.renderer = renderer
         self.camera_renderer = CameraRenderer(self.renderer)
         self.vecteur_directeur_renderer = VecteurDirecteurRenderer(self.renderer)
+        self.vecteur_directeur = self.vecteur_directeur_renderer.getVecteurDirecteur()
+        self.robot_agent = self.renderer.getModel().getRobotAgent()
         self.update()
         
 
@@ -21,16 +25,33 @@ class RobotRenderer :
         """
         Mise à jour de l'affichage
         """
-        x,y,height,width = self.getData() # recuperation des données du modele
-        y_rend = self.renderer.getHeight() - y - height
-        pygame.draw.rect(self.renderer.getMainFrame(), RobotRenderer.COLOR, pygame.Rect(x, y_rend, width, height)) # x , y , width , height
-        
+
         """
         Update des autres composants
         """
-
         self.camera_renderer.update()
         self.vecteur_directeur_renderer.update()
+
+
+        x,y,height,width = self.getRobotAgent() # recuperation des données du modele
+        y_rend = self.renderer.getHeight() - y - height
+        vecteur_directeur = self.vecteur_directeur_renderer.getVecteurDirecteur()
+        # print(vecteur_directeur)
+        normal = self.vecteur_directeur_renderer.getRobotAgent().getNormalVecteurDirecteur()
+
+        x_1 = height * vecteur_directeur[0] + x
+        y_1 = height * vecteur_directeur[1] + y
+        x_2 = width * normal["x"] + x
+        y_2 = width * normal["y"] + y
+
+        dest = self.robot_agent.getDestination()
+        pygame.draw.line(self.renderer.getMainFrame(), (240, 0, 255),(self.robot_agent.x+self.robot_agent.width/2,self.robot_agent.y+self.robot_agent.height/2),(dest[0],dest[1]),2)
+        
+        pygame.draw.polygon(self.renderer.getMainFrame(), self.getColor(),[( x+height, y),(x, y),(x, y+width),( x+width, y+height)]) # x , y , width , height
+        #pygame.draw.polygon(self.renderer.getMainFrame(), RobotRenderer.COLOR,[(x_1,self.renderer.getHeight() - y_1),(x,self.renderer.getHeight() - y),(x_2,self.renderer.getHeight() - y_2),(x_1+x_2 -x,self.renderer.getHeight()- (y_2 + y_1 -y))]) # x , y , width , height
+        #pygame.draw.line(self.renderer.getMainFrame(), VecteurDirecteurRenderer.COLOR, (x,  self.renderer.getHeight() - y ),(x_1,self.renderer.getHeight() - y_1))
+        
+        
 
     def getData(self) :
         """
@@ -42,3 +63,17 @@ class RobotRenderer :
         height = self.renderer.getHeight() * self.renderer.getModel().getRobotAgent().get_relative_height(self.renderer.getModel().getHeight())
         width = self.renderer.getWidth() * self.renderer.getModel().getRobotAgent().get_relative_width(self.renderer.getModel().getWidth())
         return x , y , height , width
+    
+    def getRobotAgent(self) :
+        x = self.renderer.getModel().getRobotAgent().getX()
+        y = self.renderer.getModel().getRobotAgent().getY()
+        height = self.renderer.getModel().getRobotAgent().height
+        width = self.renderer.getModel().getRobotAgent().width
+        return x , y , height , width
+    
+    def getColor(self) :
+        if self.renderer.getModel().getCircuit().OnTheCircuit(Point(self.robot_agent.getX()+self.robot_agent.width/2,self.robot_agent.getY()+self.robot_agent.height/2)):
+            return RobotAgent.COLOR_ON_ROAD
+        else :
+            return RobotAgent.COLOR_OUT_ROAD
+    

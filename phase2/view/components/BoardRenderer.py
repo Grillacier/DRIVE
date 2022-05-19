@@ -21,8 +21,10 @@ class BoardRenderer:
     def update(self) -> None :
         self.printData(f"Taille circuit : {self.roadrenderer.circuit.longeur} px",1)     
         XRobot,YRobot,_,_ = self.robotrenderder.getData()
-        self.printData(f"Position robot : {round(XRobot,3),round(YRobot,3)}",2)
-        # self.printData(f"Position robot : {round(self.renderer.getModel().getRobotAgent().getX(),3),round(self.renderer.getHeight() -self.renderer.getModel().getRobotAgent().getY(),3)}",2)  
+
+        self.printData(f"Position robot : {round(self.renderer.getModel().getRobotAgent().getX(),3),round(self.renderer.getModel().getRobotAgent().getY(),3)}",2) 
+        self.printData(f"Position curseur : {pygame.mouse.get_pos()}",3) 
+            
 
     def printData(self,data:str,ind:int) -> None :
         if pygame.font:

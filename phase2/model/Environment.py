@@ -15,11 +15,13 @@ class Environment :
     """
     height = 1000
     width = 1000
-    filename = os.path.dirname(os.path.abspath(__file__))+"/circuit/circuit2.txt"
+    #filename = os.path.dirname(os.path.abspath(__file__))+"/circuit/circuit.txt"
+    #filename = os.path.dirname(os.path.abspath(__file__))+"/circuit/circuit2.txt"
+    filename = os.path.dirname(os.path.abspath(__file__))+"/circuit/circuit3.txt"
 
     def __init__(self) -> None:
         middle_x_robotAgent = (Environment.width/2) - (RobotAgent.width/2)
-        self.robotAgent = RobotAgent(middle_x_robotAgent,500) # Initialise un robot en (0,0)
+        self.robotAgent = RobotAgent(330,650) # On place le robot au milieu de l'écran
         self.thread = ModelThread(self)
         """
         self.road : liste de points triplet [(P1 : Point,Pc : Point, P2 : Point)_1,...,(P1 : Point,Pc : Point, P2 : Point)_n]
@@ -29,6 +31,7 @@ class Environment :
         # (Point(600,600,10,10),Point(700,600,10,10),Point(700,700,10,10))]
 
         self.road = Environment.importRoadFromFile(Environment.filename)
+        self.circuit = None
 
     def update(self) -> None :
         self.robotAgent.update()
@@ -51,6 +54,12 @@ class Environment :
         Retourne le robot
         """
         return self.robotAgent
+    
+    def getCircuit(self) :
+        return self.circuit
+    
+    def setCircuit(self,circuit) :
+        self.circuit = circuit
 
     @staticmethod
     def importRoadFromFile(filename : string) :

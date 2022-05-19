@@ -28,8 +28,8 @@ class Renderer :
         self.main_frame = pygame.display.set_mode((self.width,self.height),pygame.RESIZABLE,vsync=1) # Création de la fenêtre principale
         # Thread qui s'occupe de rafraichir la vue
         self.thread = RendererThread(self)
-        self.robotRenderer = RobotRenderer(self)
         self.roadRenderer = RoadRenderer(self)
+        self.robotRenderer = RobotRenderer(self)
         self.boardRenderer = BoardRenderer(self,self.roadRenderer,self.robotRenderer)
         
     def update(self) -> None:

@@ -17,9 +17,9 @@ class VecteurDirecteurRenderer :
         self.update()
 
     def update(self) -> None :
-        (x_1 , y_1),(x_2,y_2) = self.getData() # recuperation des données du modele
-        y_1 = self.renderer.getHeight() - y_1
-        y_2 = self.renderer.getHeight() - y_2
+        (x_1 , y_1),(x_2,y_2) = self.getData2() # recuperation des données du modele
+        # y_1 = self.renderer.getHeight() - y_1
+        # y_2 = self.renderer.getHeight() - y_2
         pygame.draw.line(self.renderer.getMainFrame(), VecteurDirecteurRenderer.COLOR, (x_1 , y_1),(x_2,y_2))
 
 
@@ -42,3 +42,23 @@ class VecteurDirecteurRenderer :
         y_2 = vecteur_directeur[1] * VecteurDirecteurRenderer.rayon + y_1
 
         return (x_1 , y_1),(x_2,y_2) 
+    
+    def getData2(self) :
+        """
+        Méthode qui recupere les données du modele et qui les transforme avec les dimensions courante
+        de la fenetre
+        """
+        vecteur_directeur = self.renderer.getModel().getRobotAgent().getVecteurDirecteur()
+        x_1 = self.renderer.getModel().getRobotAgent().getX() + (self.renderer.getModel().getRobotAgent().getWidth() / 2)
+        y_1 = self.renderer.getModel().getRobotAgent().getY() + (self.renderer.getModel().getRobotAgent().getWidth() / 2)
+
+        x_2 = vecteur_directeur[0] * VecteurDirecteurRenderer.rayon + x_1
+        y_2 = vecteur_directeur[1] * VecteurDirecteurRenderer.rayon + y_1
+
+        return (x_1 , y_1),(x_2,y_2)
+    
+    def getVecteurDirecteur(self) :
+        return self.renderer.getModel().getRobotAgent().getVecteurDirecteur()
+    
+    def getRobotAgent(self) :
+        return self.renderer.getModel().getRobotAgent()

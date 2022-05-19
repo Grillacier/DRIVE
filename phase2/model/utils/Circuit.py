@@ -11,8 +11,9 @@ class Circuit:
         self.longeur = round(sum([route.longeur for route in routes]),2)
         self.startPoint = routes[0].courbe.get(0)
         self.controlPointsAngle = self.getControlPointsAngle()
-        self.controlPointsDist = self.getControlPointsDist()
-        self.controlPointsT = self.getControlPointsT()
+        # peu parfois provoquer des problème de calculs avec les points de controle
+        #self.controlPointsDist = self.getControlPointsDist()
+        #self.controlPointsT = self.getControlPointsT()
 
     def getControlPointsT(self) -> np.array:
         """
