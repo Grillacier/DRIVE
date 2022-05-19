@@ -46,7 +46,7 @@ class RoadRenderer :
         #self.centerCircuit()
 
         self.renderer.getModel().setCircuit(self.circuit)
-        self.renderer.getModel().getRobotAgent().setControlPoint(self.circuit.controlPointsAngle)
+        #self.renderer.getModel().getRobotAgent().setControlPoint(self.circuit.controlPointsAngle)
         
         self.update()
 
@@ -67,9 +67,11 @@ class RoadRenderer :
         # Dessin Circuit
         
         self.dessinCircuit()
+
         destination = self.renderer.getModel().getRobotAgent().getDestination()
 
-        self.drawGivenPoint(Point(destination[0],destination[1]))
+        if destination is not None :
+            self.drawGivenPoint(Point(destination[0],destination[1]))
         
         # Dessin Point particulier demander
         # p = self.circuit.getPointFromStart(1500)
@@ -86,7 +88,7 @@ class RoadRenderer :
         #     self.renderer.getMainFrame().blit(surface, (p.x-5, p.y-5)) #- 5 pour centrer
 
 
-        self.dessinGivenPoint(Point(AlgoNaif.DESTINATION[0],AlgoNaif.DESTINATION[1]))
+        # self.dessinPoint(Point(AlgoNaif.DESTINATION[0],AlgoNaif.DESTINATION[1]))
     
         
         

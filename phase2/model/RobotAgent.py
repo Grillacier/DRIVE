@@ -1,5 +1,6 @@
 from copyreg import constructor
 from model.algorithmes.AlgoNaif import AlgoNaif
+from model.algorithmes.DBR import DBR
 from model.percepts.Camera import Camera
 from model.utils.Radian import Radian
 
@@ -15,28 +16,21 @@ class RobotAgent :
 
     acceleration_lineaire_constante = 10 # A definir m/s^2
     acceleration_angulaire_constante = 0
-    vitesse_max = ... # A definir
-    vitesse_courante = 0
-    direction_courante = ... # A definir
 
     COLOR_ON_ROAD = (96, 255, 0)
     COLOR_OUT_ROAD = (255, 0, 18)
 
-    VITESSE_MAX_VIRAGE = {} # Dictionnaire qui comporte les vitesse max du robot dans un virage
-
-    def __init__(self,x : float,y  : float) -> None:
+    def __init__(self,env , x : float,y  : float) -> None:
         self.x = x
         self.y = y
-        self.acceleration_active = False
-        self.accel_time = 0
-        self.local_clock = time.time()
+        self.env = env
         self.vecteur_directeur = np.array([0,1]) # Vecteur normalise
         self.current_radian = Radian(np.pi/2)
         # self.vitesse_courante = np.array([0,10])# np.zeros(2) # px/s
         self.vitesse_lineaire_courante = np.array([0,5])
         self.vitesse_angulaire_courante = 0.1
         self.camera = Camera(self)
-        self.algorithme = AlgoNaif(self) # Exemple
+        self.algorithme = DBR(self) # Exemple
         """
          ## AJOUTER ICI LES ALGOS A IMPLEMENTER ##
          /!\ les algos doivent heriter de la classe abstraite Algorithme /!\.
@@ -101,34 +95,18 @@ class RobotAgent :
         Le robot se demandera a chaque pas de temps de l'environnement ce qu'il doit faire.
         La méthode decision de l'algorithme adopté permettra au robot de savoir ce qu'il doit faire.
         """
-        # if self.acceleration_active :
-        #     self.accel_time += time.time() - self.local_clock
-        # else :
-        #     self.accel_time = 0
-        self.local_clock = time.time()
-        
         self.appliquer_vitesse()
 
         self.algorithme.decision()
         
-        #print("coords : ",(self.x,self.y))
-        print("vecteur directeur : ",self.vecteur_directeur)
-        print("vitesse_lineaire : ",self.vitesse_lineaire_courante)
+        # print("vecteur directeur : ",self.vecteur_directeur)
+        # print("vitesse_lineaire : ",self.vitesse_lineaire_courante)
 
 
     def accelerer_lineaire(self) -> None :
         """
         Appliquer la formule de L’équation de la position avec une vitesse uniformément accélérée
-        x(t) = x_0 + v_{x0}*t+(1/2)a_{x0}*t^2
         """
-        self.acceleration_active = True
-
-        # position_courante = np.array( [ self.x , self.y ] )
-        
-        # print(position_courante)
-
-        self.accel_time = 1
-
         self.vitesse_lineaire_courante = self.vecteur_directeur * 6 # ( (self.vitesse_lineaire_courante * self.accel_time)  + ( (1/2) * RobotAgent.acceleration_lineaire_constante * self.accel_time**2 ) ) 
 
 #         print("self.vitesse_lineaire_courante AVANT : ",self.vitesse_lineaire_courante," * ",self.vecteur_directeur)
@@ -202,9 +180,6 @@ class RobotAgent :
         d = {"x":self.vecteur_directeur[0],"y":self.vecteur_directeur[1]}
         q = math.sqrt(d["x"] * d["x"] + d["y"] * d["y"])
         return { "x": -d["y"] / q, "y": d["x"] / q }
-    
-    def setControlPoint(self,controls_point) : 
-        self.algorithme.setControlsPoints(controls_point)
     
     def getDestination(self) : 
         return self.algorithme.getDestination()

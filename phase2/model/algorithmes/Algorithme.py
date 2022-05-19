@@ -11,3 +11,6 @@ class Algorithme :
         Méthode abstraite à enrichir...
         """
         pass
+
+    def getDestination(self) : 
+        return None

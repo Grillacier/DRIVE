@@ -45,7 +45,8 @@ class RobotRenderer :
         y_2 = width * normal["y"] + y
 
         dest = self.robot_agent.getDestination()
-        pygame.draw.line(self.renderer.getMainFrame(), (240, 0, 255),(self.robot_agent.x+self.robot_agent.width/2,self.robot_agent.y+self.robot_agent.height/2),(dest[0],dest[1]),2)
+        if dest is not None :
+            pygame.draw.line(self.renderer.getMainFrame(), (240, 0, 255),(self.robot_agent.x+self.robot_agent.width/2,self.robot_agent.y+self.robot_agent.height/2),(dest[0],dest[1]),2)
         
         pygame.draw.polygon(self.renderer.getMainFrame(), self.getColor(),[( x+height, y),(x, y),(x, y+width),( x+width, y+height)]) # x , y , width , height
         #pygame.draw.polygon(self.renderer.getMainFrame(), RobotRenderer.COLOR,[(x_1,self.renderer.getHeight() - y_1),(x,self.renderer.getHeight() - y),(x_2,self.renderer.getHeight() - y_2),(x_1+x_2 -x,self.renderer.getHeight()- (y_2 + y_1 -y))]) # x , y , width , height

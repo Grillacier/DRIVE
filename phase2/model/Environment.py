@@ -15,13 +15,13 @@ class Environment :
     """
     height = 1000
     width = 1000
-    #filename = os.path.dirname(os.path.abspath(__file__))+"/circuit/circuit.txt"
+    #filename = os.path.dirname(os.path.abspath(__file__))+"/circuit/circuit1.txt"
     #filename = os.path.dirname(os.path.abspath(__file__))+"/circuit/circuit2.txt"
     filename = os.path.dirname(os.path.abspath(__file__))+"/circuit/circuit3.txt"
 
     def __init__(self) -> None:
         middle_x_robotAgent = (Environment.width/2) - (RobotAgent.width/2)
-        self.robotAgent = RobotAgent(330,650) # On place le robot au milieu de l'écran
+        self.robotAgent = RobotAgent(self,330,650) # On place le robot au milieu de l'écran
         self.thread = ModelThread(self)
         """
         self.road : liste de points triplet [(P1 : Point,Pc : Point, P2 : Point)_1,...,(P1 : Point,Pc : Point, P2 : Point)_n]
