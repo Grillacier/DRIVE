@@ -8,6 +8,7 @@ import numpy as np
 Algorithme de démonstration qui fait avancer le robot tout droit
 """
 class AlgoNaif(Algorithme):
+
     def __init__(self,robotAgent) -> None:
         # recuperation des points de controle
         Algorithme.__init__(self,robotAgent)
@@ -29,6 +30,7 @@ class AlgoNaif(Algorithme):
 
         self.robotAgent.accelerer_lineaire()
 
+
     def getDirection(self,destination,vecteur_directeur) -> str :
         """
         Permet de determiner la direction a prendre en fonction de la destination et du vecteur directeur
@@ -38,6 +40,7 @@ class AlgoNaif(Algorithme):
         vecteurDirecteurTest = self.radToVectorDirector((self.robotAgent.current_radian.value + 0.1 ) % (2 * np.pi))
         angle2 = abs(np.arccos( (np.dot(destination,vecteurDirecteurTest)) / (np.linalg.norm(destination) * np.linalg.norm(vecteurDirecteurTest))))
         
+
         if np.abs(angle) > eps :
             if np.degrees(angle) > np.degrees(angle2) :
                 return "DROITE"

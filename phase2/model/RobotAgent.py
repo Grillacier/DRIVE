@@ -13,7 +13,7 @@ class RobotAgent :
     height = 20
     width = 20
 
-    acceleration_lineaire_constante = 5 # A definir m/s^2
+    acceleration_lineaire_constante = 10 # A definir m/s^2
     acceleration_angulaire_constante = 0
     vitesse_max = ... # A definir
     vitesse_courante = 0
@@ -41,6 +41,7 @@ class RobotAgent :
          ## AJOUTER ICI LES ALGOS A IMPLEMENTER ##
          /!\ les algos doivent heriter de la classe abstraite Algorithme /!\.
         """
+
     def getX(self) -> float :
         return self.x
 
@@ -105,8 +106,15 @@ class RobotAgent :
         # else :
         #     self.accel_time = 0
         self.local_clock = time.time()
-        self.algorithme.decision()
+        
         self.appliquer_vitesse()
+
+        self.algorithme.decision()
+        
+        #print("coords : ",(self.x,self.y))
+        print("vecteur directeur : ",self.vecteur_directeur)
+        print("vitesse_lineaire : ",self.vitesse_lineaire_courante)
+
 
     def accelerer_lineaire(self) -> None :
         """
@@ -123,11 +131,14 @@ class RobotAgent :
 
         self.vitesse_lineaire_courante = self.vecteur_directeur * 6 # ( (self.vitesse_lineaire_courante * self.accel_time)  + ( (1/2) * RobotAgent.acceleration_lineaire_constante * self.accel_time**2 ) ) 
 
+#         print("self.vitesse_lineaire_courante AVANT : ",self.vitesse_lineaire_courante," * ",self.vecteur_directeur)
+#         self.vitesse_lineaire_courante = self.vecteur_directeur * ( (self.vitesse_lineaire_courante * self.accel_time)  + ( (1/2) * RobotAgent.acceleration_lineaire_constante * self.accel_time**2 ) ) 
+#         print("self.vitesse_lineaire_courante  APRES : ",self.vitesse_lineaire_courante)
+
         # print(self.vecteur_directeur)
         # print("1 : ",(self.vitesse_courante * self.accel_time))
         # print("2 : ",( (1/2) * RobotAgent.acceleration_constante * self.accel_time**2 ))
         # print((self.vecteur_directeur * ( (self.vitesse_courante * self.accel_time) ) + ( (1/2) * RobotAgent.acceleration_constante * self.accel_time**2 )))
-
         # print(self.vitesse_courante)
   
     def decelerer_lineaire(self) -> None : 
@@ -165,7 +176,7 @@ class RobotAgent :
         """
         new_radian_value,raw_new_radian_value = self.current_radian.updateRadianDroite(RobotAgent.acceleration_angulaire_constante,self.vitesse_angulaire_courante)
         self.vitesse_angulaire_courante = np.abs(self.current_radian.getValue() - raw_new_radian_value)
-        self.current_radian.setValue(new_radian_value) 
+        self.current_radian.setValue(new_radian_value)
     
     def appliquer_vitesse(self) -> None : 
 
