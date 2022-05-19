@@ -86,7 +86,7 @@ class RendererThread(threading.Thread) :
     """
     Classe qui s'occupe de mettre à jour l'affichage
     """
-    speed_view = 0.01 # Mise à jour de l'écran toutes les 0.01 secondes
+    SPEED_VIEW = 0.01 # Mise à jour de l'écran toutes les 0.01 secondes
     condition = True
 
     def __init__(self,renderer : Renderer) -> None:
@@ -97,7 +97,7 @@ class RendererThread(threading.Thread) :
         while(self.condition) :
             pygame.event.get()
             self.renderer.update()
-            time.sleep(RendererThread.speed_view)
+            time.sleep(RendererThread.SPEED_VIEW)
 
     def setCondition(self,condition) -> None:
         """

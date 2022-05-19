@@ -11,7 +11,6 @@ class Radian :
     def updateRadianGauche(self,step,vitesse_angulaire):
         return (self.value - vitesse_angulaire - step ) % (2 * np.pi),(vitesse_angulaire +  self.value + step)
 
-
     def radToVectorDirector(self):
         return np.array([np.cos(self.value),np.sin(self.value)])
 

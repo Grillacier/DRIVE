@@ -3,7 +3,7 @@ from pygame.locals import *
 from model.utils.Courbe import *
 from model.utils.Route import *
 from model.utils.Circuit import *
-
+from model.algorithmes.AlgoNaif import *
 
 class RoadRenderer :
 
@@ -79,7 +79,7 @@ class RoadRenderer :
         #     self.renderer.getMainFrame().blit(surface, (p.x-5, p.y-5)) #- 5 pour centrer
 
 
-        
+        self.dessinGivenPoint(Point(AlgoNaif.DESTINATION[0],AlgoNaif.DESTINATION[1]))
     
         
         
