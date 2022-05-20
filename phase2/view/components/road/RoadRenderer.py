@@ -120,17 +120,17 @@ class RoadRenderer :
             # Dessin P1
             surface = pygame.Surface((p["width_1"], p["height_1"]), pygame.SRCALPHA)
             surface.fill(RoadRenderer.COLOR_POINT)
-            self.renderer.getMainFrame().blit(surface, (p["x_1"], p["y_rend_1"]))
+            self.renderer.getMainFrame().blit(surface, (p["x_1"] - p["width_1"]/2, p["y_rend_1"] - p["height_1"]/2))
 
             # Dessin Pc
             surface = pygame.Surface((p["width_c"], p["height_c"]), pygame.SRCALPHA)
             surface.fill(RoadRenderer.COLOR_CHECKPOINT)
-            self.renderer.getMainFrame().blit(surface, (p["x_c"], p["y_rend_c"]))
+            self.renderer.getMainFrame().blit(surface, (p["x_c"] - p["width_c"]/2, p["y_rend_c"] - p["height_c"]/2))
 
             # Dessin P2
             surface = pygame.Surface((p["width_2"], p["height_2"]), pygame.SRCALPHA)
             surface.fill(RoadRenderer.COLOR_POINT)
-            self.renderer.getMainFrame().blit(surface, (p["x_2"], p["y_rend_2"]))
+            self.renderer.getMainFrame().blit(surface, (p["x_2"] - p["width_2"]/2, p["y_rend_2"] - p["height_2"]/2))
         
     def dessinCourbe(self):
         for courbe in self.listCourbe:

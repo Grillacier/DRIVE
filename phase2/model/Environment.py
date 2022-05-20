@@ -18,10 +18,11 @@ class Environment :
     #filename = os.path.dirname(os.path.abspath(__file__))+"/circuit/circuit1.txt"
     #filename = os.path.dirname(os.path.abspath(__file__))+"/circuit/circuit2.txt"
     filename = os.path.dirname(os.path.abspath(__file__))+"/circuit/circuit3.txt"
+    #filename = os.path.dirname(os.path.abspath(__file__))+"/circuit/circuit4.txt"
 
     def __init__(self) -> None:
         middle_x_robotAgent = (Environment.width/2) - (RobotAgent.width/2)
-        self.robotAgent = RobotAgent(self,350,610) # On place le robot sur la route
+        self.robotAgent = RobotAgent(self,400,610) # On place le robot sur la route
         self.thread = ModelThread(self)
         """
         self.road : liste de points triplet [(P1 : Point,Pc : Point, P2 : Point)_1,...,(P1 : Point,Pc : Point, P2 : Point)_n]
