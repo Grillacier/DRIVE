@@ -45,7 +45,7 @@ class DBR(Algorithme):
         elif direction == "GAUCHE" : 
             self.robotAgent.accelerer_angulaire_gauche()
 
-        self.robotAgent.vitesse_lineaire_courante = self.robotAgent.vecteur_directeur * 6
+        self.robotAgent.vitesse_lineaire_courante = self.robotAgent.vecteur_directeur * 10
 
         
     """

@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <title>Titre de la page</title>
+
+  <link href="editor.css" rel="stylesheet">
+</head>
+<body>
+
+  <h1>TEST</h1>
+
+  <input type="checkbox" name="control points on/off" class="btn-check" id="btnControl" autocomplete="off">
+  <label class="btn btn-outline-primary" for="btnControl">control points on/off</label>
+
+  <input type="checkbox" name="btnSplit" class="btn-check" id="btnSplit" autocomplete="off">
+  <label class="btn btn-outline-primary" for="btnSplit">split curve on/off</label>
+
+  <input type="checkbox" name="btnDraw" class="btn-check" id="btnDraw" autocomplete="off">
+  <label class="btn btn-outline-primary" for="btnDraw">control curve on/off</label>
+
+
+  <canvas id="canvas" width="30" height="30"></canvas>
+
+  <input type="checkbox" name="rect" class="btn-check" id="rect" autocomplete="off">
+  <label class="btn btn-outline-primary" for="rect">Rectangle</label>
+
+  <input type="checkbox" name="cirl" class="btn-check" id="cirl" autocomplete="off">
+  <label class="btn btn-outline-primary" for="cirl">Cercle</label>
+
+  <input type="checkbox" name="robot" class="btn-check" id="robot" autocomplete="off">
+  <label class="btn btn-outline-primary" for="robot">robot</label>
+
+  <input type="checkbox" name="line" class="btn-check" id="line" autocomplete="off">
+  <label class="btn btn-outline-primary" for="line">Line</label>
+
+
+  <input type="checkbox" name="depot" class="btn-check" id="depot" autocomplete="off">
+  <label class="btn btn-outline-primary" for="depot">Depot</label>
+
+
+  <button id="save" class="btn btn-primary btn-lg btn-block">Save</button>
+  <button id="graph" class="btn btn-primary btn-lg btn-block">Graph</button>
+  <button id="und" class="btn btn-primary btn-lg btn-block">Undo</button>
+  <button id="importjs" class="btn btn-primary btn-lg btn-block">imprtjs</button>
+  <button id="exportjs" class="btn btn-primary btn-lg btn-block">exportjs</button>
+  <button id="exportxml" class="btn btn-primary btn-lg btn-block">exportxml</button>
+
+
+
+  <script type="text/javascript" src="newBezier.js"></script>
+</body>
+</html>
