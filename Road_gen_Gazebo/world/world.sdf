@@ -1,0 +1,776 @@
+<sdf version='1.6'><world name='default'>
+    <light name='sun_light' type='directional'>
+      <pose frame=''>0 0 10 0 -0 0</pose>
+      <diffuse>0.5 0.5 0.5 1</diffuse>
+      <specular>0.1 0.1 0.1 1</specular>
+      <direction>0.1 0.1 -0.9</direction>
+      <attenuation>
+        <range>20</range>
+        <constant>0.5</constant>
+        <linear>0.01</linear>
+        <quadratic>0.001</quadratic>
+      </attenuation>
+      <cast_shadows>1</cast_shadows>
+    </light>
+    
+    <model name='Tile/0-0'>
+      <static>1</static>
+      <link name='link'>
+        <collision name='collision'>
+          <geometry>
+            <plane>
+              <normal>0 0 1</normal>
+              <size>4.096 4.096</size>
+            </plane>
+          </geometry>
+          <surface>
+            <friction>
+              <ode>
+                <mu>100</mu>
+                <mu2>50</mu2>
+              </ode>
+              <torsional>
+                <ode/>
+              </torsional>
+            </friction>
+            <contact>
+              <ode/>
+            </contact>
+            <bounce/>
+          </surface>
+          <max_contacts>10</max_contacts>
+        </collision>
+        <visual name='visual'>
+          <cast_shadows>0</cast_shadows>
+          <geometry>
+            <plane>
+              <normal>0 0 1</normal>
+              <size>4.096 4.096</size>
+            </plane>
+          </geometry>
+          <material>
+            <script>
+              <uri>file://materials/scripts</uri>
+              <uri>file://materials/textures</uri>
+              <name>Tile/59aa48be58bd1d39c4f8729740ab94a3ee72491696f29f5efb5f4e6bfd79c256</name>
+            </script>
+          </material>
+        </visual>
+        <self_collide>0</self_collide>
+        <enable_wind>0</enable_wind>
+        <kinematic>0</kinematic>
+      </link>
+      <pose frame=''>-0.952 -1.8519999999999999 0 0 -0 0</pose>
+    </model>
+    
+    <model name='Tile/0-1'>
+      <static>1</static>
+      <link name='link'>
+        <collision name='collision'>
+          <geometry>
+            <plane>
+              <normal>0 0 1</normal>
+              <size>4.096 4.096</size>
+            </plane>
+          </geometry>
+          <surface>
+            <friction>
+              <ode>
+                <mu>100</mu>
+                <mu2>50</mu2>
+              </ode>
+              <torsional>
+                <ode/>
+              </torsional>
+            </friction>
+            <contact>
+              <ode/>
+            </contact>
+            <bounce/>
+          </surface>
+          <max_contacts>10</max_contacts>
+        </collision>
+        <visual name='visual'>
+          <cast_shadows>0</cast_shadows>
+          <geometry>
+            <plane>
+              <normal>0 0 1</normal>
+              <size>4.096 4.096</size>
+            </plane>
+          </geometry>
+          <material>
+            <script>
+              <uri>file://materials/scripts</uri>
+              <uri>file://materials/textures</uri>
+              <name>Tile/cb742ec834ce0db14fa5edbd5a9bf9a3149f1d3629eb5aba388d11a938615e9e</name>
+            </script>
+          </material>
+        </visual>
+        <self_collide>0</self_collide>
+        <enable_wind>0</enable_wind>
+        <kinematic>0</kinematic>
+      </link>
+      <pose frame=''>-0.952 2.244 0 0 -0 0</pose>
+    </model>
+    
+    <model name='Tile/0-2'>
+      <static>1</static>
+      <link name='link'>
+        <collision name='collision'>
+          <geometry>
+            <plane>
+              <normal>0 0 1</normal>
+              <size>4.096 4.096</size>
+            </plane>
+          </geometry>
+          <surface>
+            <friction>
+              <ode>
+                <mu>100</mu>
+                <mu2>50</mu2>
+              </ode>
+              <torsional>
+                <ode/>
+              </torsional>
+            </friction>
+            <contact>
+              <ode/>
+            </contact>
+            <bounce/>
+          </surface>
+          <max_contacts>10</max_contacts>
+        </collision>
+        <visual name='visual'>
+          <cast_shadows>0</cast_shadows>
+          <geometry>
+            <plane>
+              <normal>0 0 1</normal>
+              <size>4.096 4.096</size>
+            </plane>
+          </geometry>
+          <material>
+            <script>
+              <uri>file://materials/scripts</uri>
+              <uri>file://materials/textures</uri>
+              <name>Tile/5eab350b8220ac9944dbdfa4ac3288c7c17e24c3bf5df0dfcf6173d64dae00a1</name>
+            </script>
+          </material>
+        </visual>
+        <self_collide>0</self_collide>
+        <enable_wind>0</enable_wind>
+        <kinematic>0</kinematic>
+      </link>
+      <pose frame=''>-0.952 6.34 0 0 -0 0</pose>
+    </model>
+    
+    <model name='Tile/1-0'>
+      <static>1</static>
+      <link name='link'>
+        <collision name='collision'>
+          <geometry>
+            <plane>
+              <normal>0 0 1</normal>
+              <size>4.096 4.096</size>
+            </plane>
+          </geometry>
+          <surface>
+            <friction>
+              <ode>
+                <mu>100</mu>
+                <mu2>50</mu2>
+              </ode>
+              <torsional>
+                <ode/>
+              </torsional>
+            </friction>
+            <contact>
+              <ode/>
+            </contact>
+            <bounce/>
+          </surface>
+          <max_contacts>10</max_contacts>
+        </collision>
+        <visual name='visual'>
+          <cast_shadows>0</cast_shadows>
+          <geometry>
+            <plane>
+              <normal>0 0 1</normal>
+              <size>4.096 4.096</size>
+            </plane>
+          </geometry>
+          <material>
+            <script>
+              <uri>file://materials/scripts</uri>
+              <uri>file://materials/textures</uri>
+              <name>Tile/99f8d35007d37e1f7674efd44d236e1ab641fb13e9ccffc66d6d6ed487e0d33c</name>
+            </script>
+          </material>
+        </visual>
+        <self_collide>0</self_collide>
+        <enable_wind>0</enable_wind>
+        <kinematic>0</kinematic>
+      </link>
+      <pose frame=''>3.144 -1.8519999999999999 0 0 -0 0</pose>
+    </model>
+    
+    <model name='Tile/1-1'>
+      <static>1</static>
+      <link name='link'>
+        <collision name='collision'>
+          <geometry>
+            <plane>
+              <normal>0 0 1</normal>
+              <size>4.096 4.096</size>
+            </plane>
+          </geometry>
+          <surface>
+            <friction>
+              <ode>
+                <mu>100</mu>
+                <mu2>50</mu2>
+              </ode>
+              <torsional>
+                <ode/>
+              </torsional>
+            </friction>
+            <contact>
+              <ode/>
+            </contact>
+            <bounce/>
+          </surface>
+          <max_contacts>10</max_contacts>
+        </collision>
+        <visual name='visual'>
+          <cast_shadows>0</cast_shadows>
+          <geometry>
+            <plane>
+              <normal>0 0 1</normal>
+              <size>4.096 4.096</size>
+            </plane>
+          </geometry>
+          <material>
+            <script>
+              <uri>file://materials/scripts</uri>
+              <uri>file://materials/textures</uri>
+              <name>Tile/39cb29837b5bb7ebf0ae2a9dfbc764908ff20f72983a383a6fc58c857dd7cf15</name>
+            </script>
+          </material>
+        </visual>
+        <self_collide>0</self_collide>
+        <enable_wind>0</enable_wind>
+        <kinematic>0</kinematic>
+      </link>
+      <pose frame=''>3.144 2.244 0 0 -0 0</pose>
+    </model>
+    
+    <model name='Tile/1-2'>
+      <static>1</static>
+      <link name='link'>
+        <collision name='collision'>
+          <geometry>
+            <plane>
+              <normal>0 0 1</normal>
+              <size>4.096 4.096</size>
+            </plane>
+          </geometry>
+          <surface>
+            <friction>
+              <ode>
+                <mu>100</mu>
+                <mu2>50</mu2>
+              </ode>
+              <torsional>
+                <ode/>
+              </torsional>
+            </friction>
+            <contact>
+              <ode/>
+            </contact>
+            <bounce/>
+          </surface>
+          <max_contacts>10</max_contacts>
+        </collision>
+        <visual name='visual'>
+          <cast_shadows>0</cast_shadows>
+          <geometry>
+            <plane>
+              <normal>0 0 1</normal>
+              <size>4.096 4.096</size>
+            </plane>
+          </geometry>
+          <material>
+            <script>
+              <uri>file://materials/scripts</uri>
+              <uri>file://materials/textures</uri>
+              <name>Tile/5eab350b8220ac9944dbdfa4ac3288c7c17e24c3bf5df0dfcf6173d64dae00a1</name>
+            </script>
+          </material>
+        </visual>
+        <self_collide>0</self_collide>
+        <enable_wind>0</enable_wind>
+        <kinematic>0</kinematic>
+      </link>
+      <pose frame=''>3.144 6.34 0 0 -0 0</pose>
+    </model>
+    
+    <model name='Tile/2-0'>
+      <static>1</static>
+      <link name='link'>
+        <collision name='collision'>
+          <geometry>
+            <plane>
+              <normal>0 0 1</normal>
+              <size>4.096 4.096</size>
+            </plane>
+          </geometry>
+          <surface>
+            <friction>
+              <ode>
+                <mu>100</mu>
+                <mu2>50</mu2>
+              </ode>
+              <torsional>
+                <ode/>
+              </torsional>
+            </friction>
+            <contact>
+              <ode/>
+            </contact>
+            <bounce/>
+          </surface>
+          <max_contacts>10</max_contacts>
+        </collision>
+        <visual name='visual'>
+          <cast_shadows>0</cast_shadows>
+          <geometry>
+            <plane>
+              <normal>0 0 1</normal>
+              <size>4.096 4.096</size>
+            </plane>
+          </geometry>
+          <material>
+            <script>
+              <uri>file://materials/scripts</uri>
+              <uri>file://materials/textures</uri>
+              <name>Tile/5eab350b8220ac9944dbdfa4ac3288c7c17e24c3bf5df0dfcf6173d64dae00a1</name>
+            </script>
+          </material>
+        </visual>
+        <self_collide>0</self_collide>
+        <enable_wind>0</enable_wind>
+        <kinematic>0</kinematic>
+      </link>
+      <pose frame=''>7.24 -1.8519999999999999 0 0 -0 0</pose>
+    </model>
+    
+    <model name='Tile/2-1'>
+      <static>1</static>
+      <link name='link'>
+        <collision name='collision'>
+          <geometry>
+            <plane>
+              <normal>0 0 1</normal>
+              <size>4.096 4.096</size>
+            </plane>
+          </geometry>
+          <surface>
+            <friction>
+              <ode>
+                <mu>100</mu>
+                <mu2>50</mu2>
+              </ode>
+              <torsional>
+                <ode/>
+              </torsional>
+            </friction>
+            <contact>
+              <ode/>
+            </contact>
+            <bounce/>
+          </surface>
+          <max_contacts>10</max_contacts>
+        </collision>
+        <visual name='visual'>
+          <cast_shadows>0</cast_shadows>
+          <geometry>
+            <plane>
+              <normal>0 0 1</normal>
+              <size>4.096 4.096</size>
+            </plane>
+          </geometry>
+          <material>
+            <script>
+              <uri>file://materials/scripts</uri>
+              <uri>file://materials/textures</uri>
+              <name>Tile/5eab350b8220ac9944dbdfa4ac3288c7c17e24c3bf5df0dfcf6173d64dae00a1</name>
+            </script>
+          </material>
+        </visual>
+        <self_collide>0</self_collide>
+        <enable_wind>0</enable_wind>
+        <kinematic>0</kinematic>
+      </link>
+      <pose frame=''>7.24 2.244 0 0 -0 0</pose>
+    </model>
+    
+    <model name='Tile/2-2'>
+      <static>1</static>
+      <link name='link'>
+        <collision name='collision'>
+          <geometry>
+            <plane>
+              <normal>0 0 1</normal>
+              <size>4.096 4.096</size>
+            </plane>
+          </geometry>
+          <surface>
+            <friction>
+              <ode>
+                <mu>100</mu>
+                <mu2>50</mu2>
+              </ode>
+              <torsional>
+                <ode/>
+              </torsional>
+            </friction>
+            <contact>
+              <ode/>
+            </contact>
+            <bounce/>
+          </surface>
+          <max_contacts>10</max_contacts>
+        </collision>
+        <visual name='visual'>
+          <cast_shadows>0</cast_shadows>
+          <geometry>
+            <plane>
+              <normal>0 0 1</normal>
+              <size>4.096 4.096</size>
+            </plane>
+          </geometry>
+          <material>
+            <script>
+              <uri>file://materials/scripts</uri>
+              <uri>file://materials/textures</uri>
+              <name>Tile/5eab350b8220ac9944dbdfa4ac3288c7c17e24c3bf5df0dfcf6173d64dae00a1</name>
+            </script>
+          </material>
+        </visual>
+        <self_collide>0</self_collide>
+        <enable_wind>0</enable_wind>
+        <kinematic>0</kinematic>
+      </link>
+      <pose frame=''>7.24 6.34 0 0 -0 0</pose>
+    </model>
+    
+    <model name="EgoVehicle">
+      <pose>0 0 0  0 0 0</pose>
+      <link name="body">
+        <visual name="visual">
+          <geometry>
+            <mesh><uri>file://car-cc2017.dae</uri></mesh>
+          </geometry>
+        </visual>
+        <collision name="collision">
+          <pose>0.11 0 0.04  0 0 0</pose>
+          <geometry>
+            <box>
+              <size>0.3 0.2 0.08</size>
+            </box>
+          </geometry>
+        </collision>
+        <sensor type="camera" name="my_sensor">
+          <pose>0 0 0.32 0 0.7 0</pose>
+          <camera>
+            <horizontal_fov>2.0</horizontal_fov>
+            <image>
+              <width>1280</width>
+              <height>920</height>
+            </image>
+            <clip>
+              <near>0.1</near>
+              <far>100</far>
+            </clip>
+            <save enabled="true"><path>/tmp/driving</path></save>
+            <lens>
+              <type>gnomonical</type>
+              <scale_to_hfov>true</scale_to_hfov>
+              <cutoff_angle>2.4</cutoff_angle>
+              <env_texture_size>512</env_texture_size>
+            </lens>
+          </camera>
+          <always_on>1</always_on>
+          <update_rate>100</update_rate>
+          <visualize>true</visualize>
+        </sensor>
+      </link>
+      <plugin name="keyframes" filename="libkeyframes.so">
+        <keyframe t="0" x="0.0" y="-0.2" z="0" o="0" />
+<keyframe t="0" x="0.05" y="-0.2" z="0" o="0.0" />
+<keyframe t="0.05" x="0.1" y="-0.2" z="0" o="0.0" />
+<keyframe t="0.1" x="0.15000000000000002" y="-0.2" z="0" o="0.0" />
+<keyframe t="0.15000000000000002" x="0.2" y="-0.2" z="0" o="0.0" />
+<keyframe t="0.2" x="0.25" y="-0.2" z="0" o="0.0" />
+<keyframe t="0.25" x="0.30000000000000004" y="-0.2" z="0" o="0.0" />
+<keyframe t="0.30000000000000004" x="0.35000000000000003" y="-0.2" z="0" o="0.0" />
+<keyframe t="0.35000000000000003" x="0.4" y="-0.2" z="0" o="0.0" />
+<keyframe t="0.4" x="0.45" y="-0.2" z="0" o="0.0" />
+<keyframe t="0.45" x="0.5" y="-0.2" z="0" o="0.0" />
+<keyframe t="0.5" x="0.55" y="-0.2" z="0" o="0.0" />
+<keyframe t="0.55" x="0.6000000000000001" y="-0.2" z="0" o="0.0" />
+<keyframe t="0.6000000000000001" x="0.65" y="-0.2" z="0" o="0.0" />
+<keyframe t="0.65" x="0.7000000000000001" y="-0.2" z="0" o="0.0" />
+<keyframe t="0.7000000000000001" x="0.75" y="-0.2" z="0" o="0.0" />
+<keyframe t="0.75" x="0.8" y="-0.2" z="0" o="0.0" />
+<keyframe t="0.8" x="0.8500000000000001" y="-0.2" z="0" o="0.0" />
+<keyframe t="0.8500000000000001" x="0.9" y="-0.2" z="0" o="0.0" />
+<keyframe t="0.9" x="0.9500000000000001" y="-0.2" z="0" o="0.0" />
+<keyframe t="0.9500000000000001" x="0.9999999999999999" y="-0.2" z="0" o="0.0" />
+<keyframe t="0.9999999999999999" x="1.025" y="-0.2" z="0" o="0.0" />
+<keyframe t="1.025" x="1.0499999999999998" y="-0.2" z="0" o="0.0" />
+<keyframe t="1.0499999999999998" x="1.075" y="-0.2" z="0" o="0.0" />
+<keyframe t="1.075" x="1.0999999999999999" y="-0.2" z="0" o="0.0" />
+<keyframe t="1.0999999999999999" x="1.125" y="-0.2" z="0" o="0.0" />
+<keyframe t="1.125" x="1.15" y="-0.2" z="0" o="0.0" />
+<keyframe t="1.15" x="1.1749999999999998" y="-0.2" z="0" o="0.0" />
+<keyframe t="1.1749999999999998" x="1.2" y="-0.2" z="0" o="0.0" />
+<keyframe t="1.2" x="1.2249999999999999" y="-0.2" z="0" o="0.0" />
+<keyframe t="1.2249999999999999" x="1.25" y="-0.2" z="0" o="0.0" />
+<keyframe t="1.25" x="1.275" y="-0.19999999999999998" z="0" o="1.1102230246251605e-15" />
+<keyframe t="1.275" x="1.2999999999999998" y="-0.19999999999999998" z="0" o="0.0" />
+<keyframe t="1.2999999999999998" x="1.325" y="-0.19999999999999998" z="0" o="0.0" />
+<keyframe t="1.325" x="1.35" y="-0.19999999999999998" z="0" o="0.0" />
+<keyframe t="1.35" x="1.375" y="-0.19999999999999998" z="0" o="0.0" />
+<keyframe t="1.375" x="1.4" y="-0.19999999999999998" z="0" o="0.0" />
+<keyframe t="1.4" x="1.425" y="-0.19999999999999998" z="0" o="0.0" />
+<keyframe t="1.425" x="1.45" y="-0.19999999999999998" z="0" o="0.0" />
+<keyframe t="1.45" x="1.475" y="-0.19999999999999996" z="0" o="1.1102230246251506e-15" />
+<keyframe t="1.475" x="1.5" y="-0.19999999999999996" z="0" o="0.0" />
+<keyframe t="1.5" x="1.5422373055608625" y="-0.19667585196068715" z="0" o="0.0785398163397443" />
+<keyframe t="1.5423679116930364" x="1.5844746111217245" y="-0.19335170392137435" z="0" o="0.07853981633974512" />
+<keyframe t="1.5847358233860724" x="1.625903010184429" y="-0.18492032125408592" z="0" o="0.200774972963147" />
+<keyframe t="1.6270134825287088" x="1.6671002931048025" y="-0.17502972869309016" z="0" o="0.23561944901923504" />
+<keyframe t="1.669381394221745" x="1.7071562224296584" y="-0.16162641096107422" z="0" o="0.3229036765641133" />
+<keyframe t="1.7116203146660842" x="1.7462990688781002" y="-0.1454129130922421" z="0" o="0.3926990816987238" />
+<keyframe t="1.7539882263591204" x="1.7844358275734913" y="-0.12722485682981283" z="0" o="0.44501101149105254" />
+<keyframe t="1.7962400636492997" x="1.8205604107627815" y="-0.10508768378018934" z="0" o="0.5497787143782116" />
+<keyframe t="1.838607975342336" x="1.8562507972423061" y="-0.08235289022931647" z="0" o="0.567182374227718" />
+<keyframe t="1.880924337719774" x="1.8884676100437061" y="-0.05483713266844845" z="0" o="0.7068583470577058" />
+<keyframe t="1.9232922494128102" x="1.9206844228451063" y="-0.027321375107580446" z="0" o="0.7068583470577022" />
+<keyframe t="1.9656601611058466" x="1.9487225198771445" y="0.004373098222649391" z="0" o="0.8465343198876879" />
+<keyframe t="2.0079765234832845" x="1.9762382774380123" y="0.036589911024049473" z="0" o="0.8639379797371967" />
+<keyframe t="2.0503444351763207" x="2.0001683119913842" y="0.0714119040840429" z="0" o="0.9687056826243504" />
+<keyframe t="2.0925962724665004" x="2.0223054850410076" y="0.10753648727333304" z="0" o="1.021017612416686" />
+<keyframe t="2.1349641841595366" x="2.041809913565835" y="0.1450025208000239" z="0" o="1.0908130175512882" />
+<keyframe t="2.177203104603876" x="2.058023411434667" y="0.18414536724846572" z="0" o="1.1780972450961762" />
+<keyframe t="2.219571016296912" x="2.072831819235091" y="0.2237447551351146" z="0" o="1.2129417211522606" />
+<keyframe t="2.2618486754395484" x="2.0827224117960865" y="0.26494203805548805" z="0" o="1.3351768777756707" />
+<keyframe t="2.3042165871325846" x="2.0999999999999996" y="0.4000000000000001" z="0" o="1.4435602026209973" />
+<keyframe t="2.440375201031042" x="2.0999999999999996" y="0.4250000000000001" z="0" o="1.5707963267948966" />
+<keyframe t="2.465375201031042" x="2.0999999999999996" y="0.45000000000000007" z="0" o="1.5707963267948966" />
+<keyframe t="2.490375201031042" x="2.0999999999999996" y="0.4750000000000001" z="0" o="1.5707963267948966" />
+<keyframe t="2.5153752010310417" x="2.0999999999999996" y="0.5000000000000001" z="0" o="1.5707963267948966" />
+<keyframe t="2.5403752010310416" x="2.0999999999999996" y="0.525" z="0" o="1.5707963267948966" />
+<keyframe t="2.5653752010310416" x="2.0999999999999996" y="0.55" z="0" o="1.5707963267948966" />
+<keyframe t="2.5903752010310415" x="2.0999999999999996" y="0.5750000000000001" z="0" o="1.5707963267948966" />
+<keyframe t="2.6153752010310414" x="2.0999999999999996" y="0.6000000000000001" z="0" o="1.5707963267948966" />
+<keyframe t="2.6403752010310413" x="2.0999999999999996" y="0.625" z="0" o="1.5707963267948966" />
+<keyframe t="2.665375201031041" x="2.0999999999999996" y="0.65" z="0" o="1.5707963267948966" />
+<keyframe t="2.690375201031041" x="2.0999999999999996" y="0.675" z="0" o="1.5707963267948966" />
+<keyframe t="2.715375201031041" x="2.0999999999999996" y="0.7000000000000001" z="0" o="1.5707963267948966" />
+<keyframe t="2.740375201031041" x="2.0999999999999996" y="0.7250000000000001" z="0" o="1.5707963267948966" />
+<keyframe t="2.765375201031041" x="2.0999999999999996" y="0.75" z="0" o="1.5707963267948966" />
+<keyframe t="2.7903752010310408" x="2.0999999999999996" y="0.775" z="0" o="1.5707963267948966" />
+<keyframe t="2.8153752010310407" x="2.0999999999999996" y="0.8" z="0" o="1.5707963267948966" />
+<keyframe t="2.8403752010310406" x="2.0999999999999996" y="0.8250000000000001" z="0" o="1.5707963267948966" />
+<keyframe t="2.8653752010310405" x="2.0999999999999996" y="0.8500000000000001" z="0" o="1.5707963267948966" />
+<keyframe t="2.8903752010310404" x="2.0999999999999996" y="0.875" z="0" o="1.5707963267948966" />
+<keyframe t="2.9153752010310403" x="2.099997500005208" y="0.8990000041666613" z="0" o="1.5709004932260866" />
+<keyframe t="2.9393752053279094" x="2.100879692217086" y="0.9458887508740452" z="0" o="1.5519839634750117" />
+<keyframe t="2.986272250340233" x="2.1035922962393627" y="0.9927070999752328" z="0" o="1.512922120540864" />
+<keyframe t="3.0331691162604875" x="2.108131163366882" y="1.0393836657452247" z="0" o="1.4738602839463706" />
+<keyframe t="3.080065844364713" x="2.114489363618785" y="1.085847278838295" z="0" o="1.434798452040152" />
+<keyframe t="3.126962475929313" x="2.1226571962950933" y="1.1320270945393858" z="0" o="1.3957366231707604" />
+<keyframe t="3.173859052230946" x="2.132622204742157" y="1.1778527005218358" z="0" o="1.3566747956866883" />
+<keyframe t="3.2207556145464165" x="2.144369195304554" y="1.2232542239479778" z="0" o="1.317612967936475" />
+<keyframe t="3.2676522041525655" x="2.1578802604346885" y="1.268162437750138" z="0" o="1.278551138268589" />
+<keyframe t="3.314548862326163" x="2.1731348059250215" y="1.312508865930806" z="0" o="1.2394893050315936" />
+<keyframe t="3.3614456303437974" x="2.1901095822216474" y="1.3562258877222395" z="0" o="1.2004274665740378" />
+<keyframe t="3.408342549481766" x="2.208785082478948" y="1.3992439223761854" z="0" o="1.161216390682129" />
+<keyframe t="3.455239517564453" x="2.2291262502031755" y="1.4414997805716085" z="0" o="1.1221545486064808" />
+<keyframe t="3.502136432774484" x="2.2511038155090284" y="1.4829280606234176" z="0" o="1.083050063095406" />
+<keyframe t="3.5490332958340125" x="2.2746841498732726" y="1.5234653857599234" z="0" o="1.0439455938760176" />
+<keyframe t="3.5959300643575722" x="2.299829506578414" y="1.5630508531864993" z="0" o="1.0048837612958703" />
+<keyframe t="3.64282674009487" x="2.326501540291658" y="1.601624107930566" z="0" o="0.9658219316023602" />
+<keyframe t="3.6897233643225382" x="2.354659580718895" y="1.6391263367106785" z="0" o="0.9267601031440126" />
+<keyframe t="3.736619978317344" x="2.3842606944700866" y="1.6755003573927312" z="0" o="0.8876982742693422" />
+<keyframe t="3.783516623356082" x="2.415259750362435" y="1.7106907059682834" z="0" o="0.8486364433268576" />
+<keyframe t="3.830413340715465" x="2.4514718625761427" y="1.748528137423857" z="0" o="0.807343718103859" />
+<keyframe t="3.882786886424471" x="2.458542930388008" y="1.7555992052357228" z="0" o="0.7853981633974797" />
+<keyframe t="3.8927868864244712" x="2.465613998199874" y="1.762670273047588" z="0" o="0.7853981633973856" />
+<keyframe t="3.9027868864244715" x="2.4726850660117394" y="1.7697413408594538" z="0" o="0.7853981633974797" />
+<keyframe t="3.9127868864244717" x="2.4797561338236047" y="1.776812408671319" z="0" o="0.7853981633974483" />
+<keyframe t="3.9227868864244715" x="2.48682720163547" y="1.7838834764831843" z="0" o="0.7853981633974483" />
+<keyframe t="3.9327868864244713" x="2.493898269447336" y="1.79095454429505" z="0" o="0.7853981633974169" />
+<keyframe t="3.942786886424472" x="2.5009693372592015" y="1.7980256121069154" z="0" o="0.7853981633974483" />
+<keyframe t="3.9527868864244717" x="2.5080404050710667" y="1.805096679918781" z="0" o="0.7853981633974797" />
+<keyframe t="3.962786886424472" x="2.515111472882932" y="1.8121677477306464" z="0" o="0.7853981633974483" />
+<keyframe t="3.9727868864244718" x="2.5221825406947977" y="1.819238815542512" z="0" o="0.7853981633974483" />
+<keyframe t="3.982786886424472" x="2.5292536085066635" y="1.8263098833543774" z="0" o="0.7853981633974169" />
+<keyframe t="3.992786886424472" x="2.5363246763185288" y="1.833380951166243" z="0" o="0.785398163397464" />
+<keyframe t="4.002786886424472" x="2.543395744130394" y="1.8404520189781084" z="0" o="0.785398163397464" />
+<keyframe t="4.012786886424472" x="2.5504668119422593" y="1.847523086789974" z="0" o="0.785398163397464" />
+<keyframe t="4.022786886424472" x="2.5575378797541255" y="1.8545941546018394" z="0" o="0.7853981633974012" />
+<keyframe t="4.032786886424472" x="2.564608947565991" y="1.8616652224137047" z="0" o="0.7853981633974483" />
+<keyframe t="4.042786886424472" x="2.571680015377856" y="1.8687362902255704" z="0" o="0.7853981633974797" />
+<keyframe t="4.052786886424472" x="2.5787510831897213" y="1.8758073580374357" z="0" o="0.7853981633974483" />
+<keyframe t="4.062786886424472" x="2.5858221510015875" y="1.8828784258493014" z="0" o="0.7853981633974169" />
+<keyframe t="4.072786886424472" x="2.592893218813453" y="1.8899494936611667" z="0" o="0.7853981633974483" />
+<keyframe t="4.082786886424472" x="2.62824855787278" y="1.925304832720494" z="0" o="0.7853981633974483" />
+<keyframe t="4.132786886424472" x="2.6636038969321074" y="1.9606601717798215" z="0" o="0.7853981633974515" />
+<keyframe t="4.182786886424472" x="2.6989592359914347" y="1.9960155108391489" z="0" o="0.7853981633974483" />
+<keyframe t="4.2327868864244715" x="2.734314575050762" y="2.0313708498984764" z="0" o="0.7853981633974515" />
+<keyframe t="4.282786886424471" x="2.7696699141100893" y="2.0667261889578037" z="0" o="0.7853981633974483" />
+<keyframe t="4.332786886424471" x="2.8050252531694166" y="2.102081528017131" z="0" o="0.7853981633974483" />
+<keyframe t="4.382786886424471" x="2.840380592228744" y="2.1374368670764583" z="0" o="0.7853981633974483" />
+<keyframe t="4.432786886424471" x="2.8757359312880717" y="2.172792206135786" z="0" o="0.7853981633974483" />
+<keyframe t="4.4827868864244715" x="2.911091270347399" y="2.2081475451951134" z="0" o="0.7853981633974483" />
+<keyframe t="4.532786886424471" x="2.9464466094067263" y="2.2435028842544407" z="0" o="0.7853981633974483" />
+<keyframe t="4.582786886424471" x="2.981801948466054" y="2.278858223313768" z="0" o="0.7853981633974421" />
+<keyframe t="4.632786886424471" x="3.0171572875253814" y="2.3142135623730953" z="0" o="0.7853981633974483" />
+<keyframe t="4.682786886424471" x="3.0525126265847087" y="2.3495689014324226" z="0" o="0.7853981633974483" />
+<keyframe t="4.732786886424471" x="3.087867965644036" y="2.38492424049175" z="0" o="0.7853981633974483" />
+<keyframe t="4.7827868864244705" x="3.1232233047033633" y="2.420279579551077" z="0" o="0.7853981633974483" />
+<keyframe t="4.83278688642447" x="3.1585786437626906" y="2.455634918610405" z="0" o="0.7853981633974546" />
+<keyframe t="4.88278688642447" x="3.1939339828220183" y="2.4909902576697323" z="0" o="0.7853981633974421" />
+<keyframe t="4.93278688642447" x="3.2292893218813457" y="2.52634559672906" z="0" o="0.7853981633974546" />
+<keyframe t="4.98278688642447" x="3.264644660940673" y="2.5617009357883873" z="0" o="0.7853981633974483" />
+<keyframe t="5.03278688642447" x="3.3007053360716423" y="2.5977651464458966" z="0" o="0.7854471829071292" />
+<keyframe t="5.083786882319083" x="3.3438557544283287" y="2.642696368836631" z="0" o="0.8056130622323194" />
+<keyframe t="5.1460827357114445" x="3.385225567141374" y="2.6892718766468517" z="0" o="0.8445215825093978" />
+<keyframe t="5.208378316065851" x="3.424752216840143" y="2.737421212299054" z="0" o="0.8834300945189812" />
+<keyframe t="5.270673697597371" x="3.4623759298328727" y="2.787071542166225" z="0" o="0.9223386008616785" />
+<keyframe t="5.332968954521781" x="3.498039806195745" y="2.8381477663789454" z="0" o="0.9612471041381762" />
+<keyframe t="5.395264161055304" x="3.531689905537339" y="2.890572632041975" z="0" o="1.000155606949217" />
+<keyframe t="5.457559391414344" x="3.5632753283096923" y="2.9442668496902886" z="0" o="1.0390641118955328" />
+<keyframe t="5.519854719815219" x="3.5927482925438534" y="2.9991492128096655" z="0" o="1.0779726215778442" />
+<keyframe t="5.582150220473896" x="3.6200642058946726" y="3.0551367202423387" z="0" o="1.11688113859679" />
+<keyframe t="5.644445967605728" x="3.6451725003465425" y="3.11214854272499" z="0" o="1.1559501525075944" />
+<keyframe t="5.70674182904993" x="3.6680375371516942" y="3.170096317413085" z="0" o="1.1949710204464574" />
+<keyframe t="5.769037531144081" x="3.688631099885587" y="3.2288894385609193" z="0" o="1.2338795358660115" />
+<keyframe t="5.831333003855817" x="3.7069220554854914" y="3.2884389770247218" z="0" o="1.2727880445478201" />
+<keyframe t="5.893628321400634" x="3.7228827480816533" y="3.3486548619235332" z="0" o="1.311696549092539" />
+<keyframe t="5.955923557994582" x="3.7364890406719136" y="3.4094460164214215" z="0" o="1.350605052100905" />
+<keyframe t="6.018218787854002" x="3.7477203515013424" y="3.4707204950229404" z="0" o="1.3895135561736327" />
+<keyframe t="6.080514085195255" x="3.7565596850922494" y="3.532385622175624" z="0" o="1.428422063911465" />
+<keyframe t="6.142809524234465" x="3.7629936578779732" y="3.594348131971377" z="0" o="1.4673305779150674" />
+<keyframe t="6.205105179187249" x="3.767002528455402" y="3.6565147514517333" z="0" o="1.5063995884306187" />
+
+      </plugin>
+    </model>
+    
+    <model name='Obstacle/-19/0'>
+      <pose frame=''>2.5928932188134524 1.748528137423857 0.1 0 0 0.7853981633974483</pose>
+      <link name='link'>
+        <inertial>
+          <mass>10</mass>
+          <inertia>
+            <ixx>0.166667</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>0.166667</iyy>
+            <iyz>0</iyz>
+            <izz>0.166667</izz>
+          </inertia>
+        </inertial>
+        <collision name='collision'>
+          <geometry>
+            <box>
+              <size>0.2 0.2 0.2</size>
+            </box>
+          </geometry>
+          <max_contacts>10</max_contacts>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <bounce/>
+            <friction>
+              <torsional>
+                <ode/>
+              </torsional>
+              <ode/>
+            </friction>
+          </surface>
+        </collision>
+        <visual name='visual'>
+          <geometry>
+            <box>
+              <size>0.2 0.2 0.2</size>
+            </box>
+          </geometry>
+          <material>
+            <script>
+              <name>Gazebo/White</name>
+              <uri>file://media/materials/scripts/gazebo.material</uri>
+            </script>
+          </material>
+        </visual>
+        <self_collide>0</self_collide>
+        <enable_wind>0</enable_wind>
+        <kinematic>0</kinematic>
+      </link>
+    </model>
+    
+    <model name='Sign/-13'>
+      <static>1</static>
+      <link name='link'>
+        <visual name='visual'>
+          <cast_shadows>0</cast_shadows>
+          <geometry>
+            <plane>
+              <normal>0 0 1</normal>
+              <size>0.1 0.1</size>
+            </plane>
+          </geometry>
+          <material>
+            <script>
+              <uri>file://materials/scripts</uri>
+              <uri>file://materials/textures</uri>
+              <name>Sign/stvo-209-10</name>
+            </script>
+          </material>
+        </visual>
+        <self_collide>0</self_collide>
+        <enable_wind>0</enable_wind>
+        <kinematic>0</kinematic>
+      </link>
+      <pose frame=''>1.25 -0.49999999999999994 0.2 1.5707963267948966 0 4.71238898038469</pose>
+    </model>
+    
+    <model name='Sign/-14'>
+      <static>1</static>
+      <link name='link'>
+        <visual name='visual'>
+          <cast_shadows>0</cast_shadows>
+          <geometry>
+            <plane>
+              <normal>0 0 1</normal>
+              <size>0.1 0.1</size>
+            </plane>
+          </geometry>
+          <material>
+            <script>
+              <uri>file://materials/scripts</uri>
+              <uri>file://materials/textures</uri>
+              <name>Sign/stvo-205</name>
+            </script>
+          </material>
+        </visual>
+        <self_collide>0</self_collide>
+        <enable_wind>0</enable_wind>
+        <kinematic>0</kinematic>
+      </link>
+      <pose frame=''>0.9999999999999999 -0.49999999999999994 0.2 1.5707963267948966 0 4.71238898038469</pose>
+    </model>
+    </world></sdf>
