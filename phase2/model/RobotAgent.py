@@ -18,10 +18,10 @@ class RobotAgent :
     width = 20
 
     acceleration_lineaire_constante = 1.1 # A definir m/s^2
-    deceleration_lineaire_constante = 2 # A definir m/s^2
+    deceleration_lineaire_constante = 3 # A definir m/s^2
     acceleration_angulaire_constante = 0
 
-    VITESSE_MAX = 13
+    VITESSE_MAX = 20
 
     COLOR_ON_ROAD = (96, 255, 0)
     COLOR_OUT_ROAD = (255, 0, 18)
@@ -30,13 +30,13 @@ class RobotAgent :
         self.x = x
         self.y = y
         self.env = env
-        self.vecteur_directeur = np.array([0,1]) # Vecteur normalise
+        self.vecteur_directeur = np.array([1,1]) # Vecteur normalise
         self.current_radian = Radian(np.pi/2)
         # self.vitesse_courante = np.array([0,10])# np.zeros(2) # px/s
         self.vitesse_lineaire_courante = np.array([0,5])
         self.vitesse_angulaire_courante = 0.1
         self.camera = Camera(self)
-        self.algorithme = DBR(self) # Exemple
+        self.algorithme = DBRA(self) # Algorithme utilisé par le robot
 
         self.vitesse_reel = 1
         
@@ -139,9 +139,9 @@ class RobotAgent :
   
     def decelerer_lineaire(self) -> None : 
 
-        self.vitesse_reel -= (1/2) * RobotAgent.acceleration_lineaire_constante
-        if self.vitesse_reel < 2 :
-            self.vitesse_reel = 2
+        self.vitesse_reel -= (1/2) * self.deceleration_lineaire_constante
+        if self.vitesse_reel < 5 :
+            self.vitesse_reel = 5
         self.vitesse_lineaire_courante = self.vecteur_directeur * self.vitesse_reel
 
         # position_courante = np.array( [ self.x , self.y ] )

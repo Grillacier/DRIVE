@@ -43,7 +43,7 @@ class RoadRenderer :
         
         self.circuit = Circuit(self.listRoute)
         
-        #self.centerCircuit()
+        self.centerCircuit()
 
         self.renderer.getModel().setCircuit(self.circuit)
         #self.renderer.getModel().getRobotAgent().setControlPoint(self.circuit.controlPointsAngle)

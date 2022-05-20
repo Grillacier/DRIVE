@@ -17,7 +17,7 @@ class DBRA(Algorithme):
         self.destination = None
         self.Index = 0 # Index du point de controle
 
-        self.position_robot = Point(robotAgent.getX(), robotAgent.getY())
+        
         self.list_time_tour = []
         self.current_time = time.time()
         self.cptTour = 0
@@ -28,6 +28,7 @@ class DBRA(Algorithme):
         """
         Donne un ordre au robot en fonction de la position du robot et de la destination
         """
+        self.position_robot = Point(self.robotAgent.getX(), self.robotAgent.getY())
         if self.Index % len(self.robotAgent.env.circuit.controlPointsAngle) == 0:
             self.cptTour+=1
             if self.cptTour % 2 == 0 :
@@ -50,11 +51,12 @@ class DBRA(Algorithme):
         elif direction == "GAUCHE" : 
             self.robotAgent.accelerer_angulaire_gauche()
         
-        if DBRA.IS_READY and self.getCurrentPosition().calcul_longueur(Point(self.destination[0],self.destination[1])) > 70 : 
+        if DBRA.IS_READY and self.getCurrentPosition().calcul_longueur(Point(self.destination[0],self.destination[1])) > 80 : 
             self.robotAgent.accelerer_lineaire()
+            #print("accélération")
         else : 
             self.robotAgent.decelerer_lineaire()
-            # print("passage")
+            #print("déceleration")
         
     """
     def setControlPoint(self,controls_point) : 
@@ -99,7 +101,7 @@ class DBRA(Algorithme):
             return self.destination
         # sinon on prend le point de controle suivant lorsque le robot est proche du point de controle
         else :
-            if self.getCurrentPosition().calcul_longueur(Point(self.destination[0],self.destination[1])) < 50 : # on est proche du point de controle
+            if self.getCurrentPosition().calcul_longueur(Point(self.destination[0],self.destination[1])) < 40 : # on est proche du point de controle
                 self.destination = np.array(self.robotAgent.env.circuit.controlPointsAngle[self.Index % len(self.robotAgent.env.circuit.controlPointsAngle)])
                 self.Index += 1
         return self.destination

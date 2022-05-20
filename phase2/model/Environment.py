@@ -21,7 +21,7 @@ class Environment :
 
     def __init__(self) -> None:
         middle_x_robotAgent = (Environment.width/2) - (RobotAgent.width/2)
-        self.robotAgent = RobotAgent(self,330,650) # On place le robot au milieu de l'écran
+        self.robotAgent = RobotAgent(self,350,610) # On place le robot sur la route
         self.thread = ModelThread(self)
         """
         self.road : liste de points triplet [(P1 : Point,Pc : Point, P2 : Point)_1,...,(P1 : Point,Pc : Point, P2 : Point)_n]

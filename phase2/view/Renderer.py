@@ -109,4 +109,4 @@ class RendererThread(threading.Thread) :
         return self.condition
     
     def getSpeedView(self) -> float :
-        return RendererThread.speed_view
+        return RendererThread.SPEED_VIEW
