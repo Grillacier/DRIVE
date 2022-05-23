@@ -6,10 +6,10 @@
             <leftArc radius="1.4" angle="20" rightLine="missing" />
             <trafficSign type="stvo-625-10" />
             <select>
-                <case p="5">
+                <case w="5">
                     <staticObstacle length="0.2" width="0.3" position="-0.5" anchor="center" />
                 </case>
-                <case p="10">
+                <case w="10">
                     <staticObstacle length="0.2" width="0.2" position="-1" anchor="right" />
                 </case>
             </select>
@@ -18,13 +18,13 @@
         <intersection turn="straight" rule="stop" />
         <rightArc radius="1.4" angle="90" />
         <select>
-            <case p="20">
+            <case w="20">
                 <line length="0.1" />
             </case>
-            <case p="40">
+            <case w="40">
                 <line length="0.2" />
             </case>
-            <case p="40">
+            <case w="40">
                 <line length="0.4" />
             </case>
         </select>

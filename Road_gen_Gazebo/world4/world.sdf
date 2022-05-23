@@ -1,0 +1,1529 @@
+<sdf version='1.6'><world name='default'>
+    <light name='sun_light' type='directional'>
+      <pose frame=''>0 0 10 0 -0 0</pose>
+      <diffuse>0.5 0.5 0.5 1</diffuse>
+      <specular>0.1 0.1 0.1 1</specular>
+      <direction>0.1 0.1 -0.9</direction>
+      <attenuation>
+        <range>20</range>
+        <constant>0.5</constant>
+        <linear>0.01</linear>
+        <quadratic>0.001</quadratic>
+      </attenuation>
+      <cast_shadows>1</cast_shadows>
+    </light>
+    
+    <model name='Tile/0-0'>
+      <static>1</static>
+      <link name='link'>
+        <collision name='collision'>
+          <geometry>
+            <plane>
+              <normal>0 0 1</normal>
+              <size>4.096 4.096</size>
+            </plane>
+          </geometry>
+          <surface>
+            <friction>
+              <ode>
+                <mu>100</mu>
+                <mu2>50</mu2>
+              </ode>
+              <torsional>
+                <ode/>
+              </torsional>
+            </friction>
+            <contact>
+              <ode/>
+            </contact>
+            <bounce/>
+          </surface>
+          <max_contacts>10</max_contacts>
+        </collision>
+        <visual name='visual'>
+          <cast_shadows>0</cast_shadows>
+          <geometry>
+            <plane>
+              <normal>0 0 1</normal>
+              <size>4.096 4.096</size>
+            </plane>
+          </geometry>
+          <material>
+            <script>
+              <uri>file://materials/scripts</uri>
+              <uri>file://materials/textures</uri>
+              <name>Tile/7c119170f6752fdedfda089e917865d35f262c6d82fb32c32e24d09110dae41b</name>
+            </script>
+          </material>
+        </visual>
+        <self_collide>0</self_collide>
+        <enable_wind>0</enable_wind>
+        <kinematic>0</kinematic>
+      </link>
+      <pose frame=''>-1.1321348646443186 -1.3519999999999999 0 0 -0 0</pose>
+    </model>
+    
+    <model name='Tile/0-1'>
+      <static>1</static>
+      <link name='link'>
+        <collision name='collision'>
+          <geometry>
+            <plane>
+              <normal>0 0 1</normal>
+              <size>4.096 4.096</size>
+            </plane>
+          </geometry>
+          <surface>
+            <friction>
+              <ode>
+                <mu>100</mu>
+                <mu2>50</mu2>
+              </ode>
+              <torsional>
+                <ode/>
+              </torsional>
+            </friction>
+            <contact>
+              <ode/>
+            </contact>
+            <bounce/>
+          </surface>
+          <max_contacts>10</max_contacts>
+        </collision>
+        <visual name='visual'>
+          <cast_shadows>0</cast_shadows>
+          <geometry>
+            <plane>
+              <normal>0 0 1</normal>
+              <size>4.096 4.096</size>
+            </plane>
+          </geometry>
+          <material>
+            <script>
+              <uri>file://materials/scripts</uri>
+              <uri>file://materials/textures</uri>
+              <name>Tile/3329aed7d8e2f6038c0b530c8c1f3b600896e1160061d2fabcc765fef2d052b8</name>
+            </script>
+          </material>
+        </visual>
+        <self_collide>0</self_collide>
+        <enable_wind>0</enable_wind>
+        <kinematic>0</kinematic>
+      </link>
+      <pose frame=''>-1.1321348646443186 2.744 0 0 -0 0</pose>
+    </model>
+    
+    <model name='Tile/0-2'>
+      <static>1</static>
+      <link name='link'>
+        <collision name='collision'>
+          <geometry>
+            <plane>
+              <normal>0 0 1</normal>
+              <size>4.096 4.096</size>
+            </plane>
+          </geometry>
+          <surface>
+            <friction>
+              <ode>
+                <mu>100</mu>
+                <mu2>50</mu2>
+              </ode>
+              <torsional>
+                <ode/>
+              </torsional>
+            </friction>
+            <contact>
+              <ode/>
+            </contact>
+            <bounce/>
+          </surface>
+          <max_contacts>10</max_contacts>
+        </collision>
+        <visual name='visual'>
+          <cast_shadows>0</cast_shadows>
+          <geometry>
+            <plane>
+              <normal>0 0 1</normal>
+              <size>4.096 4.096</size>
+            </plane>
+          </geometry>
+          <material>
+            <script>
+              <uri>file://materials/scripts</uri>
+              <uri>file://materials/textures</uri>
+              <name>Tile/3072cfd345d7b0bb5db0f52ec363b94dd8a53d4c427237b4b3f471febbe3d74a</name>
+            </script>
+          </material>
+        </visual>
+        <self_collide>0</self_collide>
+        <enable_wind>0</enable_wind>
+        <kinematic>0</kinematic>
+      </link>
+      <pose frame=''>-1.1321348646443186 6.84 0 0 -0 0</pose>
+    </model>
+    
+    <model name='Tile/0-3'>
+      <static>1</static>
+      <link name='link'>
+        <collision name='collision'>
+          <geometry>
+            <plane>
+              <normal>0 0 1</normal>
+              <size>4.096 4.096</size>
+            </plane>
+          </geometry>
+          <surface>
+            <friction>
+              <ode>
+                <mu>100</mu>
+                <mu2>50</mu2>
+              </ode>
+              <torsional>
+                <ode/>
+              </torsional>
+            </friction>
+            <contact>
+              <ode/>
+            </contact>
+            <bounce/>
+          </surface>
+          <max_contacts>10</max_contacts>
+        </collision>
+        <visual name='visual'>
+          <cast_shadows>0</cast_shadows>
+          <geometry>
+            <plane>
+              <normal>0 0 1</normal>
+              <size>4.096 4.096</size>
+            </plane>
+          </geometry>
+          <material>
+            <script>
+              <uri>file://materials/scripts</uri>
+              <uri>file://materials/textures</uri>
+              <name>Tile/5eab350b8220ac9944dbdfa4ac3288c7c17e24c3bf5df0dfcf6173d64dae00a1</name>
+            </script>
+          </material>
+        </visual>
+        <self_collide>0</self_collide>
+        <enable_wind>0</enable_wind>
+        <kinematic>0</kinematic>
+      </link>
+      <pose frame=''>-1.1321348646443186 10.936 0 0 -0 0</pose>
+    </model>
+    
+    <model name='Tile/1-0'>
+      <static>1</static>
+      <link name='link'>
+        <collision name='collision'>
+          <geometry>
+            <plane>
+              <normal>0 0 1</normal>
+              <size>4.096 4.096</size>
+            </plane>
+          </geometry>
+          <surface>
+            <friction>
+              <ode>
+                <mu>100</mu>
+                <mu2>50</mu2>
+              </ode>
+              <torsional>
+                <ode/>
+              </torsional>
+            </friction>
+            <contact>
+              <ode/>
+            </contact>
+            <bounce/>
+          </surface>
+          <max_contacts>10</max_contacts>
+        </collision>
+        <visual name='visual'>
+          <cast_shadows>0</cast_shadows>
+          <geometry>
+            <plane>
+              <normal>0 0 1</normal>
+              <size>4.096 4.096</size>
+            </plane>
+          </geometry>
+          <material>
+            <script>
+              <uri>file://materials/scripts</uri>
+              <uri>file://materials/textures</uri>
+              <name>Tile/0f94448c2ee481f2dd6ae8ceb4f096759dc62e92abb97142113e189ca90fb3c6</name>
+            </script>
+          </material>
+        </visual>
+        <self_collide>0</self_collide>
+        <enable_wind>0</enable_wind>
+        <kinematic>0</kinematic>
+      </link>
+      <pose frame=''>2.9638651353556815 -1.3519999999999999 0 0 -0 0</pose>
+    </model>
+    
+    <model name='Tile/1-1'>
+      <static>1</static>
+      <link name='link'>
+        <collision name='collision'>
+          <geometry>
+            <plane>
+              <normal>0 0 1</normal>
+              <size>4.096 4.096</size>
+            </plane>
+          </geometry>
+          <surface>
+            <friction>
+              <ode>
+                <mu>100</mu>
+                <mu2>50</mu2>
+              </ode>
+              <torsional>
+                <ode/>
+              </torsional>
+            </friction>
+            <contact>
+              <ode/>
+            </contact>
+            <bounce/>
+          </surface>
+          <max_contacts>10</max_contacts>
+        </collision>
+        <visual name='visual'>
+          <cast_shadows>0</cast_shadows>
+          <geometry>
+            <plane>
+              <normal>0 0 1</normal>
+              <size>4.096 4.096</size>
+            </plane>
+          </geometry>
+          <material>
+            <script>
+              <uri>file://materials/scripts</uri>
+              <uri>file://materials/textures</uri>
+              <name>Tile/0c5b08b74fd095779253a72ef84ff121c614c95d6fab48a94a9edd0e8e255719</name>
+            </script>
+          </material>
+        </visual>
+        <self_collide>0</self_collide>
+        <enable_wind>0</enable_wind>
+        <kinematic>0</kinematic>
+      </link>
+      <pose frame=''>2.9638651353556815 2.744 0 0 -0 0</pose>
+    </model>
+    
+    <model name='Tile/1-2'>
+      <static>1</static>
+      <link name='link'>
+        <collision name='collision'>
+          <geometry>
+            <plane>
+              <normal>0 0 1</normal>
+              <size>4.096 4.096</size>
+            </plane>
+          </geometry>
+          <surface>
+            <friction>
+              <ode>
+                <mu>100</mu>
+                <mu2>50</mu2>
+              </ode>
+              <torsional>
+                <ode/>
+              </torsional>
+            </friction>
+            <contact>
+              <ode/>
+            </contact>
+            <bounce/>
+          </surface>
+          <max_contacts>10</max_contacts>
+        </collision>
+        <visual name='visual'>
+          <cast_shadows>0</cast_shadows>
+          <geometry>
+            <plane>
+              <normal>0 0 1</normal>
+              <size>4.096 4.096</size>
+            </plane>
+          </geometry>
+          <material>
+            <script>
+              <uri>file://materials/scripts</uri>
+              <uri>file://materials/textures</uri>
+              <name>Tile/c7fed32feee412d571ddf13d84ebc727d23408299fd8920b90dff9dba6535468</name>
+            </script>
+          </material>
+        </visual>
+        <self_collide>0</self_collide>
+        <enable_wind>0</enable_wind>
+        <kinematic>0</kinematic>
+      </link>
+      <pose frame=''>2.9638651353556815 6.84 0 0 -0 0</pose>
+    </model>
+    
+    <model name='Tile/1-3'>
+      <static>1</static>
+      <link name='link'>
+        <collision name='collision'>
+          <geometry>
+            <plane>
+              <normal>0 0 1</normal>
+              <size>4.096 4.096</size>
+            </plane>
+          </geometry>
+          <surface>
+            <friction>
+              <ode>
+                <mu>100</mu>
+                <mu2>50</mu2>
+              </ode>
+              <torsional>
+                <ode/>
+              </torsional>
+            </friction>
+            <contact>
+              <ode/>
+            </contact>
+            <bounce/>
+          </surface>
+          <max_contacts>10</max_contacts>
+        </collision>
+        <visual name='visual'>
+          <cast_shadows>0</cast_shadows>
+          <geometry>
+            <plane>
+              <normal>0 0 1</normal>
+              <size>4.096 4.096</size>
+            </plane>
+          </geometry>
+          <material>
+            <script>
+              <uri>file://materials/scripts</uri>
+              <uri>file://materials/textures</uri>
+              <name>Tile/5eab350b8220ac9944dbdfa4ac3288c7c17e24c3bf5df0dfcf6173d64dae00a1</name>
+            </script>
+          </material>
+        </visual>
+        <self_collide>0</self_collide>
+        <enable_wind>0</enable_wind>
+        <kinematic>0</kinematic>
+      </link>
+      <pose frame=''>2.9638651353556815 10.936 0 0 -0 0</pose>
+    </model>
+    
+    <model name='Tile/2-0'>
+      <static>1</static>
+      <link name='link'>
+        <collision name='collision'>
+          <geometry>
+            <plane>
+              <normal>0 0 1</normal>
+              <size>4.096 4.096</size>
+            </plane>
+          </geometry>
+          <surface>
+            <friction>
+              <ode>
+                <mu>100</mu>
+                <mu2>50</mu2>
+              </ode>
+              <torsional>
+                <ode/>
+              </torsional>
+            </friction>
+            <contact>
+              <ode/>
+            </contact>
+            <bounce/>
+          </surface>
+          <max_contacts>10</max_contacts>
+        </collision>
+        <visual name='visual'>
+          <cast_shadows>0</cast_shadows>
+          <geometry>
+            <plane>
+              <normal>0 0 1</normal>
+              <size>4.096 4.096</size>
+            </plane>
+          </geometry>
+          <material>
+            <script>
+              <uri>file://materials/scripts</uri>
+              <uri>file://materials/textures</uri>
+              <name>Tile/5eab350b8220ac9944dbdfa4ac3288c7c17e24c3bf5df0dfcf6173d64dae00a1</name>
+            </script>
+          </material>
+        </visual>
+        <self_collide>0</self_collide>
+        <enable_wind>0</enable_wind>
+        <kinematic>0</kinematic>
+      </link>
+      <pose frame=''>7.059865135355682 -1.3519999999999999 0 0 -0 0</pose>
+    </model>
+    
+    <model name='Tile/2-1'>
+      <static>1</static>
+      <link name='link'>
+        <collision name='collision'>
+          <geometry>
+            <plane>
+              <normal>0 0 1</normal>
+              <size>4.096 4.096</size>
+            </plane>
+          </geometry>
+          <surface>
+            <friction>
+              <ode>
+                <mu>100</mu>
+                <mu2>50</mu2>
+              </ode>
+              <torsional>
+                <ode/>
+              </torsional>
+            </friction>
+            <contact>
+              <ode/>
+            </contact>
+            <bounce/>
+          </surface>
+          <max_contacts>10</max_contacts>
+        </collision>
+        <visual name='visual'>
+          <cast_shadows>0</cast_shadows>
+          <geometry>
+            <plane>
+              <normal>0 0 1</normal>
+              <size>4.096 4.096</size>
+            </plane>
+          </geometry>
+          <material>
+            <script>
+              <uri>file://materials/scripts</uri>
+              <uri>file://materials/textures</uri>
+              <name>Tile/adf6e184d4397a63ff2d80445010ed339b0e21e816502d1d32013448b7ad8726</name>
+            </script>
+          </material>
+        </visual>
+        <self_collide>0</self_collide>
+        <enable_wind>0</enable_wind>
+        <kinematic>0</kinematic>
+      </link>
+      <pose frame=''>7.059865135355682 2.744 0 0 -0 0</pose>
+    </model>
+    
+    <model name='Tile/2-2'>
+      <static>1</static>
+      <link name='link'>
+        <collision name='collision'>
+          <geometry>
+            <plane>
+              <normal>0 0 1</normal>
+              <size>4.096 4.096</size>
+            </plane>
+          </geometry>
+          <surface>
+            <friction>
+              <ode>
+                <mu>100</mu>
+                <mu2>50</mu2>
+              </ode>
+              <torsional>
+                <ode/>
+              </torsional>
+            </friction>
+            <contact>
+              <ode/>
+            </contact>
+            <bounce/>
+          </surface>
+          <max_contacts>10</max_contacts>
+        </collision>
+        <visual name='visual'>
+          <cast_shadows>0</cast_shadows>
+          <geometry>
+            <plane>
+              <normal>0 0 1</normal>
+              <size>4.096 4.096</size>
+            </plane>
+          </geometry>
+          <material>
+            <script>
+              <uri>file://materials/scripts</uri>
+              <uri>file://materials/textures</uri>
+              <name>Tile/5eab350b8220ac9944dbdfa4ac3288c7c17e24c3bf5df0dfcf6173d64dae00a1</name>
+            </script>
+          </material>
+        </visual>
+        <self_collide>0</self_collide>
+        <enable_wind>0</enable_wind>
+        <kinematic>0</kinematic>
+      </link>
+      <pose frame=''>7.059865135355682 6.84 0 0 -0 0</pose>
+    </model>
+    
+    <model name='Tile/2-3'>
+      <static>1</static>
+      <link name='link'>
+        <collision name='collision'>
+          <geometry>
+            <plane>
+              <normal>0 0 1</normal>
+              <size>4.096 4.096</size>
+            </plane>
+          </geometry>
+          <surface>
+            <friction>
+              <ode>
+                <mu>100</mu>
+                <mu2>50</mu2>
+              </ode>
+              <torsional>
+                <ode/>
+              </torsional>
+            </friction>
+            <contact>
+              <ode/>
+            </contact>
+            <bounce/>
+          </surface>
+          <max_contacts>10</max_contacts>
+        </collision>
+        <visual name='visual'>
+          <cast_shadows>0</cast_shadows>
+          <geometry>
+            <plane>
+              <normal>0 0 1</normal>
+              <size>4.096 4.096</size>
+            </plane>
+          </geometry>
+          <material>
+            <script>
+              <uri>file://materials/scripts</uri>
+              <uri>file://materials/textures</uri>
+              <name>Tile/5eab350b8220ac9944dbdfa4ac3288c7c17e24c3bf5df0dfcf6173d64dae00a1</name>
+            </script>
+          </material>
+        </visual>
+        <self_collide>0</self_collide>
+        <enable_wind>0</enable_wind>
+        <kinematic>0</kinematic>
+      </link>
+      <pose frame=''>7.059865135355682 10.936 0 0 -0 0</pose>
+    </model>
+    
+    <model name="EgoVehicle">
+      <pose>0 0 0  0 0 0</pose>
+      <link name="body">
+        <visual name="visual">
+          <geometry>
+            <mesh><uri>file://car-cc2017.dae</uri></mesh>
+          </geometry>
+        </visual>
+        <collision name="collision">
+          <pose>0.11 0 0.04  0 0 0</pose>
+          <geometry>
+            <box>
+              <size>0.3 0.2 0.08</size>
+            </box>
+          </geometry>
+        </collision>
+        <sensor type="camera" name="my_sensor">
+          <pose>0 0 0.32 0 0.7 0</pose>
+          <camera>
+            <horizontal_fov>2.0</horizontal_fov>
+            <image>
+              <width>1280</width>
+              <height>920</height>
+            </image>
+            <clip>
+              <near>0.1</near>
+              <far>100</far>
+            </clip>
+            <save enabled="true"><path>/tmp/driving</path></save>
+            <lens>
+              <type>gnomonical</type>
+              <scale_to_hfov>true</scale_to_hfov>
+              <cutoff_angle>2.4</cutoff_angle>
+              <env_texture_size>512</env_texture_size>
+            </lens>
+          </camera>
+          <always_on>1</always_on>
+          <update_rate>100</update_rate>
+          <visualize>true</visualize>
+        </sensor>
+      </link>
+      <plugin name="keyframes" filename="libkeyframes.so">
+        <keyframe t="0" x="0.0" y="-0.2" z="0" o="0" />
+<keyframe t="0" x="0.05" y="-0.2" z="0" o="0.0" />
+<keyframe t="0.05" x="0.1" y="-0.2" z="0" o="0.0" />
+<keyframe t="0.1" x="0.15000000000000002" y="-0.2" z="0" o="0.0" />
+<keyframe t="0.15000000000000002" x="0.2" y="-0.2" z="0" o="0.0" />
+<keyframe t="0.2" x="0.25" y="-0.2" z="0" o="0.0" />
+<keyframe t="0.25" x="0.30000000000000004" y="-0.2" z="0" o="0.0" />
+<keyframe t="0.30000000000000004" x="0.35000000000000003" y="-0.2" z="0" o="0.0" />
+<keyframe t="0.35000000000000003" x="0.4" y="-0.2" z="0" o="0.0" />
+<keyframe t="0.4" x="0.45" y="-0.2" z="0" o="0.0" />
+<keyframe t="0.45" x="0.5" y="-0.2" z="0" o="0.0" />
+<keyframe t="0.5" x="0.55" y="-0.2" z="0" o="0.0" />
+<keyframe t="0.55" x="0.6000000000000001" y="-0.2" z="0" o="0.0" />
+<keyframe t="0.6000000000000001" x="0.65" y="-0.2" z="0" o="0.0" />
+<keyframe t="0.65" x="0.7000000000000001" y="-0.2" z="0" o="0.0" />
+<keyframe t="0.7000000000000001" x="0.75" y="-0.2" z="0" o="0.0" />
+<keyframe t="0.75" x="0.8" y="-0.2" z="0" o="0.0" />
+<keyframe t="0.8" x="0.8500000000000001" y="-0.2" z="0" o="0.0" />
+<keyframe t="0.8500000000000001" x="0.9" y="-0.2" z="0" o="0.0" />
+<keyframe t="0.9" x="0.9500000000000001" y="-0.2" z="0" o="0.0" />
+<keyframe t="0.9500000000000001" x="1.0009999958333389" y="-0.19999750000520833" z="0" o="4.9019509684860384e-05" />
+<keyframe t="1.0009999958946132" x="1.0632831213038774" y="-0.19873828139676877" z="0" o="0.020214898834869884" />
+<keyframe t="1.0632958492869753" x="1.1254698538195034" y="-0.19505729909276648" z="0" o="0.05912341911194833" />
+<keyframe t="1.1255914296413825" x="1.1874661376083875" y="-0.18896013938305178" z="0" o="0.09803193112153104" />
+<keyframe t="1.1878868111729024" x="1.249178205136189" y="-0.18045603703640212" z="0" o="0.13694043746422738" />
+<keyframe t="1.2501820680973121" x="1.3105127184539938" y="-0.16955786135776868" z="0" o="0.1758489407407286" />
+<keyframe t="1.3124772746308353" x="1.3713769098991575" y="-0.15628209677668856" z="0" o="0.21475744355177115" />
+<keyframe t="1.374772504989875" x="1.431678721937762" y="-0.14064881799603435" z="0" o="0.253665948498086" />
+<keyframe t="1.4370678333907498" x="1.4913269459386593" y="-0.12268165973842426" z="0" o="0.2925744581803999" />
+<keyframe t="1.4993633340494268" x="1.5502313596707036" y="-0.10240778113571722" z="0" o="0.3314829751993391" />
+<keyframe t="1.5616590811812587" x="1.6082990512269355" y="-0.07984858012137637" z="0" o="0.3705519891101498" />
+<keyframe t="1.62395494262546" x="1.6654423382405605" y="-0.05504133826175717" z="0" o="0.4095728570490062" />
+<keyframe t="1.6862506447196106" x="1.7215772007492423" y="-0.028030171468927653" z="0" o="0.4484813724685623" />
+<keyframe t="1.7485461174313468" x="1.7766187419526012" y="0.0011440522562818078" z="0" o="0.48738988115036885" />
+<keyframe t="1.8108414349761641" x="1.830483716466879" y="0.03243719883619997" z="0" o="0.5262983856950938" />
+<keyframe t="1.8731366715701128" x="1.8830906558058764" y="0.06580193466043438" z="0" o="0.5652068887034523" />
+<keyframe t="1.9354319014295323" x="1.9343599911877833" y="0.10118779794413535" z="0" o="0.6041153927761858" />
+<keyframe t="1.997727198770786" x="1.984214173483477" y="0.1385412747932286" z="0" o="0.6430239005140199" />
+<keyframe t="2.060022637809997" x="2.0325777901261466" y="0.1778058798623885" z="0" o="0.681932414517624" />
+<keyframe t="2.1223182927627797" x="2.0793709278943493" y="0.21892961849019305" z="0" o="0.7210014250331684" />
+<keyframe t="2.184614035963435" x="2.132076185970118" y="0.2693380216997064" z="0" o="0.7631268651990221" />
+<keyframe t="2.257544491487628" x="2.151051300063733" y="0.28868561118172403" z="0" o="0.7951173018027161" />
+<keyframe t="2.2846440149821543" x="2.169706741589483" y="0.30834131228512884" z="0" o="0.8115010754767442" />
+<keyframe t="2.311743315423071" x="2.188037748278386" y="0.32830010473496657" z="0" o="0.8278848369107793" />
+<keyframe t="2.338842747193577" x="2.2060124405651678" y="0.348580494785688" z="0" o="0.8455970113169983" />
+<keyframe t="2.3659422634884093" x="2.223642473081498" y="0.36916095992504355" z="0" o="0.8624604894153481" />
+<keyframe t="2.3930415917435357" x="2.240932993031105" y="0.39002752490027964" z="0" o="0.8788442453026085" />
+<keyframe t="2.4201409573079453" x="2.257861474542647" y="0.41118905237127185" z="0" o="0.8960767209757909" />
+<keyframe t="2.4472404726392605" x="2.2744203383483415" y="0.4326408700280775" z="0" o="0.9134199005013898" />
+<keyframe t="2.4743398536527885" x="2.290625500219634" y="0.4543610474300501" z="0" o="0.929803657499185" />
+<keyframe t="2.5014391779552128" x="2.3064646466628806" y="0.4763498049418935" z="0" o="0.9465564305582784" />
+<keyframe t="2.5285386985591876" x="2.321909360050085" y="0.4986173034786856" z="0" o="0.964379306968703" />
+<keyframe t="2.5556381572751645" x="2.3369871075870323" y="0.52113471945965" z="0" o="0.9807630717342714" />
+<keyframe t="2.582737465259829" x="2.351690658583692" y="0.5438984429113911" z="0" o="0.9972944362553479" />
+<keyframe t="2.6098369397436403" x="2.365987039830099" y="0.5669200846207837" z="0" o="1.0150804145442676" />
+<keyframe t="2.6369364324277895" x="2.3798982408570617" y="0.5901762976998765" z="0" o="1.0317224862416559" />
+<keyframe t="2.6640357490389652" x="2.39342662238548" y="0.613657392136056" z="0" o="1.0481062474014402" />
+<keyframe t="2.691135175281955" x="2.4065396739965035" y="0.6373730397778496" z="0" o="1.0657077174590062" />
+<keyframe t="2.7182346967836915" x="2.4192482218416895" y="0.6613076923123997" z="0" o="1.0826818992551155" />
+<keyframe t="2.7453340469656244" x="2.4315629491661825" y="0.6854473509125145" z="0" o="1.0990656564044616" />
+<keyframe t="2.772433412759065" x="2.4500924592586397" y="0.7238107812148811" z="0" o="1.1208415404801433" />
+<keyframe t="2.815037350708872" x="2.45030376838951" y="0.7242639351083995" z="0" o="1.1344640137962614" />
+<keyframe t="2.815537350708872" x="2.4505150775203806" y="0.7247170890019179" z="0" o="1.1344640137962614" />
+<keyframe t="2.8160373507088723" x="2.450726386651251" y="0.7251702428954361" z="0" o="1.1344640137960738" />
+<keyframe t="2.816537350708872" x="2.4509376957821214" y="0.7256233967889545" z="0" o="1.1344640137962614" />
+<keyframe t="2.817037350708872" x="2.451149004912992" y="0.7260765506824727" z="0" o="1.1344640137960738" />
+<keyframe t="2.817537350708872" x="2.4513603140438622" y="0.7265297045759911" z="0" o="1.1344640137962614" />
+<keyframe t="2.818037350708872" x="2.4515716231747327" y="0.7269828584695095" z="0" o="1.1344640137962614" />
+<keyframe t="2.8185373507088722" x="2.451782932305603" y="0.7274360123630277" z="0" o="1.1344640137960738" />
+<keyframe t="2.819037350708872" x="2.4519942414364735" y="0.7278891662565461" z="0" o="1.1344640137962614" />
+<keyframe t="2.819537350708872" x="2.4522055505673435" y="0.7283423201500644" z="0" o="1.1344640137969724" />
+<keyframe t="2.820037350708872" x="2.4524168596982134" y="0.7287954740435827" z="0" o="1.1344640137969724" />
+<keyframe t="2.8205373507088716" x="2.452628168829084" y="0.7292486279371011" z="0" o="1.1344640137962614" />
+<keyframe t="2.8210373507088717" x="2.4528394779599543" y="0.7297017818306193" z="0" o="1.1344640137960738" />
+<keyframe t="2.8215373507088715" x="2.4530507870908247" y="0.7301549357241377" z="0" o="1.1344640137962614" />
+<keyframe t="2.8220373507088716" x="2.453262096221695" y="0.7306080896176561" z="0" o="1.1344640137962614" />
+<keyframe t="2.822537350708872" x="2.4534734053525655" y="0.7310612435111743" z="0" o="1.1344640137960738" />
+<keyframe t="2.8230373507088715" x="2.453684714483436" y="0.7315143974046927" z="0" o="1.1344640137962614" />
+<keyframe t="2.8235373507088717" x="2.4538960236143064" y="0.731967551298211" z="0" o="1.1344640137961675" />
+<keyframe t="2.824037350708872" x="2.454107332745177" y="0.7324207051917293" z="0" o="1.1344640137961675" />
+<keyframe t="2.824537350708872" x="2.454318641876047" y="0.7328738590852477" z="0" o="1.1344640137962614" />
+<keyframe t="2.825037350708872" x="2.458544824493454" y="0.7419369369556141" z="0" o="1.1344640137963473" />
+<keyframe t="2.835037350708872" x="2.4627710071108613" y="0.7510000148259806" z="0" o="1.1344640137962667" />
+<keyframe t="2.845037350708872" x="2.466997189728268" y="0.7600630926963472" z="0" o="1.1344640137963566" />
+<keyframe t="2.855037350708872" x="2.4712233723456754" y="0.7691261705667136" z="0" o="1.1344640137962667" />
+<keyframe t="2.865037350708872" x="2.475449554963082" y="0.7781892484370803" z="0" o="1.1344640137963566" />
+<keyframe t="2.875037350708872" x="2.4796757375804885" y="0.7872523263074467" z="0" o="1.1344640137963473" />
+<keyframe t="2.885037350708872" x="2.483901920197896" y="0.7963154041778131" z="0" o="1.1344640137962667" />
+<keyframe t="2.895037350708872" x="2.4881281028153026" y="0.8053784820481797" z="0" o="1.1344640137963566" />
+<keyframe t="2.905037350708872" x="2.49235428543271" y="0.8144415599185462" z="0" o="1.1344640137962667" />
+<keyframe t="2.915037350708872" x="2.4965804680501167" y="0.8235046377889126" z="0" o="1.1344640137963473" />
+<keyframe t="2.925037350708872" x="2.500806650667524" y="0.8325677156592792" z="0" o="1.134464013796276" />
+<keyframe t="2.935037350708872" x="2.5050328332849308" y="0.8416307935296456" z="0" o="1.1344640137963473" />
+<keyframe t="2.945037350708872" x="2.5092590159023382" y="0.8506938714000122" z="0" o="1.1344640137962714" />
+<keyframe t="2.955037350708872" x="2.513485198519745" y="0.8597569492703787" z="0" o="1.134464013796352" />
+<keyframe t="2.965037350708872" x="2.517711381137152" y="0.8688200271407451" z="0" o="1.134464013796307" />
+<keyframe t="2.9750373507088717" x="2.521937563754559" y="0.8778831050111117" z="0" o="1.1344640137963118" />
+<keyframe t="2.985037350708872" x="2.5261637463719655" y="0.8869461828814782" z="0" o="1.134464013796352" />
+<keyframe t="2.9950373507088717" x="2.530389928989373" y="0.8960092607518446" z="0" o="1.1344640137962667" />
+<keyframe t="3.005037350708872" x="2.5346161116067796" y="0.9050723386222113" z="0" o="1.1344640137963566" />
+<keyframe t="3.0150373507088717" x="2.5392626449602735" y="0.9150427770467902" z="0" o="1.1346912861322265" />
+<keyframe t="3.0260373468263007" x="2.5504761543249677" y="0.9397134353549562" z="0" o="1.1441831522015977" />
+<keyframe t="3.053136870320827" x="2.561283889355665" y="0.9645642894226399" z="0" o="1.160566925875608" />
+<keyframe t="3.0802361707617436" x="2.571683092018504" y="0.9895889929425923" z="0" o="1.1769506873096296" />
+<keyframe t="3.10733560253225" x="2.581637475809442" y="1.014794032652075" z="0" o="1.1946628617158759" />
+<keyframe t="3.1344351188270823" x="2.591165353632581" y="1.0401631701239407" z="0" o="1.211526339814228" />
+<keyframe t="3.1615344470822087" x="2.600276342095234" y="1.0656850333636596" z="0" o="1.2279100957014664" />
+<keyframe t="3.1886338126466183" x="2.608946242594122" y="1.0913602462455727" z="0" o="1.245142571374653" />
+<keyframe t="3.2157333279779334" x="2.617169530971355" y="1.117181825972252" z="0" o="1.262485750900267" />
+<keyframe t="3.242832708991462" x="2.6249686638123686" y="1.1431346081848814" z="0" o="1.278869507898034" />
+<keyframe t="3.269932033293886" x="2.6323319948488804" y="1.169214588495687" z="0" o="1.2956222809571596" />
+<keyframe t="3.297031553897861" x="2.639229345007932" y="1.195421595640387" z="0" o="1.3134451573675727" />
+<keyframe t="3.3241310126138375" x="2.6456963832653413" y="1.221737938650481" z="0" o="1.3298289221331248" />
+<keyframe t="3.351230320598502" x="2.651727549678661" y="1.248157752218967" z="0" o="1.3463602866542272" />
+<keyframe t="3.3783297950823132" x="2.657287888442813" y="1.274680669414595" z="0" o="1.3641462649431333" />
+<keyframe t="3.4054292877664625" x="2.6624060480635956" y="1.301292272201517" z="0" o="1.3807883366405205" />
+<keyframe t="3.4325286043776377" x="2.6670875610725213" y="1.327984262360486" z="0" o="1.397172097800291" />
+<keyframe t="3.4596280306206273" x="2.6712985697018774" y="1.3547546092380773" z="0" o="1.4147735678578797" />
+<keyframe t="3.4867275521223635" x="2.6750545650425863" y="1.3815924049613404" z="0" o="1.4317477496539877" />
+<keyframe t="3.5138269023042965" x="2.678370373942159" y="1.408488148820699" z="0" o="1.448131506803323" />
+<keyframe t="3.5409262680977376" x="2.6826613519123397" y="1.4508754468814438" z="0" o="1.4699073908790037" />
+<keyframe t="3.5835302060475445" x="2.6827049297837133" y="1.4513735442304898" z="0" o="1.4835298641955534" />
+<keyframe t="3.5840302060475446" x="2.6827485076550874" y="1.4518716415795354" z="0" o="1.4835298641945913" />
+<keyframe t="3.5845302060475444" x="2.682792085526461" y="1.4523697389285815" z="0" o="1.4835298641955534" />
+<keyframe t="3.5850302060475445" x="2.682835663397835" y="1.4528678362776275" z="0" o="1.4835298641946686" />
+<keyframe t="3.5855302060475447" x="2.682879241269209" y="1.453365933626673" z="0" o="1.4835298641954762" />
+<keyframe t="3.5860302060475444" x="2.6829228191405825" y="1.4538640309757191" z="0" o="1.4835298641955534" />
+<keyframe t="3.5865302060475446" x="2.6829663970119566" y="1.454362128324765" z="0" o="1.48352986419463" />
+<keyframe t="3.5870302060475447" x="2.6830099748833303" y="1.4548602256738108" z="0" o="1.4835298641955148" />
+<keyframe t="3.5875302060475445" x="2.6830535527547044" y="1.4553583230228568" z="0" o="1.4835298641946686" />
+<keyframe t="3.5880302060475446" x="2.683097130626078" y="1.4558564203719024" z="0" o="1.4835298641954762" />
+<keyframe t="3.5885302060475444" x="2.6831407084974517" y="1.4563545177209485" z="0" o="1.4835298641955534" />
+<keyframe t="3.5890302060475445" x="2.6831842863688258" y="1.4568526150699943" z="0" o="1.48352986419463" />
+<keyframe t="3.5895302060475447" x="2.6832278642401994" y="1.4573507124190401" z="0" o="1.4835298641955148" />
+<keyframe t="3.5900302060475444" x="2.6832714421115735" y="1.4578488097680862" z="0" o="1.4835298641946686" />
+<keyframe t="3.5905302060475446" x="2.683315019982947" y="1.458346907117132" z="0" o="1.4835298641955148" />
+<keyframe t="3.5910302060475443" x="2.683358597854321" y="1.4588450044661778" z="0" o="1.4835298641955148" />
+<keyframe t="3.591530206047544" x="2.683402175725695" y="1.4593431018152236" z="0" o="1.48352986419463" />
+<keyframe t="3.592030206047544" x="2.6834457535970686" y="1.4598411991642695" z="0" o="1.4835298641955148" />
+<keyframe t="3.592530206047544" x="2.6834893314684427" y="1.4603392965133155" z="0" o="1.4835298641946686" />
+<keyframe t="3.593030206047544" x="2.6835329093398164" y="1.460837393862361" z="0" o="1.4835298641954762" />
+<keyframe t="3.593530206047544" x="2.684404466767293" y="1.4707993408432787" z="0" o="1.4835298641951706" />
+<keyframe t="3.603530206047544" x="2.6852760241947693" y="1.4807612878241962" z="0" o="1.4835298641952148" />
+<keyframe t="3.6135302060475443" x="2.686147581622246" y="1.4907232348051136" z="0" o="1.4835298641951686" />
+<keyframe t="3.623530206047544" x="2.6870191390497227" y="1.500685181786031" z="0" o="1.4835298641951686" />
+<keyframe t="3.633530206047544" x="2.6878906964771994" y="1.5106471287669485" z="0" o="1.4835298641951706" />
+<keyframe t="3.643530206047544" x="2.688762253904676" y="1.520609075747866" z="0" o="1.4835298641951706" />
+<keyframe t="3.6535302060475443" x="2.6896338113321523" y="1.5305710227287834" z="0" o="1.4835298641952128" />
+<keyframe t="3.663530206047544" x="2.690505368759629" y="1.5405329697097008" z="0" o="1.4835298641951686" />
+<keyframe t="3.673530206047544" x="2.6913769261871057" y="1.5504949166906183" z="0" o="1.4835298641951706" />
+<keyframe t="3.683530206047544" x="2.692248483614582" y="1.560456863671536" z="0" o="1.4835298641952148" />
+<keyframe t="3.6935302060475443" x="2.6931200410420586" y="1.5704188106524533" z="0" o="1.4835298641951686" />
+<keyframe t="3.703530206047544" x="2.6939915984695353" y="1.5803807576333706" z="0" o="1.4835298641951686" />
+<keyframe t="3.713530206047544" x="2.694863155897012" y="1.5903427046142882" z="0" o="1.4835298641951706" />
+<keyframe t="3.723530206047544" x="2.6957347133244887" y="1.6003046515952057" z="0" o="1.4835298641951706" />
+<keyframe t="3.7335302060475444" x="2.696606270751965" y="1.610266598576123" z="0" o="1.4835298641952128" />
+<keyframe t="3.743530206047544" x="2.6974778281794416" y="1.6202285455570404" z="0" o="1.4835298641951686" />
+<keyframe t="3.753530206047544" x="2.6983493856069183" y="1.630190492537958" z="0" o="1.4835298641951706" />
+<keyframe t="3.763530206047544" x="2.699220943034395" y="1.6401524395188756" z="0" o="1.4835298641951706" />
+<keyframe t="3.7735302060475444" x="2.700092500461871" y="1.650114386499793" z="0" o="1.4835298641952128" />
+<keyframe t="3.783530206047544" x="2.70104872278739" y="1.6610727419168994" z="0" o="1.4837571365311646" />
+<keyframe t="3.7945302021649727" x="2.70314811270001" y="1.6880908235591099" z="0" o="1.49324900260044" />
+<keyframe t="3.821629725659499" x="2.704804568885771" y="1.7151394508309648" z="0" o="1.5096327762744741" />
+<keyframe t="3.8487290261004157" x="2.7060176702055214" y="1.742211716851236" z="0" o="1.5260165377085044" />
+<keyframe t="3.875828457870922" x="2.70675109990437" y="1.7693013064437482" z="0" o="1.5437287121147492" />
+<keyframe t="3.9029279741657543" x="2.707027620352348" y="1.7963992238604232" z="0" o="1.5605921902130822" />
+<keyframe t="3.9300273024208807" x="2.7068601576555817" y="1.823498071995329" z="0" o="1.5769759461003185" />
+<keyframe t="3.9571266679852903" x="2.7062257591875456" y="1.8505901606888195" z="0" o="1.5942084217735346" />
+<keyframe t="3.984226183316606" x="2.705121622195212" y="1.877667038884404" z="0" o="1.611551601299131" />
+<keyframe t="4.011325564330134" x="2.703574035482378" y="1.9047221373505754" z="0" o="1.6279353582968983" />
+<keyframe t="4.038424888632559" x="2.70157342471796" y="1.9317477099353433" z="0" o="1.6446881313560084" />
+<keyframe t="4.0655244092365335" x="2.69909148942563" y="1.9587332738520675" z="0" o="1.6625110077664478" />
+<keyframe t="4.09262386795251" x="2.6961677981463374" y="1.9856744045364152" z="0" o="1.6788947725320111" />
+<keyframe t="4.1197231759371755" x="2.6927991322963356" y="2.0125636887903657" z="0" o="1.6954261370530594" />
+<keyframe t="4.146822650420987" x="2.688952769661415" y="2.0393888262218676" z="0" o="1.7132121153420132" />
+<keyframe t="4.173922143105136" x="2.68466056228976" y="2.0661460666750875" z="0" o="1.729854187039389" />
+<keyframe t="4.201021459716311" x="2.679930547218543" y="2.0928295046118546" z="0" o="1.746237948199152" />
+<keyframe t="4.228120885959301" x="2.674731603077663" y="2.1194256518035646" z="0" o="1.7638394182567514" />
+<keyframe t="4.255220407461038" x="2.669082017443218" y="2.145929556467634" z="0" o="1.7808136000528534" />
+<keyframe t="4.28231975764297" x="2.6629989724284546" y="2.1723373619378936" z="0" o="1.7971973572021824" />
+<keyframe t="4.3094191234364105" x="2.6525338630050643" y="2.2136359940409966" z="0" o="1.8189732412778716" />
+<keyframe t="4.352023061386217" x="2.652404453482513" y="2.2141189569541413" z="0" o="1.8325957145939664" />
+<keyframe t="4.352523061386217" x="2.652275043959962" y="2.2146019198672855" z="0" o="1.8325957145941962" />
+<keyframe t="4.353023061386216" x="2.6521456344374106" y="2.21508488278043" z="0" o="1.8325957145939664" />
+<keyframe t="4.353523061386216" x="2.6520162249148593" y="2.215567845693575" z="0" o="1.8325957145939664" />
+<keyframe t="4.354023061386216" x="2.651886815392308" y="2.2160508086067194" z="0" o="1.8325957145939664" />
+<keyframe t="4.354523061386216" x="2.651757405869757" y="2.216533771519864" z="0" o="1.8325957145939664" />
+<keyframe t="4.355023061386215" x="2.6516279963472056" y="2.2170167344330083" z="0" o="1.8325957145941962" />
+<keyframe t="4.355523061386215" x="2.6514985868246543" y="2.217499697346153" z="0" o="1.8325957145939664" />
+<keyframe t="4.356023061386215" x="2.651369177302103" y="2.2179826602592976" z="0" o="1.8325957145939664" />
+<keyframe t="4.3565230613862145" x="2.651239767779552" y="2.218465623172442" z="0" o="1.8325957145941962" />
+<keyframe t="4.357023061386214" x="2.651110358257" y="2.2189485860855864" z="0" o="1.8325957145948242" />
+<keyframe t="4.357523061386215" x="2.650980948734449" y="2.219431548998731" z="0" o="1.8325957145939664" />
+<keyframe t="4.3580230613862145" x="2.6508515392118976" y="2.2199145119118757" z="0" o="1.8325957145939664" />
+<keyframe t="4.358523061386214" x="2.6507221296893464" y="2.2203974748250204" z="0" o="1.8325957145939664" />
+<keyframe t="4.359023061386214" x="2.650592720166795" y="2.2208804377381646" z="0" o="1.8325957145941962" />
+<keyframe t="4.359523061386214" x="2.650463310644244" y="2.221363400651309" z="0" o="1.8325957145939664" />
+<keyframe t="4.360023061386213" x="2.6503339011216926" y="2.221846363564454" z="0" o="1.8325957145939664" />
+<keyframe t="4.360523061386213" x="2.6502044915991414" y="2.222329326477598" z="0" o="1.8325957145941962" />
+<keyframe t="4.361023061386213" x="2.65007508207659" y="2.2228122893907427" z="0" o="1.8325957145939664" />
+<keyframe t="4.361523061386213" x="2.6499456725540393" y="2.2232952523038874" z="0" o="1.8325957145931084" />
+<keyframe t="4.362023061386212" x="2.6473574821030144" y="2.232954510566778" z="0" o="1.8325957145940237" />
+<keyframe t="4.372023061386212" x="2.644769291651989" y="2.242613768829669" z="0" o="1.8325957145940668" />
+<keyframe t="4.382023061386212" x="2.642181101200964" y="2.2522730270925595" z="0" o="1.8325957145940237" />
+<keyframe t="4.392023061386212" x="2.6395929107499385" y="2.26193228535545" z="0" o="1.8325957145940668" />
+<keyframe t="4.4020230613862115" x="2.637004720298913" y="2.2715915436183405" z="0" o="1.832595714594078" />
+<keyframe t="4.412023061386211" x="2.634416529847888" y="2.2812508018812316" z="0" o="1.8325957145940124" />
+<keyframe t="4.422023061386212" x="2.6318283393968627" y="2.290910060144122" z="0" o="1.832595714594078" />
+<keyframe t="4.432023061386212" x="2.6292401489458377" y="2.300569318407013" z="0" o="1.8325957145940124" />
+<keyframe t="4.442023061386212" x="2.6266519584948123" y="2.3102285766699033" z="0" o="1.832595714594078" />
+<keyframe t="4.452023061386212" x="2.6240637680437873" y="2.3198878349327945" z="0" o="1.8325957145940124" />
+<keyframe t="4.462023061386213" x="2.6214755775927623" y="2.3295470931956848" z="0" o="1.8325957145940353" />
+<keyframe t="4.472023061386213" x="2.618887387141737" y="2.3392063514585755" z="0" o="1.8325957145940668" />
+<keyframe t="4.482023061386212" x="2.616299196690712" y="2.348865609721466" z="0" o="1.8325957145940237" />
+<keyframe t="4.492023061386212" x="2.6137110062396864" y="2.358524867984357" z="0" o="1.8325957145940668" />
+<keyframe t="4.502023061386212" x="2.611122815788661" y="2.3681841262472476" z="0" o="1.8325957145940668" />
+<keyframe t="4.512023061386212" x="2.608534625337636" y="2.377843384510138" z="0" o="1.8325957145940353" />
+<keyframe t="4.522023061386212" x="2.6059464348866106" y="2.387502642773029" z="0" o="1.8325957145940552" />
+<keyframe t="4.532023061386212" x="2.6033582444355856" y="2.3971619010359193" z="0" o="1.8325957145940353" />
+<keyframe t="4.542023061386212" x="2.60077005398456" y="2.4068211592988105" z="0" o="1.8325957145940552" />
+<keyframe t="4.552023061386213" x="2.597920630757309" y="2.41744569231704" z="0" o="1.8328229869300074" />
+<keyframe t="4.563023057503641" x="2.590652683810696" y="2.4435524179028265" z="0" o="1.842314852999332" />
+<keyframe t="4.590122580998167" x="2.582958068088829" y="2.469536354734644" z="0" o="1.8586986266733292" />
+<keyframe t="4.617221881439084" x="2.5748387501428605" y="2.4953908684290957" z="0" o="1.8750823881073546" />
+<keyframe t="4.64432131320959" x="2.5662627633036688" y="2.5210976036000172" z="0" o="1.892794562513626" />
+<keyframe t="4.671420829504423" x="2.557254573929452" y="2.546655892198383" z="0" o="1.9096580406119383" />
+<keyframe t="4.69852015775955" x="2.5478288585459823" y="2.5720632042070024" z="0" o="1.926041796499206" />
+<keyframe t="4.725619523323959" x="2.537966678928992" y="2.597304462978989" z="0" o="1.9432742721723837" />
+<keyframe t="4.7527190386552745" x="2.527668291783694" y="2.6223707685209297" z="0" o="1.9606174516979966" />
+<keyframe t="4.7798184196688025" x="2.5169606473145274" y="2.647264939074895" z="0" o="1.977001208695767" />
+<keyframe t="4.806917743971227" x="2.5058373979332385" y="2.67197642102493" z="0" o="1.9937539817548788" />
+<keyframe t="4.834017264575202" x="2.4942755352152455" y="2.6964856844408143" z="0" o="2.0115768581653204" />
+<keyframe t="4.861116723291179" x="2.482313754716623" y="2.7208021048301414" z="0" o="2.0279606229308396" />
+<keyframe t="4.888216031275844" x="2.4699515674210213" y="2.7449176152449595" z="0" o="2.0444919874519476" />
+<keyframe t="4.915315505759655" x="2.457162431487067" y="2.7688094654412314" z="0" o="2.062277965740881" />
+<keyframe t="4.942414998443804" x="2.4439775606782304" y="2.79248502546728" z="0" o="2.0789200374382393" />
+<keyframe t="4.96951431505498" x="2.430406527152047" y="2.815941494761068" z="0" o="2.095303798598022" />
+<keyframe t="4.996613741297969" x="2.4164246996325645" y="2.8391555543982476" z="0" o="2.112905268655624" />
+<keyframe t="5.023713262799705" x="2.4020509564294836" y="2.8621288059446632" z="0" o="2.1298794504517202" />
+<keyframe t="5.0508126129816375" x="2.3873027625053473" y="2.88486350194841" z="0" o="2.146263207601052" />
+<keyframe t="5.077911978775078" x="2.3633438123334125" y="2.920092243559342" z="0" o="2.16803909167674" />
+<keyframe t="5.1205159167248855" x="2.3630570241152373" y="2.920501819581486" z="0" o="2.181661564992823" />
+<keyframe t="5.121015916724885" x="2.3627702358970617" y="2.920911395603631" z="0" o="2.1816615649925315" />
+<keyframe t="5.121515916724886" x="2.362483447678886" y="2.921320971625775" z="0" o="2.1816615649935507" />
+<keyframe t="5.1220159167248855" x="2.362196659460711" y="2.92173054764792" z="0" o="2.181661564991804" />
+<keyframe t="5.122515916724886" x="2.361909871242535" y="2.922140123670064" z="0" o="2.181661564994278" />
+<keyframe t="5.123015916724886" x="2.3616230830243596" y="2.9225496996922087" z="0" o="2.1816615649923135" />
+<keyframe t="5.123515916724886" x="2.3613362948061845" y="2.922959275714353" z="0" o="2.1816615649923135" />
+<keyframe t="5.124015916724885" x="2.3610495065880084" y="2.9233688517364977" z="0" o="2.1816615649937687" />
+<keyframe t="5.124515916724886" x="2.360762718369833" y="2.9237784277586423" z="0" o="2.1816615649923135" />
+<keyframe t="5.125015916724886" x="2.360475930151657" y="2.924188003780787" z="0" o="2.1816615649937687" />
+<keyframe t="5.125515916724886" x="2.360189141933482" y="2.9245975798029313" z="0" o="2.1816615649923135" />
+<keyframe t="5.126015916724886" x="2.3599023537153068" y="2.9250071558250754" z="0" o="2.181661564992823" />
+<keyframe t="5.126515916724886" x="2.3596155654971307" y="2.9254167318472204" z="0" o="2.1816615649932594" />
+<keyframe t="5.127015916724886" x="2.3593287772789555" y="2.9258263078693645" z="0" o="2.181661564992823" />
+<keyframe t="5.127515916724886" x="2.3590419890607803" y="2.926235883891509" z="0" o="2.1816615649923135" />
+<keyframe t="5.128015916724886" x="2.3587552008426043" y="2.9266454599136535" z="0" o="2.1816615649937687" />
+<keyframe t="5.128515916724886" x="2.358468412624429" y="2.927055035935798" z="0" o="2.1816615649923135" />
+<keyframe t="5.129015916724886" x="2.3581816244062535" y="2.9274646119579426" z="0" o="2.1816615649930413" />
+<keyframe t="5.129515916724886" x="2.357894836188078" y="2.927874187980087" z="0" o="2.1816615649930413" />
+<keyframe t="5.1300159167248855" x="2.3576080479699026" y="2.9282837640022317" z="0" o="2.1816615649923135" />
+<keyframe t="5.130515916724885" x="2.351872283606392" y="2.9364752844451214" z="0" o="2.1816615649929467" />
+<keyframe t="5.140515916724885" x="2.346136519242881" y="2.944666804888011" z="0" o="2.1816615649929467" />
+<keyframe t="5.150515916724885" x="2.3404007548793713" y="2.952858325330901" z="0" o="2.181661564992874" />
+<keyframe t="5.160515916724885" x="2.3346649905158605" y="2.9610498457737915" z="0" o="2.1816615649928957" />
+<keyframe t="5.170515916724885" x="2.32892922615235" y="2.969241366216681" z="0" o="2.1816615649929103" />
+<keyframe t="5.180515916724885" x="2.32319346178884" y="2.977432886659571" z="0" o="2.1816615649929103" />
+<keyframe t="5.190515916724885" x="2.317457697425329" y="2.9856244071024607" z="0" o="2.1816615649929467" />
+<keyframe t="5.200515916724885" x="2.311721933061819" y="2.9938159275453513" z="0" o="2.1816615649928592" />
+<keyframe t="5.210515916724885" x="2.3059861686983085" y="3.002007447988241" z="0" o="2.1816615649929103" />
+<keyframe t="5.220515916724885" x="2.3002504043347978" y="3.0101989684311308" z="0" o="2.1816615649929467" />
+<keyframe t="5.230515916724885" x="2.2945146399712875" y="3.0183904888740205" z="0" o="2.1816615649929103" />
+<keyframe t="5.240515916724885" x="2.288778875607777" y="3.0265820093169102" z="0" o="2.1816615649929103" />
+<keyframe t="5.2505159167248845" x="2.2830431112442664" y="3.034773529759801" z="0" o="2.1816615649928957" />
+<keyframe t="5.260515916724885" x="2.277307346880756" y="3.0429650502026906" z="0" o="2.1816615649929103" />
+<keyframe t="5.270515916724885" x="2.271571582517246" y="3.0511565706455803" z="0" o="2.1816615649929103" />
+<keyframe t="5.280515916724885" x="2.265835818153735" y="3.05934809108847" z="0" o="2.1816615649929467" />
+<keyframe t="5.2905159167248845" x="2.2601000537902247" y="3.0675396115313607" z="0" o="2.1816615649928592" />
+<keyframe t="5.300515916724885" x="2.2543642894267144" y="3.0757311319742504" z="0" o="2.1816615649929103" />
+<keyframe t="5.310515916724885" x="2.2486285250632037" y="3.08392265241714" z="0" o="2.1816615649929467" />
+<keyframe t="5.320515916724885" x="2.242892760699693" y="3.09211417286003" z="0" o="2.1816615649929467" />
+<keyframe t="5.330515916724885" x="2.214213938882141" y="3.1330717750744794" z="0" o="2.181661564992907" />
+<keyframe t="5.380515916724884" x="2.185535117064589" y="3.174029377288929" z="0" o="2.181661564992907" />
+<keyframe t="5.430515916724884" x="2.156856295247036" y="3.214986979503379" z="0" o="2.1816615649929165" />
+<keyframe t="5.480515916724885" x="2.128177473429484" y="3.255944581717829" z="0" o="2.1816615649929023" />
+<keyframe t="5.530515916724885" x="2.099498651611932" y="3.2969021839322785" z="0" o="2.181661564992907" />
+<keyframe t="5.580515916724885" x="2.070819829794379" y="3.337859786146728" z="0" o="2.181661564992922" />
+<keyframe t="5.630515916724885" x="2.042141007976827" y="3.3788173883611776" z="0" o="2.181661564992907" />
+<keyframe t="5.680515916724885" x="2.013462186159275" y="3.419774990575627" z="0" o="2.181661564992907" />
+<keyframe t="5.730515916724885" x="1.9847833643417225" y="3.4607325927900767" z="0" o="2.1816615649929183" />
+<keyframe t="5.780515916724885" x="1.9561045425241703" y="3.5016901950045263" z="0" o="2.1816615649929108" />
+<keyframe t="5.830515916724885" x="1.927425720706618" y="3.542647797218976" z="0" o="2.1816615649929108" />
+<keyframe t="5.880515916724884" x="1.8987468988890657" y="3.5836053994334254" z="0" o="2.1816615649929147" />
+<keyframe t="5.930515916724884" x="1.8700680770715135" y="3.624563001647875" z="0" o="2.1816615649929108" />
+<keyframe t="5.980515916724884" x="1.8413892552539612" y="3.6655206038623245" z="0" o="2.1816615649929108" />
+<keyframe t="6.030515916724884" x="1.812710433436409" y="3.706478206076774" z="0" o="2.1816615649929108" />
+<keyframe t="6.080515916724884" x="1.7840316116188566" y="3.747435808291224" z="0" o="2.1816615649929094" />
+<keyframe t="6.130515916724884" x="1.7553527898013044" y="3.7883934105056736" z="0" o="2.1816615649929108" />
+<keyframe t="6.180515916724884" x="1.7266739679837522" y="3.829351012720123" z="0" o="2.1816615649929108" />
+<keyframe t="6.230515916724884" x="1.6979951461662" y="3.870308614934573" z="0" o="2.181661564992906" />
+<keyframe t="6.280515916724885" x="1.6693163243486475" y="3.9112662171490227" z="0" o="2.1816615649929147" />
+<keyframe t="6.330515916724885" x="1.6549769134398713" y="3.9317450182562474" z="0" o="2.1816615649929147" />
+<keyframe t="6.355515916724885" x="1.6406375025310953" y="3.9522238193634722" z="0" o="2.181661564992907" />
+<keyframe t="6.380515916724884" x="1.626298091622319" y="3.972702620470697" z="0" o="2.1816615649929147" />
+<keyframe t="6.405515916724885" x="1.6119586807135429" y="3.9931814215779218" z="0" o="2.1816615649929147" />
+<keyframe t="6.430515916724885" x="1.5976192698047669" y="4.0136602226851466" z="0" o="2.181661564992907" />
+<keyframe t="6.455515916724885" x="1.5832798588959907" y="4.034139023792371" z="0" o="2.1816615649929147" />
+<keyframe t="6.480515916724885" x="1.5689404479872144" y="4.054617824899596" z="0" o="2.1816615649929147" />
+<keyframe t="6.505515916724885" x="1.5546010370784384" y="4.075096626006821" z="0" o="2.181661564992907" />
+<keyframe t="6.530515916724885" x="1.5402616261696624" y="4.095575427114046" z="0" o="2.181661564992907" />
+<keyframe t="6.555515916724884" x="1.5259222152608862" y="4.11605422822127" z="0" o="2.1816615649929147" />
+<keyframe t="6.580515916724885" x="1.51158280435211" y="4.136533029328495" z="0" o="2.1816615649929147" />
+<keyframe t="6.605515916724885" x="1.497243393443334" y="4.157011830435721" z="0" o="2.1816615649928868" />
+<keyframe t="6.630515916724885" x="1.4829039825345578" y="4.177490631542945" z="0" o="2.1816615649929347" />
+<keyframe t="6.655515916724885" x="1.4685645716257816" y="4.19796943265017" z="0" o="2.1816615649928943" />
+<keyframe t="6.680515916724885" x="1.4542251607170056" y="4.218448233757394" z="0" o="2.1816615649929276" />
+<keyframe t="6.705515916724885" x="1.4398857498082294" y="4.23892703486462" z="0" o="2.1816615649928943" />
+<keyframe t="6.730515916724885" x="1.4255463388994531" y="4.259405835971844" z="0" o="2.1816615649929347" />
+<keyframe t="6.755515916724884" x="1.4112069279906772" y="4.2798846370790695" z="0" o="2.1816615649928868" />
+<keyframe t="6.780515916724885" x="1.396867517081901" y="4.300363438186293" z="0" o="2.1816615649929347" />
+<keyframe t="6.805515916724884" x="1.3825281061731247" y="4.320842239293519" z="0" o="2.1816615649928943" />
+<keyframe t="6.830515916724885" x="1.359585048719083" y="4.353608321065078" z="0" o="2.181661564992919" />
+<keyframe t="6.870515916724884" x="1.3366419912650414" y="4.386374402836639" z="0" o="2.181661564992894" />
+<keyframe t="6.910515916724885" x="1.3136989338109992" y="4.419140484608198" z="0" o="2.1816615649929285" />
+<keyframe t="6.950515916724884" x="1.2907558763569575" y="4.4519065663797575" z="0" o="2.1816615649929068" />
+<keyframe t="6.990515916724884" x="1.2678128189029159" y="4.484672648151317" z="0" o="2.1816615649929068" />
+<keyframe t="7.030515916724884" x="1.244869761448874" y="4.517438729922876" z="0" o="2.1816615649929236" />
+<keyframe t="7.070515916724883" x="1.221926703994832" y="4.550204811694437" z="0" o="2.1816615649928983" />
+<keyframe t="7.110515916724884" x="1.1989836465407904" y="4.582970893465996" z="0" o="2.181661564992919" />
+<keyframe t="7.150515916724883" x="1.1760405890867485" y="4.6157369752375565" z="0" o="2.1816615649928983" />
+<keyframe t="7.190515916724884" x="1.1530975316327066" y="4.6485030570091155" z="0" o="2.1816615649929236" />
+<keyframe t="7.230515916724883" x="1.1301544741786649" y="4.681269138780675" z="0" o="2.1816615649929068" />
+<keyframe t="7.270515916724883" x="1.107211416724623" y="4.714035220552235" z="0" o="2.181661564992911" />
+<keyframe t="7.310515916724883" x="1.084268359270581" y="4.746801302323795" z="0" o="2.181661564992911" />
+<keyframe t="7.350515916724883" x="1.0613253018165394" y="4.779567384095355" z="0" o="2.1816615649929068" />
+<keyframe t="7.390515916724883" x="1.0383822443624975" y="4.812333465866914" z="0" o="2.1816615649929236" />
+<keyframe t="7.430515916724882" x="1.0154391869084558" y="4.845099547638474" z="0" o="2.181661564992894" />
+<keyframe t="7.470515916724883" x="0.9924961294544139" y="4.877865629410033" z="0" o="2.1816615649929236" />
+<keyframe t="7.5105159167248825" x="0.969553072000372" y="4.910631711181593" z="0" o="2.181661564992911" />
+<keyframe t="7.5505159167248825" x="0.9466100145463303" y="4.943397792953153" z="0" o="2.1816615649929068" />
+<keyframe t="7.590515916724883" x="0.9236669570922884" y="4.976163874724713" z="0" o="2.181661564992911" />
+<keyframe t="7.630515916724883" x="0.9093275461835122" y="4.9966426758319376" z="0" o="2.1816615649929147" />
+<keyframe t="7.655515916724883" x="0.8949881352747362" y="5.017121476939162" z="0" o="2.181661564992907" />
+<keyframe t="7.680515916724882" x="0.88064872436596" y="5.037600278046387" z="0" o="2.1816615649929147" />
+<keyframe t="7.705515916724883" x="0.8663093134571838" y="5.058079079153612" z="0" o="2.1816615649929147" />
+<keyframe t="7.730515916724883" x="0.8519699025484078" y="5.078557880260837" z="0" o="2.181661564992907" />
+<keyframe t="7.755515916724883" x="0.8376304916396315" y="5.099036681368061" z="0" o="2.1816615649929147" />
+<keyframe t="7.780515916724883" x="0.8232910807308554" y="5.119515482475286" z="0" o="2.1816615649929108" />
+<keyframe t="7.805515916724883" x="0.8089516698220793" y="5.139994283582511" z="0" o="2.1816615649929108" />
+<keyframe t="7.830515916724884" x="0.7946122589133031" y="5.160473084689736" z="0" o="2.1816615649929147" />
+<keyframe t="7.855515916724884" x="0.780272848004527" y="5.1809518857969605" z="0" o="2.1816615649929108" />
+<keyframe t="7.880515916724884" x="0.7659334370957509" y="5.201430686904185" z="0" o="2.1816615649929108" />
+<keyframe t="7.905515916724885" x="0.7515940261869747" y="5.221909488011411" z="0" o="2.1816615649928943" />
+<keyframe t="7.930515916724885" x="0.7372546152781986" y="5.242388289118635" z="0" o="2.181661564992931" />
+<keyframe t="7.955515916724885" x="0.7229152043694225" y="5.2628670902258605" z="0" o="2.1816615649928903" />
+<keyframe t="7.980515916724885" x="0.7085757934606463" y="5.283345891333084" z="0" o="2.1816615649929347" />
+<keyframe t="8.005515916724883" x="0.6942363825518701" y="5.30382469244031" z="0" o="2.1816615649928903" />
+<keyframe t="8.030515916724884" x="0.679896971643094" y="5.324303493547534" z="0" o="2.181661564992931" />
+<keyframe t="8.055515916724882" x="0.6655575607343178" y="5.34478229465476" z="0" o="2.1816615649928943" />
+<keyframe t="8.080515916724883" x="0.6512181498255417" y="5.3652610957619835" z="0" o="2.181661564992931" />
+<keyframe t="8.105515916724881" x="0.6374502650873737" y="5.384919314299945" z="0" o="2.1817657314240932" />
+<keyframe t="8.129515921021751" x="0.5863912165834585" y="5.4641713251793345" z="0" o="2.1431271281306365" />
+<keyframe t="8.223791621297867" x="0.5417093317692132" y="5.547185451116493" z="0" o="2.0645693147938142" />
+<keyframe t="8.318066835090592" x="0.5036800681630602" y="5.6334497907394585" z="0" o="1.9860115133414764" />
+<keyframe t="8.412341758484953" x="0.47253788915512573" y="5.722432418736361" z="0" o="1.9074537177743762" />
+<keyframe t="8.506616587567786" x="0.4484748204940204" y="5.8135846612487105" z="0" o="1.8288959220930692" />
+<keyframe t="8.60089151842652" x="0.43163926789155405" y="5.906344474309362" z="0" o="1.7503381202981747" />
+<keyframe t="8.695166747147947" x="0.4221385965048699" y="6.000140117449026" z="0" o="1.6717432113706987" />
+<keyframe t="8.789442329505103" x="0.42003702070785554" y="6.094392308789917" z="0" o="1.5930900007031177" />
+<keyframe t="8.883717947739038" x="0.4253430304819853" y="6.188518176572762" z="0" o="1.5144844943422524" />
+<keyframe t="8.97799325057916" x="0.43801935377200363" y="6.281937053810032" z="0" o="1.435926691349438" />
+<keyframe t="9.072268251488337" x="0.45798779504694065" y="6.374072916494114" z="0" o="1.3573688945946907" />
+<keyframe t="9.166543146553199" x="0.4851252260668764" y="6.464357647719447" z="0" o="1.278811098078603" />
+<keyframe t="9.260818131861033" x="0.5192643440486963" y="6.552234535840011" z="0" o="1.200253295801788" />
+<keyframe t="9.355093403498566" x="0.5602008807623776" y="6.637158413450258" z="0" o="1.1216212913879837" />
+<keyframe t="9.449368877649963" x="0.6076787436498648" y="6.718606008442331" z="0" o="1.0430263796707182" />
+<keyframe t="9.543644315566505" x="0.6614051498765826" y="6.796074094929606" z="0" o="0.964426167767111" />
+<keyframe t="9.63791961005047" x="0.7210471230206931" y="6.869085228184872" z="0" o="0.8858418694974903" />
+<keyframe t="9.732194689152749" x="0.7862347708543185" y="6.93719058023745" z="0" o="0.8072840715343501" />
+<keyframe t="9.826469650877941" x="0.8565661388337076" y="6.999970210112246" z="0" o="0.7287262741627287" />
+<keyframe t="9.920744691313194" x="0.9315694684423017" y="7.057014073637253" z="0" o="0.6502196736866045" />
+<keyframe t="10.01497579986146" x="0.9356652286637466" y="7.059881955819009" z="0" o="0.6108652381980499" />
+<keyframe t="10.019975799861461" x="0.9397609888851917" y="7.062749838000764" z="0" o="0.6108652381980245" />
+<keyframe t="10.024975799861462" x="0.9438567491066365" y="7.065617720182519" z="0" o="0.6108652381980499" />
+<keyframe t="10.029975799861463" x="0.9479525093280815" y="7.068485602364275" z="0" o="0.6108652381980372" />
+<keyframe t="10.034975799861463" x="0.9520482695495265" y="7.07135348454603" z="0" o="0.6108652381980372" />
+<keyframe t="10.039975799861464" x="0.9561440297709713" y="7.074221366727786" z="0" o="0.6108652381980499" />
+<keyframe t="10.044975799861465" x="0.9602397899924164" y="7.077089248909541" z="0" o="0.6108652381980245" />
+<keyframe t="10.049975799861466" x="0.9643355502138613" y="7.079957131091296" z="0" o="0.6108652381980499" />
+<keyframe t="10.054975799861467" x="0.9684313104353064" y="7.082825013273052" z="0" o="0.6108652381980245" />
+<keyframe t="10.059975799861467" x="0.9725270706567513" y="7.085692895454806" z="0" o="0.6108652381979044" />
+<keyframe t="10.064975799861466" x="0.9766228308781961" y="7.088560777636561" z="0" o="0.6108652381979044" />
+<keyframe t="10.069975799861465" x="0.9807185910996412" y="7.091428659818316" z="0" o="0.6108652381980245" />
+<keyframe t="10.074975799861466" x="0.9848143513210861" y="7.094296542000071" z="0" o="0.6108652381980499" />
+<keyframe t="10.079975799861467" x="0.9889101115425312" y="7.097164424181827" z="0" o="0.6108652381980245" />
+<keyframe t="10.084975799861468" x="0.993005871763976" y="7.100032306363582" z="0" o="0.6108652381980499" />
+<keyframe t="10.089975799861469" x="0.9971016319854209" y="7.102900188545338" z="0" o="0.6108652381980499" />
+<keyframe t="10.09497579986147" x="1.001197392206866" y="7.105768070727093" z="0" o="0.6108652381980245" />
+<keyframe t="10.09997579986147" x="1.0052931524283109" y="7.108635952908848" z="0" o="0.6108652381980499" />
+<keyframe t="10.10497579986147" x="1.009388912649756" y="7.111503835090604" z="0" o="0.6108652381980245" />
+<keyframe t="10.109975799861472" x="1.013484672871201" y="7.114371717272359" z="0" o="0.6108652381980245" />
+<keyframe t="10.114975799861472" x="1.1509084091665749" y="7.2089114864235135" z="0" o="0.602588455205995" />
+<keyframe t="10.281778231643909" x="1.2907053280521037" y="7.299900827427415" z="0" o="0.5769851719284232" />
+<keyframe t="10.448578227765646" x="1.4331304285055164" y="7.386710094519383" z="0" o="0.5473815091170109" />
+<keyframe t="10.615373785536857" x="1.5784126133263263" y="7.4686328735757606" z="0" o="0.5134426902051661" />
+<keyframe t="10.782161839529426" x="1.7268195876968075" y="7.5447207190449905" z="0" o="0.4737537235904405" />
+<keyframe t="10.948937108289366" x="1.8785871454688956" y="7.61381020695647" z="0" o="0.42719654539019325" />
+<keyframe t="11.115690665768582" x="2.033954724169634" y="7.6742719384436295" z="0" o="0.37112052812075125" />
+<keyframe t="11.282408107824763" x="2.1930122131747254" y="7.724034680901774" z="0" o="0.30321290047253824" />
+<keyframe t="11.449068287068517" x="2.355593295463918" y="7.760274630727565" z="0" o="0.2193184070008128" />
+<keyframe t="11.615639419866794" x="2.5209431525216064" y="7.779369587908521" z="0" o="0.11497285859483898" />
+<keyframe t="11.782088188617843" x="2.6872410346802797" y="7.776607622743775" z="0" o="-0.01660701395645684" />
+<keyframe t="11.948409005300636" x="2.8508318092597493" y="7.74697555761255" z="0" o="-0.17919239734563375" />
+<keyframe t="12.114661827266016" x="3.0058749371442897" y="7.686719930102432" z="0" o="-0.3706732076696843" />
+<keyframe t="12.281002177604892" x="3.1458761998313274" y="7.596589747757665" z="0" o="-0.571991057838298" />
+<keyframe t="12.447506842174583" x="3.267499995149782" y="7.482708055781143" z="0" o="-0.7525355910411323" />
+<keyframe t="12.614124330317638" x="3.371212176488055" y="7.352222052886908" z="0" o="-0.8992252158706794" />
+<keyframe t="12.780806103494124" x="3.4591822275721062" y="7.210595699578036" z="0" o="-1.0149762439387373" />
+<keyframe t="12.947529688626222" x="3.533894487253054" y="7.061513820563301" z="0" o="-1.1062298057846183" />
+<keyframe t="13.114284983586225" x="3.5974095415194833" y="6.907308191489122" z="0" o="-1.1800860513376326" />
+<keyframe t="13.28105889688393" x="3.651670078852383" y="6.749595648957593" z="0" o="-1.2394346024721974" />
+<keyframe t="13.44784454369868" x="3.6518232138681284" y="6.749119676619159" z="0" o="-1.2595240391078346" />
+<keyframe t="13.448344543698681" x="3.6519763488838732" y="6.7486437042807275" z="0" o="-1.259524039107592" />
+<keyframe t="13.44884454369868" x="3.6521294838996186" y="6.748167731942296" z="0" o="-1.2595240391067466" />
+<keyframe t="13.449344543698679" x="3.6522826189153634" y="6.747691759603863" z="0" o="-1.259524039108136" />
+<keyframe t="13.44984454369868" x="3.6524357539311088" y="6.74721578726543" z="0" o="-1.2595240391072906" />
+<keyframe t="13.45034454369868" x="3.6525888889468536" y="6.746739814926999" z="0" o="-1.259524039107592" />
+<keyframe t="13.450844543698679" x="3.652742023962599" y="6.746263842588566" z="0" o="-1.2595240391072906" />
+<keyframe t="13.45134454369868" x="3.6528951589783443" y="6.745787870250133" z="0" o="-1.2595240391072906" />
+<keyframe t="13.45184454369868" x="3.653048293994089" y="6.7453118979117015" z="0" o="-1.259524039107592" />
+<keyframe t="13.452344543698679" x="3.653201429009834" y="6.74483592557327" z="0" o="-1.259524039107592" />
+<keyframe t="13.452844543698678" x="3.6533545640255793" y="6.744359953234836" z="0" o="-1.2595240391078346" />
+<keyframe t="13.453344543698678" x="3.6535076990413247" y="6.743883980896404" z="0" o="-1.2595240391067466" />
+<keyframe t="13.453844543698677" x="3.65366083405707" y="6.743408008557973" z="0" o="-1.2595240391067466" />
+<keyframe t="13.454344543698676" x="3.653813969072815" y="6.74293203621954" z="0" o="-1.259524039108136" />
+<keyframe t="13.454844543698677" x="3.6539671040885597" y="6.742456063881107" z="0" o="-1.259524039108136" />
+<keyframe t="13.455344543698677" x="3.654120239104305" y="6.7419800915426755" z="0" o="-1.2595240391067466" />
+<keyframe t="13.455844543698676" x="3.6542733741200504" y="6.741504119204243" z="0" o="-1.2595240391072906" />
+<keyframe t="13.456344543698677" x="3.6544265091357957" y="6.74102814686581" z="0" o="-1.2595240391072906" />
+<keyframe t="13.456844543698677" x="3.65457964415154" y="6.740552174527378" z="0" o="-1.2595240391084375" />
+<keyframe t="13.457344543698676" x="3.654732779167286" y="6.740076202188947" z="0" o="-1.259524039105901" />
+<keyframe t="13.457844543698675" x="3.6623895299545426" y="6.7162775852673295" z="0" o="-1.2595240391074498" />
+<keyframe t="13.482844543698675" x="3.6700462807417997" y="6.692478968345714" z="0" o="-1.2595240391074112" />
+<keyframe t="13.507844543698674" x="3.6777030315290564" y="6.668680351424097" z="0" o="-1.2595240391074498" />
+<keyframe t="13.532844543698674" x="3.6853597823163136" y="6.644881734502482" z="0" o="-1.2595240391074112" />
+<keyframe t="13.557844543698673" x="3.6930165331035703" y="6.621083117580865" z="0" o="-1.2595240391074498" />
+<keyframe t="13.582844543698673" x="3.700673283890827" y="6.597284500659248" z="0" o="-1.259524039107439" />
+<keyframe t="13.607844543698674" x="3.708330034678084" y="6.573485883737632" z="0" o="-1.259524039107422" />
+<keyframe t="13.632844543698674" x="3.715986785465341" y="6.549687266816016" z="0" o="-1.259524039107439" />
+<keyframe t="13.657844543698674" x="3.723643536252598" y="6.5258886498944" z="0" o="-1.259524039107422" />
+<keyframe t="13.682844543698675" x="3.7313002870398546" y="6.5020900329727835" z="0" o="-1.259524039107439" />
+<keyframe t="13.707844543698675" x="3.7389570378271113" y="6.478291416051167" z="0" o="-1.259524039107439" />
+<keyframe t="13.732844543698675" x="3.7466137886143684" y="6.45449279912955" z="0" o="-1.259524039107433" />
+<keyframe t="13.757844543698676" x="3.754270539401625" y="6.430694182207935" z="0" o="-1.259524039107428" />
+<keyframe t="13.782844543698674" x="3.7619272901888823" y="6.406895565286318" z="0" o="-1.259524039107433" />
+<keyframe t="13.807844543698675" x="3.769584040976139" y="6.383096948364702" z="0" o="-1.259524039107428" />
+<keyframe t="13.832844543698673" x="3.7772407917633957" y="6.359298331443085" z="0" o="-1.2595240391074498" />
+<keyframe t="13.857844543698674" x="3.784897542550653" y="6.335499714521469" z="0" o="-1.259524039107422" />
+<keyframe t="13.882844543698674" x="3.7925542933379095" y="6.311701097599853" z="0" o="-1.259524039107439" />
+<keyframe t="13.907844543698674" x="3.8002110441251666" y="6.287902480678237" z="0" o="-1.259524039107422" />
+<keyframe t="13.932844543698675" x="3.8078677949124233" y="6.26410386375662" z="0" o="-1.259524039107439" />
+<keyframe t="13.957844543698675" x="3.838494798061451" y="6.1689093960701555" z="0" o="-1.2595240391074305" />
+<keyframe t="14.057844543698675" x="3.869121801210478" y="6.073714928383691" z="0" o="-1.2595240391074347" />
+<keyframe t="14.157844543698674" x="3.899748804359506" y="5.978520460697226" z="0" o="-1.2595240391074305" />
+<keyframe t="14.257844543698674" x="3.930375807508533" y="5.883325993010761" z="0" o="-1.2595240391074347" />
+<keyframe t="14.357844543698674" x="3.9610028106575608" y="5.788131525324294" z="0" o="-1.2595240391074358" />
+<keyframe t="14.457844543698675" x="3.9916298138065884" y="5.692937057637829" z="0" o="-1.2595240391074305" />
+<keyframe t="14.557844543698675" x="4.022256816955616" y="5.597742589951364" z="0" o="-1.2595240391074347" />
+<keyframe t="14.657844543698674" x="4.052883820104643" y="5.5025481222648995" z="0" o="-1.2595240391074305" />
+<keyframe t="14.757844543698674" x="4.083510823253671" y="5.407353654578435" z="0" o="-1.2595240391074305" />
+<keyframe t="14.857844543698674" x="4.114137826402699" y="5.31215918689197" z="0" o="-1.2595240391074305" />
+<keyframe t="14.957844543698673" x="4.144764829551725" y="5.216964719205503" z="0" o="-1.2595240391074443" />
+<keyframe t="15.057844543698675" x="4.175391832700753" y="5.121770251519038" z="0" o="-1.2595240391074305" />
+<keyframe t="15.157844543698674" x="4.206018835849781" y="5.026575783832573" z="0" o="-1.2595240391074305" />
+<keyframe t="15.257844543698674" x="4.236645838998808" y="4.931381316146108" z="0" o="-1.2595240391074305" />
+<keyframe t="15.357844543698674" x="4.267272842147836" y="4.8361868484596435" z="0" o="-1.2595240391074305" />
+<keyframe t="15.457844543698673" x="4.297899845296864" y="4.740992380773179" z="0" o="-1.2595240391074305" />
+<keyframe t="15.557844543698673" x="4.328526848445891" y="4.645797913086713" z="0" o="-1.2595240391074332" />
+<keyframe t="15.657844543698674" x="4.359153851594918" y="4.550603445400247" z="0" o="-1.2595240391074416" />
+<keyframe t="15.757844543698674" x="4.389780854743946" y="4.455408977713782" z="0" o="-1.2595240391074305" />
+<keyframe t="15.857844543698674" x="4.4204078578929735" y="4.360214510027317" z="0" o="-1.2595240391074305" />
+<keyframe t="15.957844543698673" x="4.435721359467488" y="4.312617276184085" z="0" o="-1.259524039107422" />
+<keyframe t="16.007844543698674" x="4.451034861042002" y="4.265020042340852" z="0" o="-1.259524039107422" />
+<keyframe t="16.057844543698675" x="4.466348362616515" y="4.21742280849762" z="0" o="-1.2595240391074558" />
+<keyframe t="16.107844543698675" x="4.481661864191029" y="4.1698255746543875" z="0" o="-1.259524039107422" />
+<keyframe t="16.157844543698676" x="4.496975365765543" y="4.122228340811155" z="0" o="-1.259524039107422" />
+<keyframe t="16.207844543698677" x="4.512288867340056" y="4.074631106967923" z="0" o="-1.2595240391074558" />
+<keyframe t="16.257844543698678" x="4.52760236891457" y="4.02703387312469" z="0" o="-1.259524039107422" />
+<keyframe t="16.30784454369868" x="4.542915870489084" y="3.9794366392814573" z="0" o="-1.2595240391074247" />
+<keyframe t="16.35784454369868" x="4.5582293720635985" y="3.9318394054382244" z="0" o="-1.2595240391074247" />
+<keyframe t="16.40784454369868" x="4.573542873638111" y="3.884242171594992" z="0" o="-1.2595240391074558" />
+<keyframe t="16.45784454369868" x="4.588856375212625" y="3.8366449377517595" z="0" o="-1.259524039107422" />
+<keyframe t="16.50784454369868" x="4.6041698767871395" y="3.7890477039085266" z="0" o="-1.2595240391074247" />
+<keyframe t="16.557844543698682" x="4.619483378361652" y="3.741450470065294" z="0" o="-1.2595240391074558" />
+<keyframe t="16.607844543698683" x="4.634796879936166" y="3.6938532362220617" z="0" o="-1.259524039107422" />
+<keyframe t="16.657844543698683" x="4.650110381510681" y="3.6462560023788293" z="0" o="-1.259524039107422" />
+<keyframe t="16.707844543698684" x="4.665423883085193" y="3.5986587685355964" z="0" o="-1.2595240391074585" />
+<keyframe t="16.757844543698685" x="4.680737384659707" y="3.551061534692364" z="0" o="-1.259524039107422" />
+<keyframe t="16.807844543698685" x="4.696050886234222" y="3.503464300849131" z="0" o="-1.2595240391074247" />
+<keyframe t="16.857844543698686" x="4.711364387808736" y="3.4558670670058986" z="0" o="-1.259524039107422" />
+
+      </plugin>
+    </model>
+    
+    <model name='Obstacle/-12/0'>
+      <pose frame=''>2.496580468050117 0.8235046377889127 0.1 0 0 1.1344640137963147</pose>
+      <link name='link'>
+        <inertial>
+          <mass>10</mass>
+          <inertia>
+            <ixx>0.166667</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>0.166667</iyy>
+            <iyz>0</iyz>
+            <izz>0.166667</izz>
+          </inertia>
+        </inertial>
+        <collision name='collision'>
+          <geometry>
+            <box>
+              <size>0.2 0.3 0.2</size>
+            </box>
+          </geometry>
+          <max_contacts>10</max_contacts>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <bounce/>
+            <friction>
+              <torsional>
+                <ode/>
+              </torsional>
+              <ode/>
+            </friction>
+          </surface>
+        </collision>
+        <visual name='visual'>
+          <geometry>
+            <box>
+              <size>0.2 0.3 0.2</size>
+            </box>
+          </geometry>
+          <material>
+            <script>
+              <name>Gazebo/White</name>
+              <uri>file://media/materials/scripts/gazebo.material</uri>
+            </script>
+          </material>
+        </visual>
+        <self_collide>0</self_collide>
+        <enable_wind>0</enable_wind>
+        <kinematic>0</kinematic>
+      </link>
+    </model>
+    
+    <model name='Obstacle/-20/0'>
+      <pose frame=''>2.6922484836145824 1.560456863671536 0.1 0 0 1.4835298641951802</pose>
+      <link name='link'>
+        <inertial>
+          <mass>10</mass>
+          <inertia>
+            <ixx>0.166667</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>0.166667</iyy>
+            <iyz>0</iyz>
+            <izz>0.166667</izz>
+          </inertia>
+        </inertial>
+        <collision name='collision'>
+          <geometry>
+            <box>
+              <size>0.2 0.3 0.2</size>
+            </box>
+          </geometry>
+          <max_contacts>10</max_contacts>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <bounce/>
+            <friction>
+              <torsional>
+                <ode/>
+              </torsional>
+              <ode/>
+            </friction>
+          </surface>
+        </collision>
+        <visual name='visual'>
+          <geometry>
+            <box>
+              <size>0.2 0.3 0.2</size>
+            </box>
+          </geometry>
+          <material>
+            <script>
+              <name>Gazebo/White</name>
+              <uri>file://media/materials/scripts/gazebo.material</uri>
+            </script>
+          </material>
+        </visual>
+        <self_collide>0</self_collide>
+        <enable_wind>0</enable_wind>
+        <kinematic>0</kinematic>
+      </link>
+    </model>
+    
+    <model name='Obstacle/-28/0'>
+      <pose frame=''>2.720656350672694 2.345769739443046 0.1 0 0 1.8325957145940457</pose>
+      <link name='link'>
+        <inertial>
+          <mass>10</mass>
+          <inertia>
+            <ixx>0.166667</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>0.166667</iyy>
+            <iyz>0</iyz>
+            <izz>0.166667</izz>
+          </inertia>
+        </inertial>
+        <collision name='collision'>
+          <geometry>
+            <box>
+              <size>0.2 0.2 0.2</size>
+            </box>
+          </geometry>
+          <max_contacts>10</max_contacts>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <bounce/>
+            <friction>
+              <torsional>
+                <ode/>
+              </torsional>
+              <ode/>
+            </friction>
+          </surface>
+        </collision>
+        <visual name='visual'>
+          <geometry>
+            <box>
+              <size>0.2 0.2 0.2</size>
+            </box>
+          </geometry>
+          <material>
+            <script>
+              <name>Gazebo/White</name>
+              <uri>file://media/materials/scripts/gazebo.material</uri>
+            </script>
+          </material>
+        </visual>
+        <self_collide>0</self_collide>
+        <enable_wind>0</enable_wind>
+        <kinematic>0</kinematic>
+      </link>
+    </model>
+    
+    <model name='Obstacle/-36/0'>
+      <pose frame=''>2.3821656087636973 3.067556612066235 0.1 0 0 2.181661564992911</pose>
+      <link name='link'>
+        <inertial>
+          <mass>10</mass>
+          <inertia>
+            <ixx>0.166667</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>0.166667</iyy>
+            <iyz>0</iyz>
+            <izz>0.166667</izz>
+          </inertia>
+        </inertial>
+        <collision name='collision'>
+          <geometry>
+            <box>
+              <size>0.2 0.2 0.2</size>
+            </box>
+          </geometry>
+          <max_contacts>10</max_contacts>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <bounce/>
+            <friction>
+              <torsional>
+                <ode/>
+              </torsional>
+              <ode/>
+            </friction>
+          </surface>
+        </collision>
+        <visual name='visual'>
+          <geometry>
+            <box>
+              <size>0.2 0.2 0.2</size>
+            </box>
+          </geometry>
+          <material>
+            <script>
+              <name>Gazebo/White</name>
+              <uri>file://media/materials/scripts/gazebo.material</uri>
+            </script>
+          </material>
+        </visual>
+        <self_collide>0</self_collide>
+        <enable_wind>0</enable_wind>
+        <kinematic>0</kinematic>
+      </link>
+    </model>
+    
+    <model name='Sign/-9'>
+      <static>1</static>
+      <link name='link'>
+        <visual name='visual'>
+          <cast_shadows>0</cast_shadows>
+          <geometry>
+            <plane>
+              <normal>0 0 1</normal>
+              <size>0.1 0.1</size>
+            </plane>
+          </geometry>
+          <material>
+            <script>
+              <uri>file://materials/scripts</uri>
+              <uri>file://materials/textures</uri>
+              <name>Sign/stvo-625-10</name>
+            </script>
+          </material>
+        </visual>
+        <self_collide>0</self_collide>
+        <enable_wind>0</enable_wind>
+        <kinematic>0</kinematic>
+      </link>
+      <pose frame=''>2.7694132760301713 0.5804259285408196 0.2 1.5707963267948966 0 5.846852994181004</pose>
+    </model>
+    
+    <model name='Sign/-17'>
+      <static>1</static>
+      <link name='link'>
+        <visual name='visual'>
+          <cast_shadows>0</cast_shadows>
+          <geometry>
+            <plane>
+              <normal>0 0 1</normal>
+              <size>0.1 0.1</size>
+            </plane>
+          </geometry>
+          <material>
+            <script>
+              <uri>file://materials/scripts</uri>
+              <uri>file://materials/textures</uri>
+              <name>Sign/stvo-625-10</name>
+            </script>
+          </material>
+        </visual>
+        <self_collide>0</self_collide>
+        <enable_wind>0</enable_wind>
+        <kinematic>0</kinematic>
+      </link>
+      <pose frame=''>3.0317652749581887 1.4253519104102224 0.2 1.5707963267948966 0 6.19591884457987</pose>
+    </model>
+    
+    <model name='Sign/-25'>
+      <static>1</static>
+      <link name='link'>
+        <visual name='visual'>
+          <cast_shadows>0</cast_shadows>
+          <geometry>
+            <plane>
+              <normal>0 0 1</normal>
+              <size>0.1 0.1</size>
+            </plane>
+          </geometry>
+          <material>
+            <script>
+              <uri>file://materials/scripts</uri>
+              <uri>file://materials/textures</uri>
+              <name>Sign/stvo-625-10</name>
+            </script>
+          </material>
+        </visual>
+        <self_collide>0</self_collide>
+        <enable_wind>0</enable_wind>
+        <kinematic>0</kinematic>
+      </link>
+      <pose frame=''>2.9893138069807255 2.3090522889583243 0.2 1.5707963267948966 0 6.544984694978735</pose>
+    </model>
+    
+    <model name='Sign/-33'>
+      <static>1</static>
+      <link name='link'>
+        <visual name='visual'>
+          <cast_shadows>0</cast_shadows>
+          <geometry>
+            <plane>
+              <normal>0 0 1</normal>
+              <size>0.1 0.1</size>
+            </plane>
+          </geometry>
+          <material>
+            <script>
+              <uri>file://materials/scripts</uri>
+              <uri>file://materials/textures</uri>
+              <name>Sign/stvo-625-10</name>
+            </script>
+          </material>
+        </visual>
+        <self_collide>0</self_collide>
+        <enable_wind>0</enable_wind>
+        <kinematic>0</kinematic>
+      </link>
+      <pose frame=''>2.647179145652805 3.1249397565036525 0.2 1.5707963267948966 0 6.894050545377601</pose>
+    </model>
+    
+    <model name='Sign/-49'>
+      <static>1</static>
+      <link name='link'>
+        <visual name='visual'>
+          <cast_shadows>0</cast_shadows>
+          <geometry>
+            <plane>
+              <normal>0 0 1</normal>
+              <size>0.1 0.1</size>
+            </plane>
+          </geometry>
+          <material>
+            <script>
+              <uri>file://materials/scripts</uri>
+              <uri>file://materials/textures</uri>
+              <name>Sign/stvo-206</name>
+            </script>
+          </material>
+        </visual>
+        <self_collide>0</self_collide>
+        <enable_wind>0</enable_wind>
+        <kinematic>0</kinematic>
+      </link>
+      <pose frame=''>1.9150619376353453 4.083339148054336 0.2 1.5707963267948966 0 6.894050545377601</pose>
+    </model>
+    
+    <model name='Sign/-58'>
+      <static>1</static>
+      <link name='link'>
+        <visual name='visual'>
+          <cast_shadows>0</cast_shadows>
+          <geometry>
+            <plane>
+              <normal>0 0 1</normal>
+              <size>0.1 0.1</size>
+            </plane>
+          </geometry>
+          <material>
+            <script>
+              <uri>file://materials/scripts</uri>
+              <uri>file://materials/textures</uri>
+              <name>Sign/stvo-208</name>
+            </script>
+          </material>
+        </visual>
+        <self_collide>0</self_collide>
+        <enable_wind>0</enable_wind>
+        <kinematic>0</kinematic>
+      </link>
+      <pose frame=''>3.320020792107206 6.6376414145516724 0.2 1.5707963267948966 0 3.452864941277257</pose>
+    </model>
+    </world></sdf>
