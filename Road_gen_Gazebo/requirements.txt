@@ -5,3 +5,4 @@ tqdm
 matplotlib
 shapely
 scipy
+PyXB == 1.2.5
