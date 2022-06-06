@@ -46,6 +46,7 @@ if __name__ == '__main__':
 
     robot = Turtlebot()
 
+    # Lecture des (x,y,z,o) calculés lors de la génération de l'environnement et 
     dom = minidom.parse(robot.file)
     elems = dom.getElementsByTagName('keyframe')
     i = 0
@@ -54,13 +55,5 @@ if __name__ == '__main__':
             robot.add_waypoint([float(e.attributes['x'].value[:3]), float(e.attributes['y'].value[:3]), -0.6, 0.6])
         i += 1
 
-    
-    # robot.add_waypoint([3.0, -0.0, -0.7, 0.7])
-    # robot.add_waypoint([6.4, -0.7, -0.7, 0.7])
-    # robot.add_waypoint([7.5, 2.9, -0.7, 0.7])
-
-    # robot.add_waypoint([-6.1, -1.0, -0.7, 0.7])
-    # robot.add_waypoint([1.1, 3.4, -0.7, 0.7])
-    # robot.add_waypoint([6.2, -0.9, -0.7, 0.7])
 
     robot.nav_into_points()
