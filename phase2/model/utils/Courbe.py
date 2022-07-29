@@ -1,4 +1,6 @@
-from model.utils.Point import *
+import sys
+sys.path.append('..')
+from utils.Point import *
 import numpy as np
 import math
 

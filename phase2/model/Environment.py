@@ -1,12 +1,14 @@
+import sys
+sys.path.append('..')
 import string
 from tokenize import Pointfloat
-from model.RobotAgent import RobotAgent
-from model.utils.Point import Point
-from model.utils.Droite import Droite
-from model.utils.Courbe import Courbe
+from RobotAgent import RobotAgent
+from utils.Point import Point
+from utils.Droite import Droite
+from utils.Courbe import Courbe
 import threading
 import time
-import pygame
+#import pygame
 import os
 
 class Environment :
@@ -65,7 +67,7 @@ class Environment :
     @staticmethod
     def importRoadFromFile(filename : string) :
         """
-        Recécupère un circuit ( un ensemble de points décrivant des courbe de Bézier ) depuis un .txt 
+        Récupère un circuit ( un ensemble de points décrivant des courbe de Bézier ) depuis un .txt 
         format : X1,Y1,H1,W1;X2,Y2,H2,W2;X3,Y3,H3,W3
         """
         road = []
@@ -131,7 +133,7 @@ class ModelThread(threading.Thread) :
 
     def run(self) :
         while(self.condition) :
-            pygame.event.get()
+            #pygame.event.get()
             self.envt.update()
             time.sleep(ModelThread.speed_model)
 

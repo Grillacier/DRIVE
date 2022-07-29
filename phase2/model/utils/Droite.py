@@ -1,4 +1,6 @@
-from model.utils.Point import Point
+import sys
+sys.path.append('..')
+from utils.Point import Point
 import math
 
 class Droite:

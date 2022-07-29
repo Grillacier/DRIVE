@@ -1,4 +1,6 @@
-from model.utils.Route import *
+import sys
+sys.path.append('..')
+from utils.Route import *
 import numpy as np
 
 class Circuit:

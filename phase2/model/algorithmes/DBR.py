@@ -1,7 +1,10 @@
-from model.algorithmes.Algorithme import Algorithme
+import sys
+sys.path.append('..')
+
+from algorithmes.Algorithme import Algorithme
 
 import numpy as np
-from model.utils.Point import Point
+from utils.Point import Point
 
 import time
 

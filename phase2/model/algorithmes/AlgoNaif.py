@@ -1,5 +1,7 @@
+import sys
+sys.path.append('..')
 
-from model.algorithmes.Algorithme import Algorithme
+from algorithmes.Algorithme import Algorithme
 
 import numpy as np
 
