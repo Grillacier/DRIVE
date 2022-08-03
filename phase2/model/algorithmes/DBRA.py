@@ -1,13 +1,10 @@
-import sys
-sys.path.append('..')
-
-from algorithmes.Algorithme import Algorithme
+from model.algorithmes.Algorithme import Algorithme
 
 import numpy as np
 
 import time
 
-from utils.Point import Point
+from model.utils.Point import Point
 
 class DBRA(Algorithme):
 

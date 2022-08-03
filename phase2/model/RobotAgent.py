@@ -1,21 +1,15 @@
-import sys
-sys.path.append('..')
-
 from copyreg import constructor
-from algorithmes.AlgoNaif import AlgoNaif
-from algorithmes.DBR import DBR
-from algorithmes.DBRA import DBRA
-from percepts.Camera import Camera
-from utils.Radian import Radian
+from model.algorithmes.AlgoNaif import AlgoNaif
+from model.algorithmes.DBR import DBR
+from model.algorithmes.DBRA import DBRA
+from model.percepts.Camera import Camera
+from model.utils.Radian import Radian
 
 import numpy as np
 import time
 import math
 
-import os
-import rospy
-from nav_msgs.msg import Odometry
-import json
+
 
 
 class RobotAgent :
