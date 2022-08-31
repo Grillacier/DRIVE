@@ -6,7 +6,7 @@ class Radian :
         self.value = value
 
     def updateRadianDroite(self,step,vitesse_angulaire):
-        return (vitesse_angulaire +  self.value + step ) % (2 * np.pi),(vitesse_angulaire +  self.value + step)
+        return (vitesse_angulaire + self.value + step ) % (2 * np.pi),(vitesse_angulaire +  self.value + step)
 
     def updateRadianGauche(self,step,vitesse_angulaire):
         return (self.value - vitesse_angulaire - step ) % (2 * np.pi),(vitesse_angulaire +  self.value + step)

@@ -10,14 +10,14 @@ class VecteurDirecteurRenderer :
 
     rayon = 100
 
-    COLOR = (0,255,0) # rouge
+    COLOR = (0,255,0) # vert
 
     def __init__(self,renderer) -> None:
         self.renderer = renderer
         self.update()
 
     def update(self) -> None :
-        (x_1 , y_1),(x_2,y_2) = self.getData2() # recuperation des données du modele
+        (x_1, y_1),(x_2, y_2) = self.getData2() # recuperation des donnees du modele
         # y_1 = self.renderer.getHeight() - y_1
         # y_2 = self.renderer.getHeight() - y_2
         pygame.draw.line(self.renderer.getMainFrame(), VecteurDirecteurRenderer.COLOR, (x_1 , y_1),(x_2,y_2))

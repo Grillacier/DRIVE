@@ -15,15 +15,21 @@ class BoardRenderer:
         self.roadrenderer = roadrenderer
         self.robotrenderder = robotrenderer
         self.renderer = renderer
+        self.robot = self.renderer.getModel().getRobotAgent()
     
         self.update()
 
     def update(self) -> None :
-        self.printData(f"Taille circuit : {self.roadrenderer.circuit.longeur} px",1)     
+        self.printData(f"Taille circuit : {self.roadrenderer.circuit.longueur} px",1)     
         XRobot,YRobot,_,_ = self.robotrenderder.getData()
 
-        self.printData(f"Position robot : {round(self.renderer.getModel().getRobotAgent().getX(),3),round(self.renderer.getModel().getRobotAgent().getY(),3)}",2) 
-        self.printData(f"Position curseur : {pygame.mouse.get_pos()}",3) 
+        self.printData(f"Position robot : {round(self.robot.getX(),3),round(self.robot.getY(),3)}",2) 
+        self.printData(f"Position curseur : {pygame.mouse.get_pos()}",3)
+        x,y = self.robot.getVitesseLineaireCourante()
+        v = math.sqrt(math.pow(x,2) + math.pow(y,2))
+        self.printData(f"Vitesse : {v}", 4)
+        self.printData(f"Vitesse min : {self.robot.getVitesseMin()}", 5)
+        self.printData(f"Vitesse max : {self.robot.getVitesseMax()}", 6)
             
 
     def printData(self,data:str,ind:int) -> None :

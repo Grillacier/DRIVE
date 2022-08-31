@@ -1,0 +1,5 @@
+Modification de la création d'un RobotAgent : initialisation de l'emplacement initial
+Ajouts de points pour le déplacement du robot
+Algorithme DBRA pour un seul virage à la fois
+Récupération de la vitesse optimale dans une variable
+Arrêt de la simulation quand la vitesse optimale est définie (temps de latence)

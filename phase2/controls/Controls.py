@@ -48,7 +48,7 @@ class ThreadControls(threading.Thread):
             # verification de l'activation des controles : 
             for event in pygame.event.get() :
                 # Action à activer lorsque le joueur presse une touche
-                if event.type == pygame.QUIT:
+                if event.type == pygame.QUIT or self.controls.getModel().thread.getEnd():
                         # On arrete les threads du model et de la view
                         self.controls.getModel().stop()
                         self.controls.getRenderer().stop()

@@ -24,8 +24,15 @@ pygame.init()
 """
 Initialisation des composants de l'app
 """
+
 envt = Environment()
 renderer = Renderer(envt)
+envt.robotAgent.setPosition(renderer.roadRenderer.circuit.controlPointsAngle[0][0], renderer.roadRenderer.circuit.controlPointsAngle[0][1])
+envt.robotAgent.setFirstPosition(envt.robotAgent.getPosition())
+
+# for p in renderer.roadRenderer.circuit.controlPointsAngle:
+#     print("controlPointsAngle : ", p)
+
 envt.start() # Lancement du thread de l'environnement
 
 envt.saveRoad(20)

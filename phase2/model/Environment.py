@@ -8,6 +8,7 @@ import threading
 import time
 import pygame
 import os
+import numpy as np
 
 class Environment :
     """
@@ -15,14 +16,19 @@ class Environment :
     """
     height = 1000
     width = 1000
-    #filename = os.path.dirname(os.path.abspath(__file__))+"/circuit/circuit1.txt"
-    #filename = os.path.dirname(os.path.abspath(__file__))+"/circuit/circuit2.txt"
-    filename = os.path.dirname(os.path.abspath(__file__))+"/circuit/circuit3.txt"
-    #filename = os.path.dirname(os.path.abspath(__file__))+"/circuit/circuit4.txt"
+    # filename = os.path.dirname(os.path.abspath(__file__))+"/circuit/circuit1.txt"
+    # filename = os.path.dirname(os.path.abspath(__file__))+"/circuit/circuit2.txt"
+    # filename = os.path.dirname(os.path.abspath(__file__))+"/circuit/circuit3.txt"
+    # filename = os.path.dirname(os.path.abspath(__file__))+"/circuit/circuit4.txt"
+    filename = os.path.dirname(os.path.abspath(__file__))+"/circuit/circuit_from_xml1.txt"
+    # filename = os.path.dirname(os.path.abspath(__file__))+"/circuit/circuit_from_xml2.txt"
 
     def __init__(self) -> None:
+        self.road = Environment.importRoadFromFile(Environment.filename)
+
         middle_x_robotAgent = (Environment.width/2) - (RobotAgent.width/2)
-        self.robotAgent = RobotAgent(self,400,610) # On place le robot sur la route
+        # self.robotAgent = RobotAgent(self, self.road[0][1].getX()/1536*1000, self.road[0][1].getY()/1536*1000)
+        self.robotAgent = RobotAgent(self)
         self.thread = ModelThread(self)
         """
         self.road : liste de points triplet [(P1 : Point,Pc : Point, P2 : Point)_1,...,(P1 : Point,Pc : Point, P2 : Point)_n]
@@ -31,7 +37,6 @@ class Environment :
         #self.road = [(Point(5,5,10,10),Point(5,600,10,10),Point(600,600,10,10)),
         # (Point(600,600,10,10),Point(700,600,10,10),Point(700,700,10,10))]
 
-        self.road = Environment.importRoadFromFile(Environment.filename)
         self.circuit = None
 
     def update(self) -> None :
@@ -128,12 +133,49 @@ class ModelThread(threading.Thread) :
     def __init__(self,envt : Environment):
         threading.Thread.__init__(self)
         self.envt = envt
+        self.robot = self.envt.robotAgent
+        self.end = False
 
     def run(self) :
         while(self.condition) :
             pygame.event.get()
             self.envt.update()
+            if self.robot.algorithme.isCloseToLastPoint():
+                if self.robot.algorithme.decision(): # le robot n'a jamais quitte la route
+                    self.robot.setVitesseMin(self.robot.getVitesseMin()+1)
+                    self.robot.setVitesseMax(self.robot.getVitesseMax()+1)
+                    self.robot.accelerer_lineaire()
+                else:
+                    self.robot.setVitesseMin(self.robot.getVitesseMin()-1)
+                    self.robot.setVitesseMax(self.robot.getVitesseMax()-1)
+                    self.robot.setVitesseOptimale(self.robot.getVitesseMin())
+                    self.end = True # delais pour s'arreter plutot eleve
+                    self.robot.decelerer_lineaire()
+
+                if self.end:
+                    print("Vitesse optimale :", self.robot.getVitesseOptimale())
+                # on replace le robot au debut du virage
+                self.robot.setRadian(self.angle(1, 0, self.robot.getFirstPosition().getX() - self.envt.circuit.getControlPointsAngle()[1][0], self.robot.getFirstPosition().getY() - self.envt.circuit.getControlPointsAngle()[1][1]))
+                self.robot.setVecteurDirecteur(self.robot.getRadian().radToVectorDirector())
+                self.robot.setPosition(self.robot.getFirstPosition().getX(), self.robot.getFirstPosition().getY())
+                self.robot.setVitesseLineaireCourante(self.robot.getRadian().radToVectorDirector())
+                self.robot.algorithme.setDec(True)
             time.sleep(ModelThread.speed_model)
 
     def setCondition(self,condition : bool):
         self.condition = condition
+
+    def getEnd(self):
+        return self.end
+
+    """
+    obtenir l'angle entre 2 vecteurs
+    """
+    def angle(self, x1, y1, x2, y2):
+        vector_1 = [x1, y1]
+        vector_2 = [x2, y2]
+        unit_vector_1 = vector_1 / np.linalg.norm(vector_1)
+        unit_vector_2 = vector_2 / np.linalg.norm(vector_2)
+        dot_product = np.dot(unit_vector_1, unit_vector_2)
+        angle = np.arccos(dot_product)
+        return angle

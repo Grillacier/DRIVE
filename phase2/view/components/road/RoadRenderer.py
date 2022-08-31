@@ -21,10 +21,9 @@ class RoadRenderer :
         self.listPoint = []
         self.listCourbe = []
         self.listRoute = []
-        
 
         for (data_p1,data_pc,data_p2) in self.data:
-            # Recuperation des données graphiques des points de la route
+            # Recuperation des donnees graphiques des points de la route
 
             x_1,y_1,height_1,width_1 = data_p1["x"],data_p1["y"],data_p1["height"],data_p1["width"]
             x_c,y_c,height_c,width_c = data_pc["x"],data_pc["y"],data_pc["height"],data_pc["width"]
@@ -33,8 +32,10 @@ class RoadRenderer :
             y_rend_c = self.renderer.getHeight() - y_c - height_c
             y_rend_2 = self.renderer.getHeight() - y_2 - height_2
 
-            self.listPoint.append({"x_1":x_1,"y_1":y_1,"height_1":height_1,"width_1":width_1,"y_rend_1":y_rend_1,"x_c":x_c,"y_c":y_c,"height_c":height_c,"width_c":width_c,"y_rend_c":y_rend_c,"x_2":x_2,"y_2":y_2,"height_2":height_2,"width_2":width_2,"y_rend_2":y_rend_2})
-            
+            self.listPoint.append({"x_1":x_1,"y_1":y_1,"height_1":height_1,"width_1":width_1,
+            "y_rend_1":y_rend_1,"x_c":x_c,"y_c":y_c,"height_c":height_c,"width_c":width_c,
+            "y_rend_c":y_rend_c,"x_2":x_2,"y_2":y_2,"height_2":height_2,"width_2":width_2,"y_rend_2":y_rend_2})
+        
             courbe = Courbe(Point(x_1,y_rend_1),Point(x_c,y_rend_c),Point(x_2,y_rend_2))
             self.listCourbe.append(courbe)
             self.dist.append(courbe.getLongueur(100))
@@ -42,7 +43,7 @@ class RoadRenderer :
             self.listRoute.append(Route(20,courbe))
         
         self.circuit = Circuit(self.listRoute)
-        
+
         self.centerCircuit()
 
         self.renderer.getModel().setCircuit(self.circuit)
@@ -52,19 +53,19 @@ class RoadRenderer :
 
     def update(self) -> None :
         
-        #Dessin des Points
+        #Dessin des Points : points de controles bleus
 
         self.dessinPoint()
 
-        # Dessin Courbe 
+        # Dessin Courbe  : chemin central vert
 
         self.dessinCourbe()
 
-        # Dessin Route
+        # Dessin Route = bordures rouges du circuit
 
         self.dessinRoute()
             
-        # Dessin Circuit
+        # Dessin Circuit : points jaunes : angle le plus petit de la courbe de Bezier
         
         self.dessinCircuit()
 
@@ -173,12 +174,15 @@ class RoadRenderer :
             self.dist.append(courbe.getLongueur(100))
 
             self.listRoute.append(Route(20,courbe))
-        
+
         self.circuit = Circuit(self.listRoute)
 
     def centerCircuit(self):
+        """
+        Place le circuit au milieu de la fenêtre
+        """
         self.pointCenter = self.circuit.calculateCenter()
-        self.incrementPoint = [self.renderer.width/2 - self.pointCenter.x,self.renderer.height/2 - self.pointCenter.y]
+        self.incrementPoint = [self.renderer.width/2 - self.pointCenter.x, self.renderer.height/2 - self.pointCenter.y]
         for p in self.listPoint:
             p["x_1"] += self.incrementPoint[0]
             p["y_1"] += self.incrementPoint[1]
@@ -189,5 +193,5 @@ class RoadRenderer :
             p["y_rend_1"] += self.incrementPoint[1]
             p["y_rend_c"] += self.incrementPoint[1]
             p["y_rend_2"] += self.incrementPoint[1]
-        
+
         self.updateCircuit()

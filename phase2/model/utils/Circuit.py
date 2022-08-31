@@ -8,7 +8,7 @@ class Circuit:
     ANGLE_DIVISION = 10
     def __init__(self, routes:list) -> None:
         self.routes = routes
-        self.longeur = round(sum([route.longeur for route in routes]),2)
+        self.longueur = round(sum([route.longeur for route in routes]),2)
         self.startPoint = routes[0].courbe.get(0)
         self.controlPointsAngle = self.getControlPointsAngle()
         # peu parfois provoquer des problème de calculs avec les points de controle
@@ -17,7 +17,7 @@ class Circuit:
 
     def getControlPointsT(self) -> np.array:
         """
-        Recupertation des points de controle en fonction de la valeur de t pour chaque route/courbe
+        Recuperation des points de controle en fonction de la valeur de t pour chaque route/courbe
         """
         result = np.zeros((Circuit.CIRCUIT_DIVISION,2))
         step = np.linspace(0,len(self.routes),Circuit.CIRCUIT_DIVISION,endpoint=False)
@@ -30,10 +30,10 @@ class Circuit:
     
     def getControlPointsDist(self) -> np.array:
         """
-        Recupertation des points de controle en fonction de la distance 
+        Recuperation des points de controle en fonction de la distance 
         """
         result = np.zeros((Circuit.CIRCUIT_DIVISION,2))
-        step = np.linspace(0,int(self.longeur),Circuit.CIRCUIT_DIVISION,endpoint=False)
+        step = np.linspace(0,int(self.longueur),Circuit.CIRCUIT_DIVISION,endpoint=False)
         i = 0
         for s in step:
             tmp = self.getPointFromStart(s)
@@ -41,13 +41,16 @@ class Circuit:
             i += 1
         return result
     
+    # TODO : traiter le cas des circuits contenant plus de 2 points bleus clairs
     def getControlPointsAngle(self) -> np.array:
         """
-        Recupertation des points de controle en fonction de l'angle
+        Recuperation des points de controle en fonction de l'angle
         """
         result = []
         step = np.linspace(0,len(self.routes),len(self.routes)*Route.APPROX_VALUE,endpoint=False)
         prec = self.routes[0].courbe.getNormalizedQuadraticDerivative(0)
+        p = self.routes[0].courbe.get(0)
+        result.append([p.x, p.y])
         for T in step:
             if(T == 0):
                 continue
@@ -61,8 +64,33 @@ class Circuit:
                 p = self.routes[int(T)].courbe.get(t)
                 result.append([p.x, p.y])
                 prec = tmp
-        
+        p = self.routes[0].courbe.get(1)
+        result.append([p.x, p.y])
         return np.array(result)
+
+    # ancienne version
+    # def getControlPointsAngle(self) -> np.array:
+    #     """
+    #     Recupertation des points de controle en fonction de l'angle
+    #     """
+    #     result = []
+    #     step = np.linspace(0,len(self.routes),len(self.routes)*Route.APPROX_VALUE,endpoint=False)
+    #     prec = self.routes[0].courbe.getNormalizedQuadraticDerivative(0)
+    #     for T in step:
+    #         if(T == 0):
+    #             continue
+    #         t = T % 1
+    #         tmp = self.routes[int(T)].courbe.getNormalizedQuadraticDerivative(t)
+    #         try:
+    #             angle = math.degrees(math.acos((np.dot([prec["x"],prec["y"]],[tmp["x"],tmp["y"]]))/(math.sqrt(prec["x"]**2 + prec["y"]**2) * math.sqrt(tmp["x"]**2 + tmp["y"]**2))))
+    #         except:
+    #             angle = 0
+    #         if angle >= Circuit.ANGLE_DIVISION:
+    #             p = self.routes[int(T)].courbe.get(t)
+    #             result.append([p.x, p.y])
+    #             prec = tmp
+        
+    #     return np.array(result)
 
     
     def getPointFromStart(self,distance:float) -> Point:
@@ -102,6 +130,14 @@ class Circuit:
     #         raise Exception("distance trop grande")
     #     d = (distance - d)
     #     return route.courbe.getDistance(d,100)
+
+    def addControlPointsAngle(self, p):
+        liste = self.controlPointsAngle.tolist() + [[p.getX(), p.getY()]]
+        self.controlPointsAngle = np.array(liste)
+
+    def insertControlPointsAngle(self, p):
+        liste = [[p.getX(), p.getY()]] + self.controlPointsAngle.tolist()
+        self.controlPointsAngle = np.array(liste)
 
     def calculateCenter(self) -> Point:
         """
