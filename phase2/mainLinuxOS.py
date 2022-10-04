@@ -29,6 +29,8 @@ envt = Environment()
 renderer = Renderer(envt)
 envt.robotAgent.setPosition(renderer.roadRenderer.circuit.controlPointsAngle[0][0], renderer.roadRenderer.circuit.controlPointsAngle[0][1])
 envt.robotAgent.setFirstPosition(envt.robotAgent.getPosition())
+envt.robotAgent.setRadian(envt.thread.angle(1, 0, envt.robotAgent.getFirstPosition().getX() + envt.circuit.getControlPointsAngle()[1][0], envt.robotAgent.getFirstPosition().getY() - envt.circuit.getControlPointsAngle()[1][1]))
+# envt.robotAgent.setVecteurDirecteur(envt.robotAgent.getRadian().radToVectorDirector())
 
 # for p in renderer.roadRenderer.circuit.controlPointsAngle:
 #     print("controlPointsAngle : ", p)

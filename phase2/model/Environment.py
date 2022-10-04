@@ -16,12 +16,7 @@ class Environment :
     """
     height = 1000
     width = 1000
-    # filename = os.path.dirname(os.path.abspath(__file__))+"/circuit/circuit1.txt"
-    # filename = os.path.dirname(os.path.abspath(__file__))+"/circuit/circuit2.txt"
-    # filename = os.path.dirname(os.path.abspath(__file__))+"/circuit/circuit3.txt"
-    # filename = os.path.dirname(os.path.abspath(__file__))+"/circuit/circuit4.txt"
-    filename = os.path.dirname(os.path.abspath(__file__))+"/circuit/circuit_from_xml1.txt"
-    # filename = os.path.dirname(os.path.abspath(__file__))+"/circuit/circuit_from_xml2.txt"
+    filename = os.path.dirname(os.path.abspath(__file__))+"/circuit/45-29.txt"
 
     def __init__(self) -> None:
         self.road = Environment.importRoadFromFile(Environment.filename)
@@ -79,11 +74,20 @@ class Environment :
             for l in file.readlines():
                 l = l.replace("\n",'')
                 point = l.split(';')
+                print(point[0])
+                print(point[4])
 
-                points= []
+                points = []
+                # for p in point:
+                #     tmp = [int(float(j)) for j in p.split(",")]
+                #     points.append(Point(tmp[0],tmp[1],tmp[2],tmp[3]))
+
                 for i in range(3):
-                    tmp = [int(j) for j in point[i].split(",")]
+                    tmp = [int(float(j)) for j in point[i].split(",")]
                     points.append(Point(tmp[0],tmp[1],tmp[2],tmp[3]))
+                # for i in range(3,len(point)):
+                #     tmp = [int(float(j)) for j in point[i].split(",")]
+                #     points.append(Point(tmp[0],tmp[1],tmp[2],tmp[3]))
                 road.append(tuple(points))
                 
         finally:
@@ -155,7 +159,7 @@ class ModelThread(threading.Thread) :
                 if self.end:
                     print("Vitesse optimale :", self.robot.getVitesseOptimale())
                 # on replace le robot au debut du virage
-                self.robot.setRadian(self.angle(1, 0, self.robot.getFirstPosition().getX() - self.envt.circuit.getControlPointsAngle()[1][0], self.robot.getFirstPosition().getY() - self.envt.circuit.getControlPointsAngle()[1][1]))
+                self.robot.setRadian(self.angle(1, 0, self.robot.getFirstPosition().getX() + self.envt.circuit.getControlPointsAngle()[1][0], self.robot.getFirstPosition().getY() - self.envt.circuit.getControlPointsAngle()[1][1]))
                 self.robot.setVecteurDirecteur(self.robot.getRadian().radToVectorDirector())
                 self.robot.setPosition(self.robot.getFirstPosition().getX(), self.robot.getFirstPosition().getY())
                 self.robot.setVitesseLineaireCourante(self.robot.getRadian().radToVectorDirector())

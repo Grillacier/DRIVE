@@ -26,7 +26,7 @@ class DBRAVirage(Algorithme):
 
         self.position_robot = Point(self.robotAgent.getX(), self.robotAgent.getY())
 
-        # TODO: renommer ça
+        # TODO: renommer (bool utlilise pour savoir si me robot est sorti du circuit)
         self.dec = True
 
 
@@ -67,6 +67,7 @@ class DBRAVirage(Algorithme):
             self.robotAgent.decelerer_lineaire()
             #print("déceleration")
 
+        # renvoie true si le robot n'a pas quitte le circuit, false sinon 
         self.dec = self.robotAgent.env.getCircuit().OnTheCircuit(self.position_robot) and self.dec
         return self.dec
 
