@@ -1,0 +1,87 @@
+GAZEBO
+gazebo_plugins                  2.5.21
+gazebo_ros                      2.5.21
+
+matplotlib                      3.6.0
+
+numpy                           1.23.1
+
+pygame                          2.1.2
+pymunk                          6.2.1
+
+ROS + RQT
+rosbag                          1.12.17
+rosboost_cfg                    1.14.6
+rosclean                        1.14.6
+roscreate                       1.14.6
+rosdep                          0.22.1
+rosdistro                       0.9.0
+rosgraph                        1.12.17
+rosinstall-generator            0.1.22
+roslaunch                       1.12.17
+roslib                          1.14.6
+roslint                         0.11.0
+roslz4                          1.12.17
+rosmake                         1.14.6
+rosmaster                       1.12.17
+rosmsg                          1.12.17
+rosnode                         1.12.17
+rosparam                        1.12.17
+rospkg                          1.4.0
+rospy                           1.12.17
+rosserial_client                0.7.7
+rosserial_python                0.7.7
+rosservice                      1.12.17
+rostest                         1.12.17
+rostopic                        1.12.17
+rosunit                         1.14.6
+roswtf                          1.12.17
+rqt_action                      0.4.9
+rqt_bag                         0.5.0
+rqt_bag_plugins                 0.5.0
+rqt_bhand                       0.1.2
+rqt_console                     0.4.9
+rqt_controller_manager          0.13.5
+rqt_dep                         0.4.9
+rqt_drone_teleop                1.0.1
+rqt_ez_publisher                0.5.0
+rqt_graph                       0.4.11
+rqt_ground_robot_teleop         0.0.1
+rqt_gui                         0.5.0
+rqt_gui_py                      0.5.0
+rqt_image_view                  0.4.16
+rqt_joint_trajectory_controller 0.13.6
+rqt_joint_trajectory_plot       0.0.2
+rqt_launch                      0.4.8
+rqt_launchtree                  0.2.0
+rqt_logger_level                0.4.8
+rqt_moveit                      0.5.7
+rqt_msg                         0.4.8
+rqt_multiplot                   0.0.10
+rqt_nav_view                    0.5.7
+rqt_plot                        0.4.13
+rqt_pose_view                   0.5.8
+rqt_pr2_dashboard               0.4.0
+rqt_publisher                   0.4.8
+rqt_py_common                   0.5.0
+rqt_py_console                  0.4.8
+rqt_py_trees                    0.3.1
+rqt-reconfigure                 0.5.3
+rqt_robot_dashboard             0.5.7
+rqt-robot-monitor               0.5.13
+rqt_robot_steering              0.5.9
+rqt_runtime_monitor             0.5.7
+rqt_rviz                        0.5.10
+rqt_service_caller              0.4.8
+rqt_shell                       0.4.9
+rqt_srv                         0.4.8
+rqt_tf_tree                     0.6.0
+rqt_top                         0.4.8
+rqt_topic                       0.4.11
+rqt_web                         0.4.8
+rqt_wrapper                     0.1.4
+
+TURTLEBOT
+turtlebot3_example              1.2.5
+turtlebot3_teleop               1.2.5
+
