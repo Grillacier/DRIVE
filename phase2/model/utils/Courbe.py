@@ -14,6 +14,9 @@ from pymunk.vec2d import Vec2d
 from matplotlib.lines import Line2D
 
 
+# file1 = open("/home/pand22/savePrevious.txt","a")
+# file2 = open("/home/pand22/saveCurent.txt","a")
+
 class Courbe:
     def __init__(self,P0:Point,P1:Point,P2:Point) -> None:
         self.Point = [P0,P1,P2]
@@ -21,12 +24,13 @@ class Courbe:
         self.P = self.tmpNameIterative(P0, P1, P2, 0.1745329)
 
     # def __init__(self,P0:Point,P1:Point,P2:Point) -> None:
-    #     self.Point = [P0,P1,P2]
-    #     self.T = [i for i in np.arange(0,1,0.001)]
-    #     P = []
-    #     for t in self.T:
-    #         P.append(self.learp(self.learp(P0,P1,t),self.learp(P1,P2,t),t))
-    #     self.P = P
+        # self.Point = [P0,P1,P2]
+        # self.T = [i for i in np.arange(0,1,0.001)]
+        # P = []
+        # for t in self.T:
+            # P.append(self.learp(self.learp(P0,P1,t),self.learp(P1,P2,t),t))
+        # self.P = P
+        # file1.write(str(self.P))
     
     def __repr__(self) -> str:
         return f"Courbe({self.Point[0]} {self.Point[1]} {self.Point[2]})"
