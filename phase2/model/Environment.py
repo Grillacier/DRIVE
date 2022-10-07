@@ -9,6 +9,7 @@ import time
 import pygame
 import os
 import numpy as np
+import zipfile
 
 class Environment :
     """
@@ -119,6 +120,9 @@ class Environment :
                     file.write(content)
         
 
+    #TODO: fonction ouvrant zip et modifiant tous les fichiers dedans
+    def writeSpeed():
+        zipName = os.path.dirname(os.path.abspath(__file__))+"/circuit/grid.zip"
 
     def getHeight(self) -> int :
         return Environment.height

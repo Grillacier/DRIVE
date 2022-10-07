@@ -1,5 +1,4 @@
-
-*.pyc
-*.pyc
-*.pyc
-*.pyc
+*\.pyc
+phase2/controls/__pycache__/*
+node_modules/*
+phase2/model/utils/__pycache__/*

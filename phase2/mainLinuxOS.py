@@ -37,7 +37,8 @@ envt.robotAgent.setRadian(envt.thread.angle(1, 0, envt.robotAgent.getFirstPositi
 
 envt.start() # Lancement du thread de l'environnement
 
-envt.saveRoad(20)
+# ne marche pas
+#envt.saveRoad(20)
 
 
 renderer.start() # Lancement du thread de l'affichage

@@ -31,7 +31,7 @@ class Renderer :
         self.roadRenderer = RoadRenderer(self)
         self.robotRenderer = RobotRenderer(self)
         self.boardRenderer = BoardRenderer(self,self.roadRenderer,self.robotRenderer)
-        
+ 
     def update(self) -> None:
         """
         Mise à jour de la vue
