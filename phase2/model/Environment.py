@@ -74,8 +74,8 @@ class Environment :
             for l in file.readlines():
                 l = l.replace("\n",'')
                 point = l.split(';')
-                print(point[0])
-                print(point[4])
+                # print(point[0])
+                # print(point[4])
 
                 points = []
                 # for p in point:

@@ -102,8 +102,6 @@ class RoadRenderer :
 
     def getData(self) : 
         list_points = self.renderer.getModel().getRoad()
-        print("list points : ", list_points)
-        print("taille : ", len(list_points))
         data = []
         for (p1,pc,p2) in list_points: 
             data.append((self.getDataPoint(p1),self.getDataPoint(pc),self.getDataPoint(p2)))
@@ -136,9 +134,7 @@ class RoadRenderer :
             self.renderer.getMainFrame().blit(surface, (p["x_2"] - p["width_2"]/2, p["y_rend_2"] - p["height_2"]/2))
         
     def dessinCourbe(self):
-        # print("self.listCourbe : ", self.listCourbe)
         for courbe in self.listCourbe:
-            # print("courbe.P : ", courbe.P)
             for p in courbe.P:
                 surface = pygame.Surface((1, 1), pygame.SRCALPHA)
                 surface.fill(RoadRenderer.COLOR_COURBE)
