@@ -134,11 +134,8 @@ class RoadRenderer :
             self.renderer.getMainFrame().blit(surface, (p["x_2"] - p["width_2"]/2, p["y_rend_2"] - p["height_2"]/2))
 
     def dessinCourbe(self):
-        # print("self.listCourbe : ", self.listCourbe)
         for courbe in self.listCourbe:
             for p in courbe.P:
-                # print("courbe.P : ", courbe.P)
-                # print("p : ", p)
                 surface = pygame.Surface((1, 1), pygame.SRCALPHA)
                 surface.fill(RoadRenderer.COLOR_COURBE)
                 self.renderer.getMainFrame().blit(surface, (p.getX(), p.getY()))
@@ -146,6 +143,9 @@ class RoadRenderer :
     def dessinRoute(self):
         for route in self.listRoute:
             for p in route.getRightPoints():
+                # print("p : ", p)
+                # print("p[0] : ", p[0])
+                # print("p[1] : ", p[1])
                 surface = pygame.Surface((1, 1), pygame.SRCALPHA)
                 surface.fill(RoadRenderer.COLOR_ROUTE)
                 self.renderer.getMainFrame().blit(surface, (p[0], p[1]))

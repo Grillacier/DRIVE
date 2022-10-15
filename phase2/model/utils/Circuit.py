@@ -159,8 +159,7 @@ class Circuit:
         Permet de savoir si un point est sur le circuit
         """
         for route in self.routes:
-            if route.OnTheRoute(point):
-                return True
+            return route.OnTheRoute(point)
     
 
 

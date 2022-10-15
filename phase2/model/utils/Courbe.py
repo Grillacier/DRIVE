@@ -14,9 +14,6 @@ from pymunk.vec2d import Vec2d
 from matplotlib.lines import Line2D
 
 
-# file1 = open("/home/pand22/savePrevious.txt","a")
-# file2 = open("/home/pand22/saveCurent.txt","a")
-
 class Courbe:
     def __init__(self,P0:Point,P1:Point,P2:Point) -> None:
         self.Point = [P0,P1,P2]
@@ -170,8 +167,10 @@ class Courbe:
             elem = None if len(toProcess) == 0 else toProcess.pop(0)
         return Courbe.vecToPoint(acc)
 
-    # converts a Vec2d to a Point
     def vecToPoint(acc):
+        """
+        converts a Vec2d to a Point
+        """
         newAcc = []
         for v in acc:
             newAcc.append(Point(v.x, v.y))
