@@ -66,8 +66,6 @@ class Route:
 
             self.RightPoints.append([p.x + f*ni["x"], p.y + f*ni["y"]])
             self.LeftPoints.append([p.x + f*n["x"], p.y + f*n["y"]])
-        print("self.RightPoints[0][0] : ", self.RightPoints[0][0])
-        print("self.RightPoints[0][1] : ", self.RightPoints[0][1])
         
     # ancienne version
     # def OnTheRoute(self, point:Point) -> bool:
@@ -83,9 +81,7 @@ class Route:
         """
         Retourne True si le point est sur la route
         """
-        # print("longueur : ", point.calcul_longueur(self.courbe.P[0]))
         return Route.toShapelyPoint(point).within(self.poly) or (point.calcul_longueur(self.courbe.P[0]) <= 5.0)
-            # if self.poly.contains(sp):
 
     def toShapelyPoints(self, l):
         """

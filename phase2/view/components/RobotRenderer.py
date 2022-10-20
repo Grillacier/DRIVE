@@ -18,7 +18,7 @@ class RobotRenderer :
         self.vecteur_directeur_renderer = VecteurDirecteurRenderer(self.renderer)
         self.vecteur_directeur = self.vecteur_directeur_renderer.getVecteurDirecteur()
         self.robot_agent = self.renderer.getModel().getRobotAgent()
-        self.update()
+        # self.update()
         
 
     def update(self) -> None :
@@ -74,7 +74,9 @@ class RobotRenderer :
     
     def getColor(self) :
         if self.renderer.getModel().getCircuit().OnTheCircuit(Point(self.robot_agent.getX()+self.robot_agent.width/2,self.robot_agent.getY()+self.robot_agent.height/2)):
+            self.robot_agent.algorithme.setOnCircuit(True)
             return RobotAgent.COLOR_ON_ROAD
         else :
+            self.robot_agent.algorithme.setOnCircuit(False)
             return RobotAgent.COLOR_OUT_ROAD
     

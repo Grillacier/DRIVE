@@ -247,12 +247,6 @@ class RobotAgent :
 
     def getHeight(self) -> int :
         return RobotAgent.height
-
-    def getVecteurDirecteur(self) : 
-        return self.vecteur_directeur
-
-    def setVecteurDirecteur(self, vecteur_directeur):
-        self.vecteur_directeur = vecteur_directeur
     
     def getNormalVecteurDirecteur(self):
         d = {"x":self.vecteur_directeur[0],"y":self.vecteur_directeur[1]}

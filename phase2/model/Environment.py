@@ -1,3 +1,5 @@
+from cmath import sqrt
+import math
 import string
 from tokenize import Pointfloat
 from model.RobotAgent import RobotAgent
@@ -9,7 +11,6 @@ import time
 import pygame
 import os
 import numpy as np
-import zipfile
 
 class Environment :
     """
@@ -120,10 +121,6 @@ class Environment :
                     file.write(content)
         
 
-    #TODO: fonction ouvrant zip et modifiant tous les fichiers dedans
-    def writeSpeed():
-        zipName = os.path.dirname(os.path.abspath(__file__))+"/circuit/grid.zip"
-
     def getHeight(self) -> int :
         return Environment.height
 
@@ -138,7 +135,7 @@ class ModelThread(threading.Thread) :
     speed_model = 0.1 # Vitesse d'évolution de l'environnement
     condition = True
 
-    def __init__(self,envt : Environment):
+    def __init__(self, envt : Environment):
         threading.Thread.__init__(self)
         self.envt = envt
         self.robot = self.envt.robotAgent
@@ -163,7 +160,7 @@ class ModelThread(threading.Thread) :
                 if self.end:
                     print("Vitesse optimale :", self.robot.getVitesseOptimale())
                 # on replace le robot au debut du virage
-                self.robot.setRadian(self.angle(1, 0, self.robot.getFirstPosition().getX() + self.envt.circuit.getControlPointsAngle()[1][0], self.robot.getFirstPosition().getY() - self.envt.circuit.getControlPointsAngle()[1][1]))
+                self.robot.setRadian(2 *math.pi-self.angle(1, 0, ( self.envt.circuit.controlPointsAngle[1][0] - self.robot.getFirstPosition().getX()), ( self.envt.circuit.controlPointsAngle[1][1] - self.robot.getFirstPosition().getY())))
                 self.robot.setVecteurDirecteur(self.robot.getRadian().radToVectorDirector())
                 self.robot.setPosition(self.robot.getFirstPosition().getX(), self.robot.getFirstPosition().getY())
                 self.robot.setVitesseLineaireCourante(self.robot.getRadian().radToVectorDirector())
@@ -179,11 +176,8 @@ class ModelThread(threading.Thread) :
     """
     obtenir l'angle entre 2 vecteurs
     """
-    def angle(self, x1, y1, x2, y2):
-        vector_1 = [x1, y1]
-        vector_2 = [x2, y2]
-        unit_vector_1 = vector_1 / np.linalg.norm(vector_1)
-        unit_vector_2 = vector_2 / np.linalg.norm(vector_2)
-        dot_product = np.dot(unit_vector_1, unit_vector_2)
-        angle = np.arccos(dot_product)
+    def angle(self, x2, y2, x1, y1):
+        dot = x1*x2 + y1*y2
+        det = x1*y2 - y1*x2
+        angle = np.arctan2(det, dot)
         return angle

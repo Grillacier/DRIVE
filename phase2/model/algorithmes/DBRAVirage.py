@@ -24,17 +24,20 @@ class DBRAVirage(Algorithme):
 
         self.out = False
 
-        self.position_robot = Point(self.robotAgent.getX(), self.robotAgent.getY())
+        # self.position_robot = Point(self.robotAgent.getX(), self.robotAgent.getY())
+        self.position_robot = self.robotAgent.getPosition()
 
         # TODO: renommer (bool utlilise pour savoir si me robot est sorti du circuit)
         self.dec = True
+        self.onCircuit = True
 
 
     def decision(self): #-> None :
         """
         Donne un ordre au robot en fonction de la position du robot et de la destination
         """
-        self.position_robot = Point(self.robotAgent.getX(), self.robotAgent.getY())
+        self.position_robot = self.robotAgent.getPosition()
+        # self.position_robot = Point(self.robotAgent.getX(), self.robotAgent.getY())
 
         # if self.Index % len(self.robotAgent.env.circuit.controlPointsAngle) == 0:
         # TODO: modifier isCloseToLastPoint() pour eviter qu'un passage soit compte 2 fois
@@ -48,7 +51,13 @@ class DBRAVirage(Algorithme):
         #     print("liste temps : ",self.list_time_tour)
         #     print("Moyenne temps par passage : ",np.mean(self.list_time_tour),"s")
 
-        if not DBRAVirage.IS_READY and self.robotAgent.env.getCircuit().OnTheCircuit(self.position_robot) :
+        # self.onCircuit = self.robotAgent.env.getCircuit().OnTheCircuit(self.position_robot)
+        # self.setOnCircuit(self.robotAgent.env.getCircuit().OnTheCircuit(self.position_robot))
+        # if(not self.onCircuit) :
+        #     print("pos initiale: ", self.robotAgent.first_position )
+        #     print("pos : ", self.position_robot)
+
+        if not DBRAVirage.IS_READY and self.onCircuit :
             DBRAVirage.IS_READY = True
 
         positionRobot = np.array([self.robotAgent.x,self.robotAgent.y])
@@ -68,7 +77,6 @@ class DBRAVirage(Algorithme):
             #print("déceleration")
 
         # renvoie true si le robot n'a pas quitte le circuit, false sinon 
-        self.dec = self.robotAgent.env.getCircuit().OnTheCircuit(self.position_robot) and self.dec
         return self.dec
 
     """
@@ -155,6 +163,10 @@ class DBRAVirage(Algorithme):
 
     def setDec(self, dec):
         self.dec = dec
+
+    def setOnCircuit(self, on):
+        self.onCircuit = on
+        self.setDec(on and self.dec)
     
     @staticmethod
     def coefDirecteurDroite(P1 , P2) :
