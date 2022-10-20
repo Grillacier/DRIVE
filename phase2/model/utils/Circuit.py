@@ -159,7 +159,7 @@ class Circuit:
         Permet de savoir si un point est sur le circuit
         """
         for route in self.routes:
-            return route.OnTheRoute(point)
+            return route.OnTheRoute(point) or (point.getX() == self.controlPointsAngle[0][0] and point.getY() == self.controlPointsAngle[0][1])
     
 
 

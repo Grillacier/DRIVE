@@ -109,16 +109,23 @@ class DBRAVirage(Algorithme):
         else:
             return False
 
+    
+    def angle(self, x2, y2, x1, y1):
+        dot = x1*x2 + y1*y2
+        det = x1*y2 - y1*x2
+        angle = np.arctan2(det, dot)
+        return abs(angle)
 
     def getDirection(self,destination,vecteur_directeur) -> str :
         """
         Permet de determiner la direction a prendre en fonction de la destination et du vecteur directeur
         """
         eps = 0.05
-        angle = abs(np.arccos( (np.dot(destination,vecteur_directeur)) / (np.linalg.norm(destination) * np.linalg.norm(vecteur_directeur))))
+        angle = self.angle(destination[0], destination[1], vecteur_directeur[0], vecteur_directeur[1])
+        # angle = abs(np.arccos( (np.dot(destination,vecteur_directeur)) / (np.linalg.norm(destination) * np.linalg.norm(vecteur_directeur))))
         vecteurDirecteurTest = self.radToVectorDirector((self.robotAgent.current_radian.value + 0.1 ) % (2 * np.pi))
-        angle2 = abs(np.arccos( (np.dot(destination,vecteurDirecteurTest)) / (np.linalg.norm(destination) * np.linalg.norm(vecteurDirecteurTest))))
-        
+        # angle2 = abs(np.arccos( (np.dot(destination,vecteurDirecteurTest)) / (np.linalg.norm(destination) * np.linalg.norm(vecteurDirecteurTest))))
+        angle2 = self.angle( destination[0], destination[1], vecteurDirecteurTest[0], vecteurDirecteurTest[1])
 
         if np.abs(angle) > eps :
             if np.degrees(angle) > np.degrees(angle2) :

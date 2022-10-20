@@ -18,7 +18,7 @@ class Environment :
     """
     height = 1000
     width = 1000
-    filename = os.path.dirname(os.path.abspath(__file__))+"/circuit/45-29.txt"
+    filename = os.path.dirname(os.path.abspath(__file__))+"/circuit/5-10.txt"
 
     def __init__(self) -> None:
         self.road = Environment.importRoadFromFile(Environment.filename)
