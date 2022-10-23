@@ -18,21 +18,18 @@ class Environment :
     """
     height = 1000
     width = 1000
-    filename = os.path.dirname(os.path.abspath(__file__))+"/circuit/5-10.txt"
+    filename = os.path.dirname(os.path.abspath(__file__))+"/circuit/45-29.txt"
 
     def __init__(self) -> None:
         self.road = Environment.importRoadFromFile(Environment.filename)
 
         middle_x_robotAgent = (Environment.width/2) - (RobotAgent.width/2)
-        # self.robotAgent = RobotAgent(self, self.road[0][1].getX()/1536*1000, self.road[0][1].getY()/1536*1000)
         self.robotAgent = RobotAgent(self)
         self.thread = ModelThread(self)
         """
         self.road : liste de points triplet [(P1 : Point,Pc : Point, P2 : Point)_1,...,(P1 : Point,Pc : Point, P2 : Point)_n]
         A voir comment on va representer la route ...
         """
-        #self.road = [(Point(5,5,10,10),Point(5,600,10,10),Point(600,600,10,10)),
-        # (Point(600,600,10,10),Point(700,600,10,10),Point(700,700,10,10))]
 
         self.circuit = None
 
@@ -76,20 +73,12 @@ class Environment :
             for l in file.readlines():
                 l = l.replace("\n",'')
                 point = l.split(';')
-                # print(point[0])
-                # print(point[4])
 
                 points = []
-                # for p in point:
-                #     tmp = [int(float(j)) for j in p.split(",")]
-                #     points.append(Point(tmp[0],tmp[1],tmp[2],tmp[3]))
 
                 for i in range(3):
                     tmp = [int(float(j)) for j in point[i].split(",")]
                     points.append(Point(tmp[0],tmp[1],tmp[2],tmp[3]))
-                # for i in range(3,len(point)):
-                #     tmp = [int(float(j)) for j in point[i].split(",")]
-                #     points.append(Point(tmp[0],tmp[1],tmp[2],tmp[3]))
                 road.append(tuple(points))
                 
         finally:
@@ -146,7 +135,7 @@ class ModelThread(threading.Thread) :
             pygame.event.get()
             self.envt.update()
             if self.robot.algorithme.isCloseToLastPoint():
-                if self.robot.algorithme.decision(): # le robot n'a jamais quitte la route
+                if self.robot.algorithme.decision(): # si le robot n'a jamais quitte la route
                     self.robot.setVitesseMin(self.robot.getVitesseMin()+1)
                     self.robot.setVitesseMax(self.robot.getVitesseMax()+1)
                     self.robot.accelerer_lineaire()
@@ -154,7 +143,7 @@ class ModelThread(threading.Thread) :
                     self.robot.setVitesseMin(self.robot.getVitesseMin()-1)
                     self.robot.setVitesseMax(self.robot.getVitesseMax()-1)
                     self.robot.setVitesseOptimale(self.robot.getVitesseMin())
-                    self.end = True # delais pour s'arreter plutot eleve
+                    self.end = True # delais pour s'arreter assez eleve
                     self.robot.decelerer_lineaire()
 
                 if self.end:
@@ -164,7 +153,7 @@ class ModelThread(threading.Thread) :
                 self.robot.setVecteurDirecteur(self.robot.getRadian().radToVectorDirector())
                 self.robot.setPosition(self.robot.getFirstPosition().getX(), self.robot.getFirstPosition().getY())
                 self.robot.setVitesseLineaireCourante(self.robot.getRadian().radToVectorDirector())
-                self.robot.algorithme.setDec(True)
+                self.robot.algorithme.setInside(True)
             time.sleep(ModelThread.speed_model)
 
     def setCondition(self,condition : bool):

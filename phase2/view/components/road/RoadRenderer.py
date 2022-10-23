@@ -47,13 +47,12 @@ class RoadRenderer :
         self.centerCircuit()
 
         self.renderer.getModel().setCircuit(self.circuit)
-        #self.renderer.getModel().getRobotAgent().setControlPoint(self.circuit.controlPointsAngle)
         
         self.update()
 
     def update(self) -> None :
         
-        #Dessin des Points : points de controles bleus
+        # Dessin des Points : points de controles bleus
 
         self.dessinPoint()
 
@@ -74,31 +73,6 @@ class RoadRenderer :
         if destination is not None :
             self.drawGivenPoint(Point(destination[0],destination[1]))
         
-        # Dessin Point particulier demander
-        # p = self.circuit.getPointFromStart(1500)
-        # for i in range(0,100,10):
-        #     p = Point(500+i,500)
-        #     inColor = (11, 154, 11)
-        #     outColor = (255, 0, 0)
-        #     if self.circuit.OnTheCircuit(p):
-        #         color = inColor
-        #     else:
-        #         color = outColor
-        #     surface = pygame.Surface((10, 10), pygame.SRCALPHA)
-        #     pygame.draw.circle(surface,color, (5, 5), 5)
-        #     self.renderer.getMainFrame().blit(surface, (p.x-5, p.y-5)) #- 5 pour centrer
-
-
-        # self.dessinPoint(Point(AlgoNaif.DESTINATION[0],AlgoNaif.DESTINATION[1]))
-    
-        
-        
-        # if RoadRenderer.one:
-        #     print(self.dist)
-        #     print(f"taille circuit : {self.circuit.longeur} px")
-        #     RoadRenderer.one = False
-
-
 
     def getData(self) : 
         list_points = self.renderer.getModel().getRoad()
@@ -143,9 +117,6 @@ class RoadRenderer :
     def dessinRoute(self):
         for route in self.listRoute:
             for p in route.getRightPoints():
-                # print("p : ", p)
-                # print("p[0] : ", p[0])
-                # print("p[1] : ", p[1])
                 surface = pygame.Surface((1, 1), pygame.SRCALPHA)
                 surface.fill(RoadRenderer.COLOR_ROUTE)
                 self.renderer.getMainFrame().blit(surface, (p[0], p[1]))

@@ -9,7 +9,6 @@ from model.utils.Point import Point
 class DBRAVirage(Algorithme):
 
     nbResearch = 0
-    IS_READY = False
 
     def __init__(self,robotAgent) -> None:
         # recuperation des points de controle
@@ -20,45 +19,21 @@ class DBRAVirage(Algorithme):
         
         self.list_time_tour = []
         self.current_time = time.time()
-        self.cptTour = 0
 
         self.out = False
 
-        # self.position_robot = Point(self.robotAgent.getX(), self.robotAgent.getY())
         self.position_robot = self.robotAgent.getPosition()
 
-        # TODO: renommer (bool utlilise pour savoir si me robot est sorti du circuit)
-        self.dec = True
+        # bool pour savoir si le robot est sorti du circuit
+        self.inside = True
         self.onCircuit = True
 
 
-    def decision(self): #-> None :
+    def decision(self):
         """
         Donne un ordre au robot en fonction de la position du robot et de la destination
         """
         self.position_robot = self.robotAgent.getPosition()
-        # self.position_robot = Point(self.robotAgent.getX(), self.robotAgent.getY())
-
-        # if self.Index % len(self.robotAgent.env.circuit.controlPointsAngle) == 0:
-        # TODO: modifier isCloseToLastPoint() pour eviter qu'un passage soit compte 2 fois
-        if self.isCloseToLastPoint():
-            self.cptTour+=0.5
-            if self.cptTour % 2 == 0 :
-                self.list_time_tour.append(time.time()-self.current_time)
-                self.current_time = time.time()
-                # print("TOUR")
-        # if int(self.cptTour) == 30 :
-        #     print("liste temps : ",self.list_time_tour)
-        #     print("Moyenne temps par passage : ",np.mean(self.list_time_tour),"s")
-
-        # self.onCircuit = self.robotAgent.env.getCircuit().OnTheCircuit(self.position_robot)
-        # self.setOnCircuit(self.robotAgent.env.getCircuit().OnTheCircuit(self.position_robot))
-        # if(not self.onCircuit) :
-        #     print("pos initiale: ", self.robotAgent.first_position )
-        #     print("pos : ", self.position_robot)
-
-        if not DBRAVirage.IS_READY and self.onCircuit :
-            DBRAVirage.IS_READY = True
 
         positionRobot = np.array([self.robotAgent.x,self.robotAgent.y])
 
@@ -69,7 +44,7 @@ class DBRAVirage(Algorithme):
         elif direction == "GAUCHE" : 
             self.robotAgent.accelerer_angulaire_gauche()
         
-        if DBRAVirage.IS_READY and self.getCurrentPosition().calcul_longueur(Point(self.destination[0],self.destination[1])) > 80 : 
+        if self.getCurrentPosition().calcul_longueur(Point(self.destination[0],self.destination[1])) > 80 : 
             self.robotAgent.accelerer_lineaire()
             #print("accélération")
         else : 
@@ -77,12 +52,7 @@ class DBRAVirage(Algorithme):
             #print("déceleration")
 
         # renvoie true si le robot n'a pas quitte le circuit, false sinon 
-        return self.dec
-
-    """
-    def setControlPoint(self,controls_point) : 
-        self.algorithme.setControlsPoints(controls_point)
-    """
+        return self.inside
 
 
     """
@@ -109,7 +79,7 @@ class DBRAVirage(Algorithme):
         else:
             return False
 
-    
+    # calcul un angle entre 2 vecteurs
     def angle(self, x2, y2, x1, y1):
         dot = x1*x2 + y1*y2
         det = x1*y2 - y1*x2
@@ -122,9 +92,7 @@ class DBRAVirage(Algorithme):
         """
         eps = 0.05
         angle = self.angle(destination[0], destination[1], vecteur_directeur[0], vecteur_directeur[1])
-        # angle = abs(np.arccos( (np.dot(destination,vecteur_directeur)) / (np.linalg.norm(destination) * np.linalg.norm(vecteur_directeur))))
         vecteurDirecteurTest = self.radToVectorDirector((self.robotAgent.current_radian.value + 0.1 ) % (2 * np.pi))
-        # angle2 = abs(np.arccos( (np.dot(destination,vecteurDirecteurTest)) / (np.linalg.norm(destination) * np.linalg.norm(vecteurDirecteurTest))))
         angle2 = self.angle( destination[0], destination[1], vecteurDirecteurTest[0], vecteurDirecteurTest[1])
 
         if np.abs(angle) > eps :
@@ -168,12 +136,12 @@ class DBRAVirage(Algorithme):
         """
         return Point(self.robotAgent.x + self.robotAgent.width/2,self.robotAgent.y +self.robotAgent.height/2)
 
-    def setDec(self, dec):
-        self.dec = dec
+    def setInside(self, inside):
+        self.inside = inside
 
     def setOnCircuit(self, on):
         self.onCircuit = on
-        self.setDec(on and self.dec)
+        self.setInside(on and self.inside)
     
     @staticmethod
     def coefDirecteurDroite(P1 , P2) :

@@ -32,7 +32,6 @@ class RobotAgent :
         self.env = env
         self.vecteur_directeur = np.array([1,1]) # Vecteur normalise
         self.current_radian = Radian(np.pi/2)
-        # self.vitesse_courante = np.array([0,10])# np.zeros(2) # px/s
         self.vitesse_lineaire_courante = np.array([0,5])
         self.vitesse_angulaire_courante = 0.1
         self.vitesse_min = 5.0
@@ -162,9 +161,6 @@ class RobotAgent :
         self.appliquer_vitesse()
 
         self.algorithme.decision()
-        
-        # print("vecteur directeur : ",self.vecteur_directeur)
-        # print("vitesse lineaire : ",self.vitesse_lineaire_courante)
 
 
     def accelerer_lineaire(self) -> None :
@@ -178,16 +174,6 @@ class RobotAgent :
 
 
         self.vitesse_lineaire_courante = self.vecteur_directeur * self.vitesse_reelle
-        #print("vitesse courante : ",self.vitesse_lineaire_courante)
-#         print("self.vitesse_lineaire_courante AVANT : ",self.vitesse_lineaire_courante," * ",self.vecteur_directeur)
-#         self.vitesse_lineaire_courante = self.vecteur_directeur * ( (self.vitesse_lineaire_courante * self.accel_time)  + ( (1/2) * RobotAgent.acceleration_lineaire_constante * self.accel_time**2 ) ) 
-#         print("self.vitesse_lineaire_courante  APRES : ",self.vitesse_lineaire_courante)
-
-        # print(self.vecteur_directeur)
-        # print("1 : ",(self.vitesse_courante * self.accel_time))
-        # print("2 : ",( (1/2) * RobotAgent.acceleration_constante * self.accel_time**2 ))
-        # print((self.vecteur_directeur * ( (self.vitesse_courante * self.accel_time) ) + ( (1/2) * RobotAgent.acceleration_constante * self.accel_time**2 )))
-        # print(self.vitesse_courante)
   
     def decelerer_lineaire(self) -> None : 
 
@@ -195,22 +181,6 @@ class RobotAgent :
         if self.vitesse_reelle < self.vitesse_min :
             self.vitesse_reelle = self.vitesse_min
         self.vitesse_lineaire_courante = self.vecteur_directeur * self.vitesse_reelle
-
-        # position_courante = np.array( [ self.x , self.y ] )
-        #force = (self.vitesse_lineaire_courante ) - ( (1/2) * RobotAgent.acceleration_lineaire_constante )
-        #print("vitesse : ",self.vitesse_reelle)
-        # print("force : ",force)
-        # if force[0] < 0.0 :
-        #     force[0] = 0.0
-        # if force[1] < 0.0 :
-        #     force[1] = 0.0
-
-        # new_position = (position_courante + self.vecteur_directeur * force)
-        # self.vitesse_lineaire_courante = np.abs(position_courante - new_position) # / (time.time() - self.local_clock)     
-        #self.vitesse_lineaire_courante = force
-        # self.x = new_position[0]
-
-        # self.y = new_position[1]
 
     def accelerer_angulaire_gauche(self) -> None :
         """
@@ -221,7 +191,6 @@ class RobotAgent :
         self.vitesse_angulaire_courante = np.abs(self.current_radian.getValue() - raw_new_radian_value)
         self.current_radian.setValue(new_radian_value)
         
-
     def accelerer_angulaire_droite(self) -> None :
         """
         Appliquer la formule de L’équation de la position avec une vitesse uniformément accélérée

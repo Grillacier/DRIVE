@@ -11,7 +11,6 @@ from model.utils.Point import *
 import numpy as np
 import math
 from pymunk.vec2d import Vec2d
-from matplotlib.lines import Line2D
 
 
 class Courbe:
@@ -19,15 +18,6 @@ class Courbe:
         self.Point = [P0,P1,P2]
         self.T = [i for i in np.arange(0,1,0.001)]
         self.P = self.tmpNameIterative(P0, P1, P2, 0.1745329)
-
-    # ancienne version
-    # def __init__(self,P0:Point,P1:Point,P2:Point) -> None:
-    #     self.Point = [P0,P1,P2]
-    #     self.T = [i for i in np.arange(0,1,0.001)]
-    #     P = []
-    #     for t in self.T:
-    #         P.append(self.learp(self.learp(P0,P1,t),self.learp(P1,P2,t),t))
-    #     self.P = P
 
     def __repr__(self) -> str:
         return f"Courbe({self.Point[0]} {self.Point[1]} {self.Point[2]})"
@@ -37,26 +27,6 @@ class Courbe:
         Recupere le point correspondant a la courbe pour un t donne
         """
         return self.learp(self.learp(self.Point[0],self.Point[1],t),self.learp(self.Point[1],self.Point[2],t),t)
-    
-    # def getPointDerivee(self) -> np.array:
-    #     PointDer = np.zeros((len(self.P),2))
-    #     T = self.T
-    #     for i in range(len(self.P)):
-    #         t = T[i]
-    #         tmp = learp(self.Point[1],self.Point[2],t)
-    #         PointDer[i] = [tmp.getX(),tmp.getY()]
-    #     return PointDer
-    
-    # def getPointVector(self) -> np.array:
-    #     result = np.zeros((len(self.P),2))
-    #     for i in range(len(self.P)):
-    #         result[i] = [self.P[i].getX(),self.P[i].getY()] 
-    #     return result
-    
-    # def getDeriveeVector(self) -> np.array:
-    #     PointDer = self.getPointDerivee()
-    #     result = self.getPointVector() - PointDer 
-    #     return result
     
     def getQuadraticDerivative(self,t:float):
         """
@@ -206,6 +176,7 @@ class Courbe:
         newControl2 = Courbe.intersectLine(point2, controlPoint, pt, pt+vt)
         return [point1, newControl1, pt, newControl2, point2]
 
+    # gives the point where two lines cut each other
     def intersectLine(p1, p2, p3, p4):
         isec = None
         denom = (p4.y - p3.y) * (p2.x - p1.x) - (p4.x - p3.x) * (p2.y - p1.y)

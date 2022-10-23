@@ -28,16 +28,14 @@ Initialisation des composants de l'app
 
 envt = Environment()
 renderer = Renderer(envt)
+
+# on place le robot sur le 1er point de la route et on oriente son vecteur directeur sur le 2e
 envt.robotAgent.setPosition(renderer.roadRenderer.circuit.controlPointsAngle[0][0], renderer.roadRenderer.circuit.controlPointsAngle[0][1])
 envt.robotAgent.setFirstPosition(envt.robotAgent.getPosition())
 angle = 2 *math.pi-envt.thread.angle(1, 0, (envt.circuit.controlPointsAngle[1][0] - envt.robotAgent.getFirstPosition().getX()), (envt.circuit.controlPointsAngle[1][1] -envt.robotAgent.getFirstPosition().getY()))
 envt.robotAgent.setRadian(angle)
-# print("angle :", envt.thread.angle(1,0,0,1))
-# print("angle :", envt.thread.angle(1,0,0,-1))
 envt.robotAgent.setVecteurDirecteur(envt.robotAgent.getRadian().radToVectorDirector())
 
-# for p in renderer.roadRenderer.circuit.controlPointsAngle:
-#     print("controlPointsAngle : ", p)
 
 envt.start() # Lancement du thread de l'environnement
 
