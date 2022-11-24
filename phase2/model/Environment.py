@@ -18,10 +18,10 @@ class Environment :
     """
     height = 1000
     width = 1000
-    filename = os.path.dirname(os.path.abspath(__file__))+"/circuit/45-29.txt"
+    # filename = os.path.dirname(os.path.abspath(__file__))+"/circuit/45-29.txt"
 
-    def __init__(self) -> None:
-        self.road = Environment.importRoadFromFile(Environment.filename)
+    def __init__(self, filename) -> None:
+        self.road = Environment.importRoadFromFile(filename)
 
         middle_x_robotAgent = (Environment.width/2) - (RobotAgent.width/2)
         self.robotAgent = RobotAgent(self)
@@ -130,7 +130,7 @@ class ModelThread(threading.Thread) :
         self.robot = self.envt.robotAgent
         self.end = False
 
-    def run(self) :
+    def run2(self) :
         while(self.condition) :
             pygame.event.get()
             self.envt.update()
@@ -143,13 +143,44 @@ class ModelThread(threading.Thread) :
                     self.robot.setVitesseMin(self.robot.getVitesseMin()-1)
                     self.robot.setVitesseMax(self.robot.getVitesseMax()-1)
                     self.robot.setVitesseOptimale(self.robot.getVitesseMin())
-                    self.end = True # delais pour s'arreter assez eleve
+                    self.end = True
                     self.robot.decelerer_lineaire()
 
                 if self.end:
                     print("Vitesse optimale :", self.robot.getVitesseOptimale())
                 # on replace le robot au debut du virage
-                self.robot.setRadian(2 *math.pi-self.angle(1, 0, ( self.envt.circuit.controlPointsAngle[1][0] - self.robot.getFirstPosition().getX()), ( self.envt.circuit.controlPointsAngle[1][1] - self.robot.getFirstPosition().getY())))
+                self.robot.setRadian(2 *math.pi-self.angle(1, 0, (self.envt.circuit.controlPointsAngle[1][0] - self.robot.getFirstPosition().getX()), ( self.envt.circuit.controlPointsAngle[1][1] - self.robot.getFirstPosition().getY())))
+                self.robot.setVecteurDirecteur(self.robot.getRadian().radToVectorDirector())
+                self.robot.setPosition(self.robot.getFirstPosition().getX(), self.robot.getFirstPosition().getY())
+                self.robot.setVitesseLineaireCourante(self.robot.getRadian().radToVectorDirector())
+                self.robot.algorithme.setInside(True)
+            time.sleep(ModelThread.speed_model)
+        
+    # run avec approche dichotomique
+    def run(self) :
+        tmpMin = self.robot.getVitesseMin()
+        while(self.condition) :
+            pygame.event.get()
+            self.envt.update()
+            if self.robot.algorithme.isCloseToLastPoint():
+                if self.robot.algorithme.decision(): # si le robot n'a jamais quitte la route
+                    tmpMin = self.robot.getVitesseMin()
+                    self.robot.setVitesseMin(round((self.robot.getVitesseMin()+self.robot.getVitesseMax())/2, 0))
+                    self.robot.accelerer_lineaire()
+                else:
+                    self.robot.setVitesseMax(self.robot.getVitesseMin())
+                    self.robot.setVitesseMin(tmpMin)
+                    # self.robot.setVitesseMax(round((self.robot.getVitesseMin()+self.robot.getVitesseMax())/2, 1))
+                    self.robot.setVitesseOptimale(tmpMin)
+                    self.robot.decelerer_lineaire()
+
+                if self.robot.getVitesseMin() >= self.robot.getVitesseMax():
+                    self.end = True
+
+                if self.end:
+                    print("Vitesse optimale :", self.robot.getVitesseOptimale())
+                # on replace le robot au debut du virage
+                self.robot.setRadian(2 *math.pi-self.angle(1, 0, ( self.envt.circuit.controlPointsAngle[1][0] - self.robot.getFirstPosition().getX()), (self.envt.circuit.controlPointsAngle[1][1] - self.robot.getFirstPosition().getY())))
                 self.robot.setVecteurDirecteur(self.robot.getRadian().radToVectorDirector())
                 self.robot.setPosition(self.robot.getFirstPosition().getX(), self.robot.getFirstPosition().getY())
                 self.robot.setVitesseLineaireCourante(self.robot.getRadian().radToVectorDirector())

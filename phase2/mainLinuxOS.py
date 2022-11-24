@@ -15,6 +15,8 @@ Liste des membres du projet :
 Point d'entrée du programme
 """
 import math
+import os
+import sys
 from model.Environment import Environment
 from view.Renderer import Renderer
 from controls.Controls import Controls
@@ -26,7 +28,10 @@ pygame.init()
 Initialisation des composants de l'app
 """
 
-envt = Environment()
+# entrer le nom du circuit en ligne de commande
+filename = sys.argv[1]
+
+envt = Environment(filename)
 renderer = Renderer(envt)
 
 # on place le robot sur le 1er point de la route et on oriente son vecteur directeur sur le 2e
